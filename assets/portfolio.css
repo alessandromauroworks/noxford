@@ -1,0 +1,72 @@
+/* Noxford Agency - apertura della home, Portfolio (pagine /lavori/ e anteprima in home) */
+
+/* apertura della home: parola di fondo, telefoni, lupo */
+.hero .fondo{position:absolute;left:50%;top:50%;transform:translate(-62%,-56%);z-index:-1;pointer-events:none;user-select:none;white-space:nowrap;font:600 clamp(160px,34vw,460px)/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.08em;color:transparent;-webkit-text-stroke:1.5px rgba(var(--ac-rgb),.3)}
+@media(max-width:899px){.hero .fondo{top:24%;transform:translate(-50%,-50%);font-size:46vw}}
+.tel{position:relative;display:flex;justify-content:center;align-items:center;padding:10px 0 30px}
+.tel .phone{width:min(40vw,200px);flex:none;box-shadow:0 0 0 1px var(--line2),0 30px 60px rgba(0,0,0,.6),0 0 60px rgba(var(--ac-rgb),.12)}
+.tel .phone:nth-child(1){transform:rotate(-6deg) translate(16%,-5%);z-index:1}
+.tel .phone:nth-child(2){transform:rotate(5deg) translate(-12%,7%);z-index:2}
+@media(min-width:900px){.tel .phone{width:230px}}
+.hero .stemma{display:none}
+@media(min-width:900px){.hero .stemma{display:block;position:absolute;right:3vw;bottom:5vh;width:clamp(90px,9vw,140px);height:auto;opacity:.6;mix-blend-mode:lighten;filter:drop-shadow(0 0 28px rgba(var(--ac-rgb),.35));pointer-events:none;animation:emergi 2.4s .6s cubic-bezier(.2,.7,.2,1) both}}
+@media(prefers-reduced-motion:reduce){.hero .stemma{animation:none;opacity:.6}}
+
+/* cornici: telefono con schermata vera (senza tacca, per non coprire la scritta "sito dimostrativo") e computer */
+.phone.scr{aspect-ratio:1/2;border-radius:26px}
+.phone.scr:before{display:none}
+.phone.scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.pc{border-radius:14px;border:1px solid var(--line2);overflow:hidden;background:#0a0c10;box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.pc:before{content:"";display:block;height:20px;background:#1b1e24}
+.pc img{display:block;width:100%;height:auto}
+
+/* schede del portfolio */
+.port{display:grid;gap:22px}
+@media(min-width:760px){.port{grid-template-columns:1fr 1fr}.port .prog:first-child{grid-column:span 2}.port .prog:first-child .vis{height:360px}}
+@media(min-width:1100px){.port{grid-template-columns:1.5fr 1fr 1fr}.port .prog:first-child{grid-column:auto}.port .prog:first-child .vis{height:380px}.port .prog:first-child .vis .phone{flex-basis:150px}}
+.prog{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden;text-decoration:none;transition:transform .35s,border-color .35s}
+.prog:hover{transform:translateY(-5px);border-color:var(--proj,var(--ac))}
+.prog .vis{display:flex;justify-content:center;gap:8px;height:300px;padding:28px 18px 0;overflow:hidden;background:color-mix(in srgb,var(--proj,var(--ac)) 16%,var(--bg2));border-bottom:1px solid var(--line)}
+.prog .vis .phone{width:auto;flex:0 1 112px;min-width:0;border-width:4px;border-radius:20px;transition:transform .45s}
+.prog .vis .phone:nth-child(2){margin-top:26px}
+.prog .vis .phone:nth-child(3){margin-top:52px}
+.prog:hover .vis .phone:nth-child(2){transform:translateY(-10px)}
+.prog .vis .pc{align-self:flex-start;width:100%;margin-top:14px;transition:transform .45s}
+.prog:hover .vis .pc{transform:translateY(-8px)}
+.prog .tx{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.prog .tx p{color:var(--mut);font-size:17px;margin:0 0 12px;text-align:left}
+.prog h3{font-size:clamp(28px,3.4vw,34px);margin:0 0 8px}
+.prog .more{margin-top:auto;padding:11px 0}
+.prog .tag,.pf .ph .tag{line-height:1.4}
+
+/* pagine del portfolio */
+.pf .ph h1 em{font-style:italic;color:var(--ac2)}
+.pf .crumb a{display:inline-block;padding:13px 0}
+.pf .more{padding:11px 0}
+.pf .avviso,.pf .nota{font-size:17px}
+.pf .nota{border-left-color:var(--proj,var(--ac))}
+.scheda{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 28px;font-size:16px;color:var(--mut)}
+.scheda b{color:var(--tx);font-weight:600}
+.scena{padding-top:0;background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--proj,var(--ac)) 20%,var(--bg)))}
+.scena figure{margin:0}
+
+/* come si usa, passo passo */
+.passi{list-style:none;margin:0;padding:0;display:grid;gap:60px}
+.passi li{display:grid;gap:26px;align-items:center}
+.passi .tx small{display:block;font:600 12px/1 "Manrope",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--proj,var(--ac));filter:brightness(1.35);margin-bottom:14px}
+.passi .tx b{display:block;font:500 clamp(30px,4.2vw,42px)/1.08 "Cormorant Garamond",Georgia,serif;margin-bottom:12px}
+.passi .tx span{display:block;color:var(--mut);font-size:17px;max-width:46ch}
+.passi .phone{width:min(64vw,250px);margin:0 auto;box-shadow:0 0 0 1px var(--line2),0 24px 50px rgba(0,0,0,.5),0 0 50px color-mix(in srgb,var(--proj,var(--ac)) 30%,transparent)}
+@media(min-width:760px){
+  .passi li{grid-template-columns:1fr 260px;gap:64px}
+  .passi li:nth-child(even){grid-template-columns:260px 1fr}
+  .passi li:nth-child(even) .tx{order:2}
+  .passi li.largo,.passi li.largo:nth-child(even){grid-template-columns:.8fr 1.5fr}
+}
+
+/* funzioni */
+.funz{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+@media(min-width:760px){.funz{grid-template-columns:1fr 1fr}}
+.funz li{padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-size:17px}
+.funz li b{display:block;margin-bottom:4px;font-size:18px}
+.funz li span{color:var(--mut)}

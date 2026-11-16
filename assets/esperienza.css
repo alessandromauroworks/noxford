@@ -1,0 +1,230 @@
+/* Noxford Agency - telefoni stile iPhone 17 Pro Max, movimento e correzioni dello scanner anti-IA (16/11/2026).
+   Caricato dopo sito.css e portfolio.css: qui si sovrascrive, i file di prima restano com'erano. */
+
+/* ---------- telefono stile iPhone 17 Pro Max ---------- */
+.iph{position:relative;container-type:inline-size;width:100%;aspect-ratio:78/163.4;border-radius:17.6%/8.4%;flex:none;
+  background:linear-gradient(135deg,#a9acb3 0%,#55585f 7%,#25262a 24%,#303237 48%,#1a1b1e 74%,#5d6067 93%,#9a9da4 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.24),inset 0 0 3px 2px rgba(0,0,0,.55),0 46px 80px -28px rgba(0,0,0,.92),0 16px 36px -14px rgba(0,0,0,.75)}
+.iph .phone{position:absolute!important;inset:1.75cqw;width:auto!important;height:auto;aspect-ratio:auto!important;margin:0!important;
+  border:3.3cqw solid #040405!important;border-radius:15.9cqw!important;box-shadow:none!important;background:#000;overflow:hidden;transform:none!important}
+.iph .phone:before{display:none}
+.iph .phone:after{content:"";position:absolute;left:50%;bottom:2.4cqw;width:33cqw;height:1.25cqw;border-radius:9px;background:rgba(255,255,255,.78);transform:translateX(-50%);z-index:6}
+.iph .phone.scr img{top:11.5cqw;height:calc(100% - 11.5cqw);object-fit:cover;object-position:top}
+/* barra di stato, Dynamic Island, vetro, tasti */
+.iph .sbar{position:absolute;left:0;right:0;top:0;height:11.5cqw;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:0 7.5cqw 0 10cqw;
+  font:600 4.3cqw/1 -apple-system,"SF Pro Text","Manrope",sans-serif;color:#fff;background:#000;pointer-events:none;letter-spacing:.01em}
+.iph .sbar i{display:flex;gap:1.3cqw;align-items:center;font-style:normal}
+.iph .sbar i:before{content:"";width:5.6cqw;height:3.1cqw;background:#fff;clip-path:polygon(0 100%,20% 100%,20% 70%,0 70%,0 100%,27% 100%,27% 48%,47% 48%,47% 100%,54% 100%,54% 25%,74% 25%,74% 100%,81% 100%,81% 0,100% 0,100% 100%)}
+.iph .sbar i:after{content:"";width:6.6cqw;height:3.2cqw;box-sizing:border-box;border:.45cqw solid rgba(255,255,255,.5);border-radius:1.1cqw;background:linear-gradient(90deg,#fff 0 80%,transparent 80%) content-box;padding:.35cqw}
+.iph .isl{position:absolute;top:2.3cqw;left:50%;width:31cqw;height:9.2cqw;transform:translateX(-50%);border-radius:99px;background:#000;z-index:7;box-shadow:inset 0 0 0 .3cqw #101014}
+.iph .isl:after{content:"";position:absolute;right:3.6cqw;top:50%;width:3.4cqw;height:3.4cqw;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle at 35% 35%,#34416a,#0a0c14 62%)}
+.iph:after{content:"";position:absolute;inset:1.75cqw;border-radius:15.9cqw;pointer-events:none;z-index:8;
+  background:linear-gradient(118deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.05) 20%,transparent 36%,transparent 72%,rgba(255,255,255,.05) 100%)}
+.iph .sb{position:absolute;width:1.5cqw;border-radius:1.2cqw;background:linear-gradient(90deg,#141518,#8a8d94 45%,#2b2c30)}
+.iph .sb.a{left:-1.1cqw;top:17%;height:5.4%}
+.iph .sb.b{left:-1.1cqw;top:25.5%;height:8.6%}
+.iph .sb.c{left:-1.1cqw;top:35.6%;height:8.6%}
+.iph .sb.d{right:-1.1cqw;top:27%;height:13%}
+.iph .sb.e{right:-.7cqw;top:57%;height:8.2%;width:1cqw;background:linear-gradient(90deg,#2a2b2f,#5b5e64)}
+
+/* dove stanno i telefoni */
+.tel,.prog .vis,.vids,.schermi{perspective:1300px}
+.tel .iph{width:min(42vw,215px);z-index:1;transform:translate3d(var(--tx,0),var(--ty,0),0) rotate(var(--r,0deg)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));will-change:transform}
+.tel .iph:nth-child(1){--r:-7deg;--tx:16%;--ty:-5%}
+.tel .iph:nth-child(2){--r:6deg;--tx:-12%;--ty:7%;z-index:2}
+@media(min-width:900px){.tel .iph{width:205px}.hero .hv.tel{justify-content:flex-start;margin-left:-140px}}
+@media(min-width:1200px){.tel .iph{width:220px}}
+.prog .vis{align-items:flex-start}
+.prog .vis .iph{width:calc((100% - 20px)/3);max-width:118px;flex:0 0 auto;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.prog .vis .iph:nth-child(2){margin-top:26px}
+.prog .vis .iph:nth-child(3){margin-top:52px}
+.prog:hover .vis .iph:nth-child(1){transform:translateY(-6px) rotate(-2deg)}
+.prog:hover .vis .iph:nth-child(2){transform:translateY(-14px)}
+.prog:hover .vis .iph:nth-child(3){transform:translateY(-6px) rotate(2deg)}
+@media(min-width:1100px){.prog .vis{gap:8px;padding:28px 12px 0}}
+.vid .iph{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vids.uno{grid-template-columns:minmax(0,240px)!important;justify-content:start}
+.schermi .iph{max-width:240px;margin:0 auto}
+
+/* ---------- lupo grande dietro i telefoni, niente scritta NOX ---------- */
+.hero .fondo{display:none}
+.hero .stemma{display:block;position:absolute;z-index:-1;pointer-events:none;left:50%;top:64%;width:110vw;max-width:520px;opacity:.38;filter:none;mix-blend-mode:normal;animation:none;
+  transform:translate(-50%,-50%) translate3d(var(--sx,0px),var(--sy,0px),0) scale(var(--ss,1))}
+@media(min-width:900px){.hero .stemma{left:auto;right:max(-2vw,calc(50% - 700px));top:50%;width:min(680px,52vw);max-width:none;opacity:.8;
+  transform:translateY(-50%) translate3d(var(--sx,0px),var(--sy,0px),0) scale(var(--ss,1))}}
+
+/* ---------- come lavoro: percorso che si accende scorrendo ---------- */
+.steps{position:relative;gap:18px}
+.steps:before,.steps:after{content:"";position:absolute;left:21px;top:0;bottom:0;width:2px;background:var(--line)}
+.steps:after{background:linear-gradient(var(--ac2),var(--ac));transform-origin:top}
+.js:not(.no-anim) .steps:after{transform:scaleY(var(--p,0))}
+.steps li{position:relative;margin-left:48px;transition:opacity .6s,transform .6s,border-color .6s,background .6s}
+.js:not(.no-anim) .steps li{opacity:.6;transform:translateX(10px)}
+.js:not(.no-anim) .steps li.on{opacity:1;transform:none;border-color:var(--line2)}
+.steps li:before{content:"";display:block;position:absolute;left:-34px;top:26px;width:14px;height:14px;margin:0;border-radius:50%;border:2px solid var(--ac);background:var(--bg);transition:background .4s,box-shadow .4s}
+.steps li.on:before,.no-anim .steps li:before{background:var(--ac);box-shadow:0 0 0 6px rgba(var(--ac-rgb),.14)}
+.steps b{font:500 clamp(24px,2.6vw,28px)/1.15 "Cormorant Garamond",Georgia,serif;margin-bottom:6px}
+@media(min-width:760px){
+  .steps:before,.steps:after{left:0;right:0;top:7px;bottom:auto;width:auto;height:2px}
+  .steps:after{transform-origin:left}
+  .js:not(.no-anim) .steps:after{transform:scaleX(var(--p,0))}
+  .steps li{margin:34px 0 0}
+  .js:not(.no-anim) .steps li{transform:translateY(14px)}
+  .steps li:before{left:22px;top:-34px}
+}
+
+/* ---------- prima schermata delle pagine interne: schermo vero di una demo ---------- */
+.ph-img{margin:52px 0 0;max-width:1000px;perspective:1400px}
+.ph-img .pc{transform-origin:50% 0;transform:rotateX(var(--rx,0deg)) scale(var(--sc,1));will-change:transform}
+
+/* tre iPhone al posto dello schermo da computer (Siti e app) */
+.ph-tel{display:flex;gap:clamp(12px,2.4vw,26px);align-items:flex-start;perspective:1300px}
+.ph-tel .iph{width:min(28vw,210px)}
+.ph-tel .iph:nth-child(2){margin-top:38px}
+.ph-tel .iph:nth-child(3){margin-top:76px}
+.ph-cap{margin:18px 0 0;font-size:14px;color:var(--mut)}
+
+/* conversazione di esempio nel telefono (medico, immobiliari, automazioni, agent) */
+.ph-chat{display:grid;gap:28px;align-items:center;margin-top:52px}
+.ph-chat .iph{width:min(72vw,280px)}
+@media(min-width:900px){.ph-chat{grid-template-columns:280px 1fr;gap:56px}}
+.chatp{display:flex;flex-direction:column;background:#0b0d10!important}
+.chatp .chat-h{margin-top:11.5cqw;padding:3.6cqw 5cqw;display:flex;align-items:center;gap:3cqw;border-bottom:1px solid rgba(255,255,255,.08);background:#121418}
+.chatp .chat-h b{display:block;font:600 4.6cqw/1.2 "Manrope",sans-serif;color:#fff}
+.chatp .chat-h small{display:block;font:400 3.4cqw/1.2 "Manrope",sans-serif;color:#8f96a0}
+.chatp .av{width:9cqw;height:9cqw;border-radius:50%;background:var(--ac);flex:none;display:grid;place-items:center;color:var(--on-ac);font:700 4cqw/1 "Manrope",sans-serif}
+.chatp .msgs{flex:1;display:flex;flex-direction:column;gap:2.6cqw;padding:4cqw 4cqw 9cqw;overflow:hidden;justify-content:flex-end}
+.chatp .m{max-width:82%;padding:2.8cqw 3.6cqw;border-radius:4.6cqw;font:400 3.9cqw/1.38 "Manrope",sans-serif;color:#eef0f3;background:#1d2128;align-self:flex-start;border-bottom-left-radius:1.4cqw}
+.chatp .m.io{align-self:flex-end;background:#3a3122;color:#fbf3df;border-radius:4.6cqw;border-bottom-right-radius:1.4cqw}
+.chatp .m small{display:block;margin-top:1cqw;font-size:3cqw;color:rgba(255,255,255,.45);text-align:right}
+.js:not(.no-anim) .chatp .m{opacity:0;transform:translateY(8px) scale(.97);transition:opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.js:not(.no-anim) .chatp .m.on{opacity:1;transform:none}
+.chatp .scrive{align-self:flex-start;display:none;gap:1.2cqw;padding:3cqw 3.6cqw;border-radius:4.6cqw;background:#1d2128}
+.chatp .scrive.on{display:flex}
+.chatp .scrive i{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#9aa1ab;animation:punto 1s infinite}
+.chatp .scrive i:nth-child(2){animation-delay:.15s}.chatp .scrive i:nth-child(3){animation-delay:.3s}
+@keyframes punto{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-1.2cqw)}}
+.ph-chat ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ph-chat li{padding-left:22px;position:relative;color:var(--mut)}
+.ph-chat li:before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.ph-chat li b{color:var(--tx)}
+
+/* icone dei passi che si disegnano (Come lavoro) */
+.steps .pi{display:block;width:40px;height:40px;margin-bottom:12px;color:var(--ac)}
+.steps .pi *{stroke-dasharray:120;stroke-dashoffset:0}
+.js:not(.no-anim) .steps li .pi *{stroke-dashoffset:120;transition:stroke-dashoffset .9s cubic-bezier(.6,.05,.2,1) .15s}
+.js:not(.no-anim) .steps li.on .pi *{stroke-dashoffset:0}
+
+/* piccoli ritocchi del secondo giro */
+.nav .btn{min-height:44px}
+.crumb a{display:inline-block;padding:13px 0}
+@media(min-width:900px){.hero .stemma{clip-path:inset(0 0 0 30%)}}
+
+/* ---------- effetti, secondo pacchetto (16/11): led, riflessi, griglia, bordi, fili di luce ---------- */
+/* led verdi che pulsano: solo dove dicono una cosa vera (in linea, WhatsApp, demo online) */
+@keyframes ledpulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.chatp .chat-h small:before,a.btn[href*="wa.me"]:before,.barra a[href*="wa.me"]:before,.rec a[href*="wa.me"] small:before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#34d399;margin-right:8px;vertical-align:middle;position:relative;top:-1px;animation:ledpulse 2s ease-out infinite}
+.chatp .chat-h small:after{content:" · in linea";color:#34d399}
+.prog .vis{position:relative}
+.prog:not([href*="studio-commercialista"]) .vis:after{content:"Demo online";position:absolute;top:12px;left:12px;z-index:3;font:600 11px/1 "Manrope",sans-serif;letter-spacing:.08em;color:#d1fae5;
+  padding:7px 11px 7px 24px;border-radius:999px;background:rgba(7,8,10,.8);border:1px solid rgba(52,211,153,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.prog:not([href*="studio-commercialista"]) .vis:before{content:"";position:absolute;top:22px;left:23px;z-index:4;width:7px;height:7px;border-radius:50%;background:#34d399;animation:ledpulse 2s ease-out infinite}
+
+/* riflesso di luce che attraversa schede e pulsanti */
+.card,.box,.prog,.tile{position:relative;overflow:hidden}
+.card:before,.prog:before,.tile:before,.box:before{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;z-index:2;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(var(--ac-rgb),.12),transparent);transform:skewX(-18deg);transition:left 1s cubic-bezier(.2,.7,.2,1)}
+.card:hover:before,.prog:hover:before,.tile:hover:before,.box:hover:before{left:135%}
+@keyframes lampo{0%,72%{left:-70%}100%{left:140%}}
+.btn.p{position:relative;overflow:hidden;isolation:isolate}
+.btn.p:after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:lampo 5s ease-in-out infinite}
+
+/* griglia sottile nella prima schermata che si accende dove passa il mouse */
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(var(--ac-rgb),.07) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--ac-rgb),.07) 1px,transparent 1px);background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(circle 460px at var(--gx,62%) var(--gy,42%),#000,transparent 72%);mask-image:radial-gradient(circle 460px at var(--gx,62%) var(--gy,42%),#000,transparent 72%)}
+
+/* bordo d'oro che gira intorno alle schede principali */
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes giro{to{--ang:360deg}}
+.sv .card:first-child,.box,.ph-chat figure .iph{--bordo:conic-gradient(from var(--ang),var(--line) 0deg,var(--ac) 40deg,var(--hi) 60deg,var(--ac) 80deg,var(--line) 130deg,var(--line) 360deg)}
+.sv .card:first-child,.box{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--bordo) border-box;animation:giro 7s linear infinite}
+
+/* punti del percorso che pulsano d'oro quando sono accesi */
+@keyframes ledoro{0%{box-shadow:0 0 0 0 rgba(var(--ac-rgb),.5)}70%{box-shadow:0 0 0 9px rgba(var(--ac-rgb),0)}100%{box-shadow:0 0 0 0 rgba(var(--ac-rgb),0)}}
+.js:not(.no-anim) .steps li.on:before{animation:ledoro 2.4s ease-out infinite}
+
+/* filo di luce che scorre tra una sezione e l'altra */
+@keyframes filo{from{background-position:200% 0}to{background-position:-200% 0}}
+main>section:not(.hero):not(.gar):not(.ph):after{content:"";position:absolute;left:0;right:0;top:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0%,rgba(var(--ac-rgb),.08) 30%,rgba(var(--ac-rgb),.55) 50%,rgba(var(--ac-rgb),.08) 70%,transparent 100%);background-size:200% 100%;animation:filo 7s linear infinite}
+
+/* ---------- titoli che entrano parola per parola ---------- */
+.parole .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.parole .w>span{display:inline-block}
+.js:not(.no-anim) .parole .w>span{transform:translateY(108%);transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*55ms + var(--d,0s))}
+.js:not(.no-anim) .in .parole .w>span,.js:not(.no-anim) .parole.in .w>span{transform:none}
+
+/* ---------- luce che segue il cursore sulle schede ---------- */
+.spot{position:relative;isolation:isolate}
+.spot:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .45s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(var(--ac-rgb),.11),transparent 50%)}
+.spot:hover:after{opacity:1}
+
+/* ---------- barra di avanzamento della pagina ---------- */
+.avanz{position:fixed;left:0;top:0;height:2px;width:100%;z-index:120;background:var(--ac);transform-origin:left;transform:scaleX(var(--a,0));pointer-events:none}
+
+/* ---------- barra fissa sul telefono ---------- */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:85;display:grid;grid-template-columns:1fr 1.6fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(7,8,10,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);transition:transform .4s}
+.barra a{min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line2);text-decoration:none;font:600 15px "Manrope",sans-serif;color:var(--tx)}
+.barra a.p{background:var(--ac);color:var(--on-ac);border-color:transparent}
+.barra.via{transform:translateY(110%)}
+@media(min-width:900px){.barra{display:none}}
+
+/* ---------- interruttore animazioni ---------- */
+.anim{background:none;border:1px solid var(--line2);color:var(--mut);border-radius:999px;padding:12px 18px;min-height:44px;font:600 13px "Manrope",sans-serif;cursor:pointer;align-self:flex-start;margin-top:10px}
+.anim:hover{color:var(--tx);border-color:var(--ac)}
+.no-anim *,.no-anim *:before,.no-anim *:after{animation:none!important;transition:none!important}
+.no-anim .rv{opacity:1!important;transform:none!important}
+
+/* ---------- correzioni del design (scanner 16/11) ---------- */
+.acc{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--ac2);-webkit-text-fill-color:currentColor;animation:none}
+.hero:after{background:linear-gradient(180deg,transparent 60%,var(--bg) 100%)}
+.pronto{background:var(--bg2)}
+.box{background:var(--card)}
+.ph:before{content:none}
+.tile:nth-child(1){background:linear-gradient(160deg,var(--card),var(--bg2))}
+.tile .n{display:none}
+.btn.p,.btn.p:hover{background:var(--ac);box-shadow:none}
+.btn.p:hover{background:var(--ac2)}
+footer li a{padding:10px 0}
+.more{padding:12px 0}
+.nav a{padding:12px 2px}
+.logo .lg{width:50px;height:50px;filter:brightness(1.18) contrast(1.05)}
+.vg li span{font-size:15px}
+.tag{font-size:12px}
+
+/* "riduci animazioni" del sistema: restano dissolvenze e luci, spariscono spostamenti e rotazioni */
+@media(prefers-reduced-motion:reduce){
+  .hero .stemma{opacity:.38}
+  .steps li{transform:none!important;transition:opacity .5s,border-color .5s!important}
+  .steps:after{transition:transform .3s linear!important}
+  .parole .w>span{transform:none!important}
+  .js .rv{transform:none;transition:opacity .8s ease!important}
+  .js .rv:not(.in){opacity:0}
+  .spot:after{transition:opacity .45s!important}
+  .iph .phone.scr img{transition:opacity .9s ease!important}
+  .chatp .m{transform:none!important;transition:opacity .5s ease!important}
+  /* led, riflessi, bordo d'oro e fili di luce non spostano niente: restano attivi */
+  html:not(.no-anim) .chatp .chat-h small:before,html:not(.no-anim) a.btn[href*="wa.me"]:before,html:not(.no-anim) .barra a[href*="wa.me"]:before,html:not(.no-anim) .rec a[href*="wa.me"] small:before,
+  html:not(.no-anim) .prog:not([href*="studio-commercialista"]) .vis:before{animation:ledpulse 2s ease-out infinite!important}
+  html:not(.no-anim) .btn.p:after{animation:lampo 5s ease-in-out infinite!important}
+  html:not(.no-anim) .sv .card:first-child,html:not(.no-anim) .box{animation:giro 7s linear infinite!important}
+  html:not(.no-anim) main>section:not(.hero):not(.gar):not(.ph):after{animation:filo 7s linear infinite!important}
+  html:not(.no-anim) .steps li.on:before{animation:ledoro 2.4s ease-out infinite!important}
+  html:not(.no-anim) .card:before,html:not(.no-anim) .prog:before,html:not(.no-anim) .tile:before,html:not(.no-anim) .box:before{transition:left 1s cubic-bezier(.2,.7,.2,1)!important}
+}
+@media(prefers-reduced-motion:reduce) and (min-width:900px){.hero .stemma{opacity:.8}}

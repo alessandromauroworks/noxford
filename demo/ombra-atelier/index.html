@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ombra Atelier · Pelletteria cucita a mano (demo)</title>
+  <meta name="description" content="Sito dimostrativo di una pelletteria artigianale inventata: borse, piccola pelletteria e cinture in cuoio. Nomi, prezzi e prodotti sono di esempio.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2394552a'/%3E%3Ctext x='16' y='22.5' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='%23fffdf9'%3EO%3C/text%3E%3C/svg%3E">
+  <script>
+    /* applica subito la preferenza "animazioni disattivate" per evitare movimenti al caricamento */
+    try { if (localStorage.getItem("ombra-atelier.nomotion") === "1") document.documentElement.classList.add("no-motion"); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#collezione">Vai alla collezione</a>
+
+  <p class="demo-strip">Sito dimostrativo di un'attività inventata · Nomi, prezzi e prodotti sono di esempio · Foto generate con l'IA</p>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Ombra Atelier, torna all'inizio">
+        <span class="brand-name">Ombra</span><span class="brand-sub">Atelier</span>
+      </a>
+      <nav class="main-nav" aria-label="Sezioni">
+        <a href="#collezione">Collezione</a>
+        <a href="#laboratorio">Il laboratorio</a>
+        <a href="#domande">Domande</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" type="button" id="openWish" aria-label="Preferiti, 0 articoli">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7.5 2.6c0 5.7-7.5 10.3-7.5 10.3z"/></svg>
+          <span class="count" id="wishCount" aria-hidden="true">0</span>
+        </button>
+        <button class="icon-btn" type="button" id="openCart" aria-label="Carrello, 0 articoli">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="count" id="cartCount" aria-hidden="true">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-media">
+        <img id="heroImg" src="img/hero.webp" alt="Borsa in cuoio color cognac appoggiata su un piedistallo di travertino" width="1600" height="900" fetchpriority="high">
+      </div>
+      <div class="hero-text wrap">
+        <p class="eyebrow">Collezione autunno 2026</p>
+        <h1 id="heroTitle">Cuoio toscano, tagliato e cucito a mano.</h1>
+        <p class="hero-lead">Borse, portafogli e cinture fatti uno alla volta nel nostro laboratorio, con pelle conciata al vegetale che si scurisce con gli anni.</p>
+        <a class="btn btn-light" href="#collezione">Scopri la collezione</a>
+      </div>
+    </section>
+
+    <section class="promises" id="servizio" aria-label="Servizio">
+      <ul class="wrap promises-list">
+        <li class="reveal"><strong>Spedizione gratuita</strong><span>sopra i 250 €, in 2-4 giorni lavorativi</span></li>
+        <li class="reveal"><strong>Reso entro 30 giorni</strong><span>il ritiro a domicilio lo organizziamo noi</span></li>
+        <li class="reveal"><strong>Su ordinazione</strong><span>ogni pezzo parte dal banco entro 5 giorni</span></li>
+      </ul>
+    </section>
+
+    <section class="collection" id="collezione" aria-labelledby="collTitle">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="collTitle">La collezione</h2>
+          <p class="section-lead">Sei pezzi, tre famiglie. Tocca un prodotto per vedere misure, colori e dettagli.</p>
+        </div>
+
+        <div class="toolbar reveal">
+          <div class="filters" role="group" aria-label="Filtra per categoria">
+            <button type="button" class="chip is-active" data-filter="tutti" aria-pressed="true">Tutti</button>
+            <button type="button" class="chip" data-filter="borse" aria-pressed="false">Borse</button>
+            <button type="button" class="chip" data-filter="piccola" aria-pressed="false">Piccola pelletteria</button>
+            <button type="button" class="chip" data-filter="cinture" aria-pressed="false">Cinture</button>
+          </div>
+          <label class="sort">
+            <span>Ordina</span>
+            <select id="sort">
+              <option value="consigliati">Consigliati</option>
+              <option value="prezzo-asc">Prezzo: dal più basso</option>
+              <option value="prezzo-desc">Prezzo: dal più alto</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+        <ul class="grid" id="grid"></ul>
+      </div>
+    </section>
+
+    <section class="band" aria-label="Personalizzazione">
+      <div class="wrap band-inner reveal">
+        <p class="band-title">Le tue iniziali, impresse a caldo.</p>
+        <p class="band-text">Su richiesta, senza costi in più: scrivile nelle note dell'ordine e le imprimiamo a mano prima della spedizione.</p>
+      </div>
+    </section>
+
+    <section class="atelier" id="laboratorio" aria-labelledby="labTitle">
+      <div class="scene" id="scene">
+        <div class="scene-sticky">
+          <div class="wrap scene-inner">
+            <div class="scene-media" aria-hidden="false">
+              <img class="scene-img is-active" data-step="0" src="img/laboratorio.webp" alt="Banco del laboratorio con attrezzi da pellettiere e un pannello di cuoio" width="1200" height="900" loading="lazy" data-fallback>
+              <img class="scene-img scene-img-zoom" data-step="1" src="img/laboratorio.webp" alt="Dettaglio della cucitura a mano con ago e filo cerato" width="1200" height="900" loading="lazy" data-fallback>
+              <img class="scene-img" data-step="2" src="img/borsa-cognac.webp" alt="Borsa finita in cuoio cognac con i bordi lucidati" width="900" height="1200" loading="lazy" data-fallback>
+            </div>
+            <div class="scene-text">
+              <h2 id="labTitle">Come nasce una borsa</h2>
+              <p class="section-lead scene-lead">Ogni pezzo passa per le mani della stessa persona, dal primo taglio all'ultima passata di cera.</p>
+              <ol class="steps" id="steps">
+                <li class="step is-current" data-step="0">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 20l9.5-9.5"/><path d="M13.5 10.5l3-6.5 3.5 3.5-6.5 3"/><path d="M3 21l2-1"/></svg>
+                  </span>
+                  <div>
+                    <h3>Il taglio</h3>
+                    <p>Scegliamo la parte migliore della pelle e tagliamo i pezzi a mano, con il trincetto, seguendo cartamodelli in cartone.</p>
+                  </div>
+                </li>
+                <li class="step" data-step="1">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 19L18 6"/><ellipse cx="18.6" cy="5.4" rx="1.3" ry="2.2" transform="rotate(45 18.6 5.4)"/><path d="M18 6c2 3 1 7-3 8s-7 2-8 5"/></svg>
+                  </span>
+                  <div>
+                    <h3>La cucitura</h3>
+                    <p>Due aghi e un solo filo di lino cerato: è il punto sellaio. Se un punto si rompe, la cucitura tiene lo stesso.</p>
+                  </div>
+                </li>
+                <li class="step" data-step="2">
+                  <span class="step-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 19V11a7 7 0 0 1 7-7h9"/><path d="M8 19v-7a4 4 0 0 1 4-4h8"/></svg>
+                  </span>
+                  <div>
+                    <h3>I bordi</h3>
+                    <p>Li smussiamo, li tingiamo e li lucidiamo a mano più volte, finché al tatto sono lisci come il resto della borsa.</p>
+                  </div>
+                </li>
+              </ol>
+              <div class="scene-progress" aria-hidden="true"><span id="sceneBar"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="chi-siamo" aria-labelledby="aboutTitle">
+      <div class="wrap about-inner">
+        <h2 id="aboutTitle" class="reveal">Chi siamo</h2>
+        <div class="about-text">
+          <p class="reveal">Ombra Atelier è un piccolo laboratorio in Oltrarno, a Firenze: un banco lungo, due macchine da cucire che usiamo solo per le fodere, e tutto il resto fatto a mano.</p>
+          <p class="reveal">Compriamo il cuoio da concerie toscane che lavorano con tannini vegetali. Facciamo pochi modelli e li rifacciamo finché ci convincono.</p>
+          <p class="reveal">Se una cucitura cede o un bordo si consuma, ce lo riporti e lo sistemiamo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="domande" aria-labelledby="faqTitle">
+      <div class="wrap faq-inner">
+        <div class="reveal">
+          <h2 id="faqTitle">Domande frequenti</h2>
+          <p class="section-lead">Risposte di esempio, come le scriverebbe un vero atelier.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>Come scelgo la misura della cintura?</summary>
+            <div class="faq-body"><p>Misura una cintura che usi già, dalla fibbia al foro che usi di solito, e scrivi il numero nelle note. La tagliamo su quella misura e aggiungiamo due fori in più per lato. <em>Risposta di esempio.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Come si cura il cuoio?</summary>
+            <div class="faq-body"><p>Basta un panno asciutto. Due volte l'anno passa un velo di crema neutra per pelle e lasciala assorbire una notte. Se si bagna, falla asciugare lontano dal termosifone. <em>Risposta di esempio.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Quanto ci mette ad arrivare?</summary>
+            <div class="faq-body"><p>Prepariamo l'ordine entro 5 giorni lavorativi; poi il corriere impiega 2-4 giorni in Italia. Ti scriviamo quando il pacco parte. <em>Risposta di esempio.</em></p></div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Posso fare un reso?</summary>
+            <div class="faq-body"><p>Sì, entro 30 giorni dalla consegna, se il pezzo non è stato usato e non ha iniziali impresse. Il ritiro lo organizziamo noi. <em>Risposta di esempio.</em></p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacts" id="contatti" aria-labelledby="contactTitle">
+      <div class="wrap">
+        <div class="reveal">
+          <h2 id="contactTitle">Scrivici</h2>
+          <p class="section-lead">Per misure, iniziali o un consiglio su cosa regalare. I recapiti qui sotto sono di esempio.</p>
+        </div>
+        <ul class="contact-list">
+          <li class="reveal">
+            <a class="contact-card" href="mailto:ciao@ombra-atelier.example?subject=Domanda%20dal%20sito">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3.5 6.5l8.5 7 8.5-7"/></svg>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">ciao@ombra-atelier.example</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="contact-card" href="tel:+390000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></svg>
+              <span class="contact-label">Telefono</span>
+              <span class="contact-value">+39 000 000 0000</span>
+              <span class="contact-note">Numero di esempio</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="contact-card" href="https://wa.me/?text=Ciao%2C%20ho%20una%20domanda%20sulla%20Borsa%20Ottavia" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4A8 8 0 1 1 8 18.8L4 20z"/><path d="M9 9.5c.5 2.5 2.5 4.5 5 5l1-1.5"/></svg>
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-value">Messaggio già scritto</span>
+              <span class="contact-note">Si apre WhatsApp, scegli tu a chi inviarlo</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="brand brand-foot"><span class="brand-name">Ombra</span><span class="brand-sub">Atelier</span></p>
+        <p class="foot-note">Attività inventata a scopo dimostrativo. Nessun prodotto è in vendita e nessun pagamento è attivo.</p>
+      </div>
+      <div class="foot-info">
+        <p><strong>Laboratorio</strong><br>Via dell'Esempio 1, 50125 Firenze<br><span class="foot-small">Indirizzo di esempio</span></p>
+        <p><strong>Orari</strong><br>Lun-ven 9:30-13 e 15-19<br>Sabato su appuntamento<br><span class="foot-small">Orari di esempio</span></p>
+      </div>
+      <div class="foot-end">
+        <button class="anim" type="button" aria-pressed="false">Disattiva le animazioni</button>
+        <p class="foot-credit">Demo realizzata da <a href="../../">Noxford Agency</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scheda prodotto -->
+  <dialog class="modal product-modal" id="productModal" aria-labelledby="pmTitle">
+    <button type="button" class="close-btn" data-close aria-label="Chiudi la scheda prodotto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="pm-grid">
+      <figure class="pm-media img-frame">
+        <img id="pmImg" src="" alt="">
+        <figcaption class="pm-caption" id="pmCaption"></figcaption>
+      </figure>
+      <div class="pm-body">
+        <p class="pm-cat" id="pmCat"></p>
+        <h2 id="pmTitle"></h2>
+        <p class="pm-price" id="pmPrice"></p>
+        <p class="pm-desc" id="pmDesc"></p>
+        <dl class="pm-specs" id="pmSpecs"></dl>
+
+        <fieldset class="swatches">
+          <legend>Colore: <span id="pmColorName"></span></legend>
+          <div class="swatch-row" id="pmSwatches"></div>
+        </fieldset>
+
+        <div class="pm-buy">
+          <div class="qty" role="group" aria-label="Quantità">
+            <button type="button" class="qty-btn" id="pmMinus" aria-label="Diminuisci quantità">−</button>
+            <output id="pmQty" aria-live="polite">1</output>
+            <button type="button" class="qty-btn" id="pmPlus" aria-label="Aumenta quantità">+</button>
+          </div>
+          <button type="button" class="btn btn-dark btn-grow" id="pmAdd">Aggiungi al carrello</button>
+          <button type="button" class="heart-btn heart-lg" id="pmWish" aria-pressed="false" aria-label="Aggiungi ai preferiti">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7.5 2.6c0 5.7-7.5 10.3-7.5 10.3z"/></svg>
+          </button>
+        </div>
+        <p class="pm-note">Su ordinazione: parte dal laboratorio entro 5 giorni lavorativi.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Carrello -->
+  <dialog class="drawer" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h2 id="cartTitle">Il tuo carrello</h2>
+      <button type="button" class="close-btn" data-close aria-label="Chiudi il carrello">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="ship" id="ship">
+      <p class="ship-text" id="shipText"></p>
+      <div class="ship-bar" role="progressbar" aria-labelledby="shipText" aria-valuemin="0" aria-valuemax="250" id="shipBar"><span id="shipFill"></span></div>
+    </div>
+    <ul class="lines" id="cartLines"></ul>
+    <div class="cart-empty" id="cartEmpty">
+      <p>Il carrello è vuoto.</p>
+      <button type="button" class="btn btn-outline" data-goto-collection>Guarda la collezione</button>
+    </div>
+    <div class="drawer-foot" id="cartFoot">
+      <dl class="totals">
+        <div><dt>Subtotale</dt><dd id="subTotal"></dd></div>
+        <div><dt>Spedizione</dt><dd id="shipCost"></dd></div>
+        <div class="grand"><dt>Totale</dt><dd id="grandTotal"></dd></div>
+      </dl>
+      <button type="button" class="btn btn-dark btn-block" id="toCheckout">Vai al pagamento</button>
+    </div>
+  </dialog>
+
+  <!-- Preferiti -->
+  <dialog class="drawer" id="wishDrawer" aria-labelledby="wishTitle">
+    <div class="drawer-head">
+      <h2 id="wishTitle">Preferiti</h2>
+      <button type="button" class="close-btn" data-close aria-label="Chiudi i preferiti">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ul class="lines" id="wishLines"></ul>
+    <div class="cart-empty" id="wishEmpty">
+      <p>Non hai ancora salvato nulla. Tocca il cuore su un prodotto per ritrovarlo qui.</p>
+      <button type="button" class="btn btn-outline" data-goto-collection>Guarda la collezione</button>
+    </div>
+  </dialog>
+
+  <!-- Pagamento -->
+  <dialog class="modal checkout-modal" id="checkoutModal" aria-labelledby="coTitle">
+    <button type="button" class="close-btn" data-close aria-label="Chiudi il pagamento">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="coFormView">
+      <h2 id="coTitle">Dati per la spedizione</h2>
+      <p class="co-warning">Questa è una demo: i dati restano nel tuo browser e non vengono inviati a nessuno.</p>
+      <form id="coForm" novalidate>
+        <div class="field">
+          <label for="fName">Nome e cognome</label>
+          <input id="fName" name="name" type="text" autocomplete="name" aria-describedby="eName">
+          <p class="err" id="eName"></p>
+        </div>
+        <div class="field">
+          <label for="fEmail">Email</label>
+          <input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="eEmail">
+          <p class="err" id="eEmail"></p>
+        </div>
+        <div class="field">
+          <label for="fAddress">Indirizzo e numero civico</label>
+          <input id="fAddress" name="address" type="text" autocomplete="street-address" aria-describedby="eAddress">
+          <p class="err" id="eAddress"></p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="fCap">CAP</label>
+            <input id="fCap" name="cap" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" aria-describedby="eCap">
+            <p class="err" id="eCap"></p>
+          </div>
+          <div class="field">
+            <label for="fCity">Città</label>
+            <input id="fCity" name="city" type="text" autocomplete="address-level2" aria-describedby="eCity">
+            <p class="err" id="eCity"></p>
+          </div>
+        </div>
+        <div class="co-summary">
+          <p><span>Articoli</span><span id="coItems"></span></p>
+          <p><span>Spedizione</span><span id="coShip"></span></p>
+          <p class="grand"><span>Totale</span><span id="coTotal"></span></p>
+        </div>
+        <button type="submit" class="btn btn-dark btn-block">Conferma l'ordine di prova</button>
+      </form>
+    </div>
+    <div id="coDoneView" class="co-done" hidden tabindex="-1">
+      <svg class="done-mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/><path d="M15 24.5l6 6 12-13"/></svg>
+      <h2>Ordine di prova ricevuto</h2>
+      <p>In questa demo non avviene nessun pagamento e nessun dato lascia il tuo browser.</p>
+      <p class="order-no">Numero d'ordine fittizio: <strong id="orderNo"></strong></p>
+      <button type="button" class="btn btn-dark" data-close>Torna al negozio</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" popover="manual"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

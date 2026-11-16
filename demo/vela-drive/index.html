@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="it" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vela Drive · Noleggio auto di lusso in Puglia (sito dimostrativo)</title>
+  <meta name="description" content="Sito dimostrativo di un'attività inventata: noleggio di auto di lusso in Puglia con consegna in aeroporto, in stazione e in hotel. Realizzato da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A1A2B">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1A2B'/%3E%3Cpath d='M16 5 L16 22 L7 22 Z' fill='%23F3F6F8'/%3E%3Cpath d='M18 9 L25 22 L18 22 Z' fill='%232BB3AC'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.className = 'js';
+    try { if (localStorage.getItem('veladrive-animazioni') === 'off') document.documentElement.classList.add('no-motion'); } catch (e) {}
+  </script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  <p class="demo-strip">Sito dimostrativo di un'attività inventata · Auto, prezzi e luoghi sono di esempio · Foto generate con l'IA</p>
+
+  <header class="site-header" id="inizio">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inizio" aria-label="Vela Drive, torna all'inizio">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 4 L16 22 L6.5 22 Z" fill="currentColor"/>
+          <path d="M18.5 8.5 L25.5 22 L18.5 22 Z" class="brand-sail"/>
+          <path d="M5 25.5 C9 27.5 12 23.5 16 25.5 S23 27.5 27 25.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span>Vela Drive</span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-btn-lines" aria-hidden="true"></span>
+        <span class="menu-btn-label">Menu</span>
+      </button>
+
+      <nav class="nav" id="menu" aria-label="Menu principale">
+        <ul>
+          <li><a href="#flotta">La flotta</a></li>
+          <li><a href="#come-funziona">Come funziona</a></li>
+          <li><a href="#domande">Domande</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="#prenota">Prenota</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+
+    <!-- APERTURA -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+     <div class="hero-stage">
+      <div class="hero-media">
+        <img src="img/hero.webp" width="1600" height="900" fetchpriority="high"
+             alt="Una gran turismo blu notte su una strada costiera della Puglia al tramonto">
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="hero-dusk" aria-hidden="true"></div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="hero-kicker">Noleggio auto di lusso in Puglia</p>
+          <h1 id="hero-title">L'auto giusta ti aspetta <em>dove atterri.</em></h1>
+          <p class="hero-lead">Te la consegniamo all'aeroporto di Bari o di Brindisi, alla stazione di Lecce o davanti al tuo hotel in Valle d'Itria e nel Salento. Alla fine la riconsegni dove ti è più comodo.</p>
+        </div>
+
+        <form class="quick" id="quick" novalidate aria-labelledby="quick-title">
+          <h2 class="quick-title" id="quick-title">Trova la tua auto</h2>
+
+          <div class="field">
+            <label for="q-place">Luogo di ritiro</label>
+            <select id="q-place" name="q-place" aria-describedby="err-q-place" data-places></select>
+            <p class="field-error" id="err-q-place"></p>
+          </div>
+
+          <fieldset class="pair">
+            <legend>Ritiro</legend>
+            <div class="pair-row">
+              <div class="field">
+                <label for="q-pdate">Data</label>
+                <input type="date" id="q-pdate" name="q-pdate" aria-describedby="err-q-pickup">
+              </div>
+              <div class="field">
+                <label for="q-ptime">Ora</label>
+                <input type="time" id="q-ptime" name="q-ptime" step="900" aria-describedby="err-q-pickup">
+              </div>
+            </div>
+            <p class="field-error" id="err-q-pickup"></p>
+          </fieldset>
+
+          <fieldset class="pair">
+            <legend>Riconsegna</legend>
+            <div class="pair-row">
+              <div class="field">
+                <label for="q-rdate">Data</label>
+                <input type="date" id="q-rdate" name="q-rdate" aria-describedby="err-q-return">
+              </div>
+              <div class="field">
+                <label for="q-rtime">Ora</label>
+                <input type="time" id="q-rtime" name="q-rtime" step="900" aria-describedby="err-q-return">
+              </div>
+            </div>
+            <p class="field-error" id="err-q-return"></p>
+          </fieldset>
+
+          <button class="btn btn-primary btn-block" type="submit">Vedi auto e prezzi</button>
+        </form>
+      </div>
+     </div>
+    </section>
+
+    <!-- FLOTTA -->
+    <section class="fleet section" id="flotta" aria-labelledby="fleet-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="fleet-title">Cinque auto, una per ogni viaggio</h2>
+          <p>Dalla compatta per i vicoli di Locorotondo alla spider per la litoranea. Per ognuna vedi subito posti, cambio, alimentazione e prezzo al giorno, IVA inclusa.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filtra le auto per categoria">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">Tutte</button>
+          <button type="button" class="chip" data-filter="suv" aria-pressed="false">SUV</button>
+          <button type="button" class="chip" data-filter="sportive" aria-pressed="false">Sportive</button>
+          <button type="button" class="chip" data-filter="berline" aria-pressed="false">Berline</button>
+          <button type="button" class="chip" data-filter="elettriche" aria-pressed="false">Elettriche</button>
+          <button type="button" class="chip" data-filter="compatte" aria-pressed="false">Compatte</button>
+        </div>
+        <p class="sr-only" id="fleet-status" role="status" aria-live="polite"></p>
+
+        <ul class="fleet-grid" id="fleet-grid" data-count="5"></ul>
+        <noscript><p class="noscript">Per vedere la flotta e prenotare serve JavaScript attivo.</p></noscript>
+      </div>
+    </section>
+
+    <!-- INTERNI -->
+    <section class="cabin" aria-labelledby="cabin-title">
+      <div class="cabin-media">
+        <img src="img/interni.webp" width="1600" height="900" loading="lazy"
+             alt="Abitacolo con sedili in pelle color cuoio e volante in primo piano">
+      </div>
+      <div class="wrap cabin-inner">
+        <div class="cabin-text reveal">
+          <h2 id="cabin-title">Dentro, il viaggio diventa la parte bella della vacanza.</h2>
+          <p>Ogni auto arriva pulita, con il pieno o la batteria carica, e con quello che serve per guidare tranquilli su strade che non conosci.</p>
+          <ul class="cabin-list">
+            <li>Sedili in pelle e clima separato per guidatore e passeggero</li>
+            <li>Navigatore con i percorsi tra masserie, lidi e centri storici</li>
+            <li>Cavi di ricarica per il telefono e due bottiglie d'acqua al ritiro</li>
+          </ul>
+          <p class="cabin-note">Dotazioni di esempio per questa demo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COME FUNZIONA -->
+    <section class="how section" id="come-funziona" aria-labelledby="how-title">
+      <div class="wrap how-layout">
+        <div class="how-media reveal">
+          <img src="img/consegna.webp" width="1200" height="900" loading="lazy"
+               alt="Due mani si passano la chiave di un'auto davanti all'ingresso di un hotel">
+        </div>
+
+        <div class="how-content">
+          <div class="section-head reveal">
+            <h2 id="how-title">Come funziona</h2>
+            <p>Niente code allo sportello e niente navette. Ci pensiamo noi a portare l'auto da te.</p>
+          </div>
+
+          <ol class="how-steps" id="how-steps">
+            <li class="how-line" aria-hidden="true"><span></span></li>
+            <li class="how-step reveal">
+              <span class="how-dot" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3>Prenoti in tre passi</h3>
+              <p>Scegli luogo, date e auto. Il prezzo totale lo vedi subito, con tutti gli extra, prima di lasciare i tuoi dati.</p>
+            </li>
+            <li class="how-step reveal">
+              <span class="how-dot" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 13l8-8M16 8l2 2M14 10l1.5 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <h3>Ti portiamo l'auto</h3>
+              <p>All'uscita degli arrivi, in stazione o all'ingresso del tuo hotel trovi una persona con l'auto pronta. In cinque minuti ti mostra i comandi e controllate insieme la carrozzeria.</p>
+            </li>
+            <li class="how-step reveal">
+              <span class="how-dot" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <h3>La riconsegni dove ti è comodo</h3>
+              <p>Nello stesso posto o in un altro dei nostri punti, per esempio arrivi a Bari e riparti da Brindisi. Un controllo veloce insieme e sei libero.</p>
+            </li>
+          </ol>
+
+          <p class="how-places reveal"><strong>Dove consegniamo:</strong> Aeroporto di Bari, Aeroporto di Brindisi, Stazione di Lecce e hotel in Valle d'Itria e nel Salento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRENOTAZIONE -->
+    <section class="booking section" id="prenota" aria-labelledby="book-title">
+      <div class="wrap">
+        <div class="section-head section-head-light reveal">
+          <h2 id="book-title">Prenota la tua auto</h2>
+          <p>Tre passi e il prezzo sempre sotto gli occhi. È una prova: in questa demo non viene inviato niente.</p>
+        </div>
+
+        <div class="draft-note" id="draft-note" role="status" hidden>
+          <p>Abbiamo ripreso la bozza che avevi lasciato su questo browser.</p>
+          <button type="button" class="btn btn-small btn-outline-light" id="draft-reset">Ricomincia da capo</button>
+        </div>
+
+        <div class="book-layout">
+          <div class="book-card" id="book-card">
+            <ol class="progress" id="progress" aria-label="Avanzamento della prenotazione">
+              <li data-step="1"><span class="progress-dot" aria-hidden="true">1</span><span class="progress-label">Luogo e date</span></li>
+              <li data-step="2"><span class="progress-dot" aria-hidden="true">2</span><span class="progress-label">Auto ed extra</span></li>
+              <li data-step="3"><span class="progress-dot" aria-hidden="true">3</span><span class="progress-label">I tuoi dati</span></li>
+            </ol>
+            <div class="progress-bar" aria-hidden="true"><span id="progress-fill"></span></div>
+
+            <form id="booking" novalidate>
+              <p class="step-alert" id="step-alert" role="alert"></p>
+
+              <!-- PASSO 1 -->
+              <section class="panel" data-panel="1" aria-labelledby="p1-title">
+                <h3 class="panel-title" id="p1-title" tabindex="-1"><span class="panel-step">Passo 1 di 3</span> Luogo e date</h3>
+
+                <div class="field">
+                  <label for="b-pplace">Luogo di ritiro</label>
+                  <select id="b-pplace" name="pickupPlace" aria-describedby="err-pickupPlace" data-places></select>
+                  <p class="field-error" id="err-pickupPlace"></p>
+                </div>
+
+                <label class="check">
+                  <input type="checkbox" id="b-diff" name="differentReturn">
+                  <span>Riconsegno l'auto in un luogo diverso <span class="check-price">+60 € una volta</span></span>
+                </label>
+
+                <div class="field cond" id="cond-return" hidden>
+                  <label for="b-rplace">Luogo di riconsegna</label>
+                  <select id="b-rplace" name="returnPlace" aria-describedby="err-returnPlace" data-places></select>
+                  <p class="field-error" id="err-returnPlace"></p>
+                </div>
+
+                <div class="field cond" id="cond-hotel" hidden>
+                  <label for="b-hotel">Nome dell'hotel e paese</label>
+                  <input type="text" id="b-hotel" name="hotelName" autocomplete="off" placeholder="Es. Masseria degli Ulivi, Ostuni" aria-describedby="hint-hotel err-hotelName">
+                  <p class="field-hint" id="hint-hotel">Consegniamo in Valle d'Itria e nel Salento. Il servizio in hotel costa 45 € una volta.</p>
+                  <p class="field-error" id="err-hotelName"></p>
+                </div>
+
+                <div class="pair-grid">
+                  <fieldset class="pair">
+                    <legend>Ritiro</legend>
+                    <div class="pair-row">
+                      <div class="field">
+                        <label for="b-pdate">Data</label>
+                        <input type="date" id="b-pdate" name="pickupDate" aria-describedby="err-pickup">
+                      </div>
+                      <div class="field">
+                        <label for="b-ptime">Ora</label>
+                        <input type="time" id="b-ptime" name="pickupTime" step="900" aria-describedby="err-pickup">
+                      </div>
+                    </div>
+                    <p class="field-error" id="err-pickup"></p>
+                  </fieldset>
+
+                  <fieldset class="pair">
+                    <legend>Riconsegna</legend>
+                    <div class="pair-row">
+                      <div class="field">
+                        <label for="b-rdate">Data</label>
+                        <input type="date" id="b-rdate" name="returnDate" aria-describedby="err-return">
+                      </div>
+                      <div class="field">
+                        <label for="b-rtime">Ora</label>
+                        <input type="time" id="b-rtime" name="returnTime" step="900" aria-describedby="err-return">
+                      </div>
+                    </div>
+                    <p class="field-error" id="err-return"></p>
+                  </fieldset>
+                </div>
+
+                <p class="duration" id="b-duration" aria-live="polite"></p>
+
+                <div class="panel-actions">
+                  <button type="button" class="btn btn-primary" data-next>Continua: scegli l'auto</button>
+                </div>
+              </section>
+
+              <!-- PASSO 2 -->
+              <section class="panel" data-panel="2" aria-labelledby="p2-title" hidden>
+                <h3 class="panel-title" id="p2-title" tabindex="-1"><span class="panel-step">Passo 2 di 3</span> Auto ed extra</h3>
+
+                <fieldset class="group" id="car-group" aria-describedby="err-car">
+                  <legend>Scegli l'auto</legend>
+                  <div class="choices" id="car-choices"></div>
+                  <p class="field-error" id="err-car"></p>
+                </fieldset>
+
+                <fieldset class="group">
+                  <legend>Extra</legend>
+                  <div class="extras" id="extras"></div>
+                </fieldset>
+
+                <div class="panel-actions">
+                  <button type="button" class="btn btn-text" data-prev>Indietro</button>
+                  <button type="button" class="btn btn-primary" data-next>Continua: i tuoi dati</button>
+                </div>
+              </section>
+
+              <!-- PASSO 3 -->
+              <section class="panel" data-panel="3" aria-labelledby="p3-title" hidden>
+                <h3 class="panel-title" id="p3-title" tabindex="-1"><span class="panel-step">Passo 3 di 3</span> I dati di chi guida</h3>
+                <p class="panel-intro">Per noleggiare servono almeno 25 anni e la patente da almeno 3 anni.</p>
+
+                <div class="field">
+                  <label for="d-name">Nome e cognome</label>
+                  <input type="text" id="d-name" name="name" autocomplete="name" aria-describedby="err-name">
+                  <p class="field-error" id="err-name"></p>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="d-email">Email</label>
+                    <input type="email" id="d-email" name="email" autocomplete="email" inputmode="email" aria-describedby="err-email">
+                    <p class="field-error" id="err-email"></p>
+                  </div>
+                  <div class="field">
+                    <label for="d-phone">Telefono</label>
+                    <input type="tel" id="d-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+39 ..." aria-describedby="err-phone">
+                    <p class="field-error" id="err-phone"></p>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="d-age">Età</label>
+                    <input type="number" id="d-age" name="age" inputmode="numeric" min="18" max="99" aria-describedby="err-age">
+                    <p class="field-error" id="err-age"></p>
+                  </div>
+                  <div class="field">
+                    <label for="d-license">Patente presa il</label>
+                    <input type="date" id="d-license" name="license" aria-describedby="err-license">
+                    <p class="field-error" id="err-license"></p>
+                  </div>
+                </div>
+
+                <p class="privacy-note">I dati restano solo in questo browser come bozza e non vengono inviati a nessuno.</p>
+
+                <div class="panel-actions">
+                  <button type="button" class="btn btn-text" data-prev>Indietro</button>
+                  <button type="button" class="btn btn-primary" data-next>Vai al riepilogo</button>
+                </div>
+              </section>
+
+              <!-- RIEPILOGO -->
+              <section class="panel" data-panel="4" aria-labelledby="p4-title" hidden>
+                <h3 class="panel-title" id="p4-title" tabindex="-1"><span class="panel-step">Ultimo controllo</span> Riepilogo</h3>
+                <div id="review"></div>
+                <div class="panel-actions">
+                  <button type="button" class="btn btn-text" data-prev>Indietro</button>
+                  <button type="submit" class="btn btn-primary">Invia la richiesta di prova</button>
+                </div>
+              </section>
+
+              <!-- CONFERMA -->
+              <section class="panel panel-done" data-panel="5" aria-labelledby="p5-title" hidden>
+                <div class="done-mark" aria-hidden="true">
+                  <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2.5"/><path class="done-check" d="M14 24.5l7 7L34.5 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="panel-title" id="p5-title" tabindex="-1">Richiesta di prova ricevuta: in questa demo non viene inviato niente.</h3>
+                <p class="done-code">Codice prenotazione di prova: <strong id="done-code"></strong></p>
+                <p>In un sito vero, a questo punto arriverebbe un'email di conferma e il noleggiatore ti richiamerebbe per fissare il punto esatto di consegna.</p>
+                <div id="done-summary"></div>
+                <div class="panel-actions">
+                  <button type="button" class="btn btn-primary" id="restart">Fai un'altra prova</button>
+                </div>
+              </section>
+            </form>
+
+            <div class="mini-total" id="mini-total" aria-hidden="true">
+              <span class="mini-total-label" id="mini-total-label">Totale</span>
+              <span class="mini-total-value" data-total>0 €</span>
+            </div>
+          </div>
+
+          <aside class="price-box" aria-labelledby="price-title">
+            <h3 id="price-title">Il tuo prezzo</h3>
+            <p class="price-empty" id="price-empty">Scegli date e auto: il conto si aggiorna qui mentre compili.</p>
+            <ul class="price-rows" id="price-rows"></ul>
+            <div class="price-total">
+              <span>Totale</span>
+              <span class="price-total-value" data-total>0 €</span>
+            </div>
+            <p class="sr-only" id="total-live" aria-live="polite"></p>
+            <p class="price-note">Ogni 24 ore o frazione conta come un giorno. Da 7 giorni in su lo sconto del 10% sul noleggio si applica da solo. Prezzi di esempio, IVA inclusa.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOMANDE -->
+    <section class="faq section" id="domande" aria-labelledby="faq-title">
+      <div class="wrap faq-wrap">
+        <div class="section-head reveal">
+          <h2 id="faq-title">Domande frequenti</h2>
+          <p class="faq-demo">Risposte di esempio, per mostrare come funziona la sezione. Le condizioni vere le stabilisce il noleggiatore.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item faq-featured is-open">
+            <p class="faq-flag">La domanda che ci fanno tutti</p>
+            <h3><button type="button" class="faq-q" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">Quanto è la cauzione e quando torna indietro?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner">
+              <div class="deposit">
+                <p>Esempio: blocchiamo sulla carta di credito di chi guida una cifra in base all'auto. Non è un addebito: il blocco si toglie alla riconsegna, di solito in pochi giorni lavorativi.</p>
+                <dl class="deposit-table">
+                  <div><dt>Compatta</dt><dd>500 €</dd></div>
+                  <div><dt>SUV, berlina, elettrica</dt><dd>1.000 €</dd></div>
+                  <div><dt>Spider</dt><dd>2.000 €</dd></div>
+                  <div><dt>Con assicurazione completa</dt><dd>300 € per tutte</dd></div>
+                </dl>
+              </div>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Come funziona il carburante?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner">
+              <p>Esempio: ricevi l'auto con il pieno e la riconsegni con il pieno. Se non fai in tempo paghi solo il carburante mancante, più 20 € per il servizio. L'auto elettrica arriva carica almeno all'80% e torna con almeno il 20%.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">Ci sono limiti di chilometri?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner">
+              <p>Esempio: ogni giorno di noleggio comprende 250 km, sommati su tutto il periodo. Con una settimana hai quindi 1.750 km. Oltre, ogni chilometro in più costa 0,40 €.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Posso cancellare la prenotazione?<span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner">
+              <p>Esempio: puoi cancellare gratis fino a 48 ore prima del ritiro. Dopo, tratteniamo il costo del primo giorno. Se il volo è in ritardo non perdi niente: aspettiamo all'arrivo senza costi in più.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHI SIAMO E CONTATTI -->
+    <section class="about section" id="contatti" aria-labelledby="about-title">
+      <div class="wrap about-layout">
+        <div class="about-text reveal">
+          <h2 id="about-title">Chi siamo</h2>
+          <p>Vela Drive è una piccola attività con sede a Monopoli, a metà strada tra gli aeroporti di Bari e di Brindisi. Teniamo poche auto e dopo ogni noleggio le laviamo e le controlliamo noi, in sede.</p>
+          <p>La consegna la fa sempre qualcuno della squadra, non un'agenzia esterna: chi ti porta l'auto è la stessa persona che la riprende.</p>
+          <p class="about-note">Attività, sede e squadra sono inventate per questa demo.</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3>Scrivici o chiamaci</h3>
+          <p>Per una domanda veloce prima di prenotare.</p>
+          <ul class="contact-list">
+            <li>
+              <a class="contact-link" href="tel:+390000000000">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 006.2 6.2l1.3-2 4 1.4v3A1.6 1.6 0 0118.9 19 15.5 15.5 0 015 5.1a1.6 1.6 0 011.6-1.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <span><strong>+39 000 000 0000</strong><small>Numero di esempio</small></span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" id="wa-link" href="https://wa.me/?text=Ciao%2C%20vorrei%20informazioni%20per%20noleggiare%20un'auto%20con%20Vela%20Drive." target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 19.5l1.2-3.6A8 8 0 1112 20a8 8 0 01-3.9-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9.5c.3 2.2 2.3 4.2 4.5 4.5l.9-1.2 1.6.8c-.2 1-1 1.7-2 1.6-2.9-.3-5.6-3-5.9-5.9-.1-1 .6-1.8 1.6-2l.8 1.6z" fill="currentColor"/></svg>
+                <span><strong>Scrivi su WhatsApp</strong><small id="wa-hint">Il messaggio è già pronto: scegli tu a chi mandarlo</small></span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="mailto:info@vela-drive.example">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <span><strong>info@vela-drive.example</strong><small>Email di esempio</small></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-brand">Vela Drive</p>
+        <p>Sede: Monopoli (BA) · Consegne tutti i giorni dalle 7:00 alle 23:00, anche per i voli in ritardo.</p>
+        <p class="footer-small">Sede e orari di esempio. Attività inventata per un sito dimostrativo: auto, prezzi, luoghi e condizioni sono di esempio. Questa pagina non usa cookie, non traccia le visite, non carica nulla da altri siti e non invia i dati dei moduli.</p>
+      </div>
+      <div class="footer-side">
+        <button class="anim" type="button">Disattiva le animazioni</button>
+        <p class="footer-credit">Demo realizzata da <a href="../../">Noxford Agency</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" id="mobile-cta" aria-hidden="true">
+    <a class="btn btn-primary btn-block" href="#prenota" tabindex="-1">Prenota un'auto</a>
+  </div>
+</body>
+</html>
