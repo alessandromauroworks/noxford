@@ -238,6 +238,35 @@
   if (mq.addEventListener) mq.addEventListener("change", sveglia);
   tick();
 
+  /* ---------- modulo "Nuovo progetto": controlla i campi e apre WhatsApp con il messaggio pronto ---------- */
+  var fp = d.getElementById("progetto");
+  if (fp) {
+    var controlla = function (el) {
+      var v = (el.value || "").trim(), err = "";
+      if (el.required && !v) err = el.tagName === "SELECT" ? "Scegli un'opzione." : "Campo obbligatorio.";
+      else if (el.type === "email" && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) err = "Controlla l'email, ad esempio nome@dominio.it.";
+      var box = el.parentNode.querySelector(".er");
+      if (box) box.textContent = err;
+      if (err) el.setAttribute("aria-invalid", "true"); else el.removeAttribute("aria-invalid");
+      return !err;
+    };
+    fp.querySelectorAll("input,select,textarea").forEach(function (el) {
+      el.addEventListener("input", function () { if (el.hasAttribute("aria-invalid")) controlla(el); });
+      el.addEventListener("change", function () { if (el.hasAttribute("aria-invalid")) controlla(el); });
+    });
+    fp.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var campi = fp.querySelectorAll("input,select,textarea"), primo = null;
+      campi.forEach(function (el) { if (!controlla(el) && !primo) primo = el; });
+      if (primo) { primo.focus(); return; }
+      var f = fp.elements, nome = (f.nome.value + " " + f.cognome.value).trim();
+      var testo = "Ciao Noxford, sono " + nome + ".\nEmail: " + f.email.value.trim() + "\nProgetto: " + f.tipo.value + "\n\n" + f.msg.value.trim();
+      var url = "https://wa.me/393394052935?text=" + encodeURIComponent(testo);
+      var w = W.open(url, "_blank", "noopener");
+      if (!w) location.href = url;
+    });
+  }
+
   /* ---------- menu del telefono: il tasto Tab resta dentro il menu aperto ---------- */
   var burger = d.querySelector(".burger"), mob = d.getElementById("mob");
   if (burger && mob) {

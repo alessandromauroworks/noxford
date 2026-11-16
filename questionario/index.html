@@ -253,9 +253,9 @@ input:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 4px rgba(200,
 
     <section class="step" data-s="0">
       <h1>Prepariamo la call sulla tua attività</h1>
-      <p class="lead">Cinque minuti di domande sul tuo lavoro. Così in call non partiamo da zero: ti mostro subito come funziona la tua giornata, dove si perde tempo e come si può sistemare.</p>
-      <div class="sum" aria-label="Cosa ti chiedo">
-        <div><dt>Cosa ti chiedo</dt><dd>Che lavoro fai, come lavori oggi, cosa ti pesa e cosa vorresti ottenere.</dd></div>
+      <p class="lead">Cinque minuti di domande sul tuo lavoro. Così in call non partiamo da zero: ti mostriamo subito come funziona la tua giornata, dove si perde tempo e come si può sistemare.</p>
+      <div class="sum" aria-label="Cosa ti chiediamo">
+        <div><dt>Cosa ti chiediamo</dt><dd>Che lavoro fai, come lavori oggi, cosa ti pesa e cosa vorresti ottenere.</dd></div>
         <div><dt>Quanto ci metti</dt><dd>Circa 5 minuti. Puoi scrivere o mandarmi un vocale.</dd></div>
         <div><dt>Cosa succede dopo</dt><dd>Le risposte arrivano a me in modo protetto e su WhatsApp, e preparo la call su misura per te.</dd></div>
       </div>
@@ -372,14 +372,14 @@ input:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 4px rgba(200,
       <h2>Controlla e invia</h2>
       <p class="lead">Se è tutto giusto, tocca «Invia su WhatsApp»: si apre la chat con il messaggio già pronto, devi solo premere invio.</p>
       <dl class="sum" id="sum"></dl>
-      <p class="note" id="lungo" hidden>Le tue risposte sono troppo lunghe per aprire WhatsApp già pronto. Tocca «Copia e apri WhatsApp»: il messaggio viene copiato e si apre la chat con Alessandro. Tu devi solo incollarlo nella chat e premere invio.</p>
+      <p class="note" id="lungo" hidden>Le tue risposte sono troppo lunghe per aprire WhatsApp già pronto. Tocca «Copia e apri WhatsApp»: il messaggio viene copiato e si apre la chat con Noxford Agency. Tu devi solo incollarlo nella chat e premere invio.</p>
     </section>
 
     <section class="step" data-s="11">
       <div class="done">
         <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
         <h2>Ultimo passo: premi invio</h2>
-        <p class="lead" id="doneTxt">Se si è aperta la chat di WhatsApp, premi invio: il messaggio è già scritto. Appena lo ricevo preparo la call sulla tua attività.</p>
+        <p class="lead" id="doneTxt">Se si è aperta la chat di WhatsApp, premi invio: il messaggio è già scritto. Appena lo riceviamo prepariamo la call sulla tua attività.</p>
         <p class="lead" id="doneTxt2">Se non vedi WhatsApp, tocca «Apri WhatsApp» oppure copia il messaggio e mandalo a questo numero:</p>
         <p class="num"><b>+39 339 405 2935</b></p>
         <div class="actions">
@@ -813,7 +813,7 @@ function renderAuto() {
     corpo = `<div class="ab-fine">${a.domande.map(([q, opts], k) => `<div class="q"><span class="lab">${esc(q)}</span><div class="chips">${opts.map(o => `<button type="button" class="chip" data-ad="${k}" data-v="${esc(o)}" aria-pressed="${A.auto.dom[k] === o}">${esc(o)}</button>`).join("")}</div></div>`).join("")}
       <div class="q"><span class="lab">Vuoi questa automazione per la tua attività?</span><span class="hint">Non è un impegno: mi serve per prepararti la demo giusta e una proposta su misura.</span>
         <div class="chips">${AU_SCELTE.map(([k, t]) => `<button type="button" class="chip" data-as="${k}" aria-pressed="${A.auto.scelta === k}">${t}</button>`).join("")}</div></div>
-      <p class="ab-ok" id="abOk" ${A.auto.scelta === "si" ? "" : "hidden"}>Perfetto: in call ti mostro la demo di questa automazione già adattata a quello che mi hai detto.</p>
+      <p class="ab-ok" id="abOk" ${A.auto.scelta === "si" ? "" : "hidden"}>Perfetto: in call ti mostriamo la demo di questa automazione già adattata a quello che ci hai detto.</p>
       <div class="ab-nav"><button type="button" class="btn" data-an="-1">Rivedi i passi</button></div></div>`;
   }
   box.innerHTML = `<section class="ab" aria-label="La tua automazione">${testa}${corpo}</section>`;
@@ -881,9 +881,9 @@ async function codice(d) {
 }
 function messaggio(d, liv, cod) {
   const s = sett(), breve = liv >= 1, r = [];
-  if (liv >= 2) return `Ciao Alessandro, sono ${d.nome} di ${d.attivita}: ecco le mie risposte per la call.\n\nCodice delle risposte (non modificarlo):\n${cod}`;
+  if (liv >= 2) return `Ciao Noxford, sono ${d.nome} di ${d.attivita}: ecco le mie risposte per la call.\n\nCodice delle risposte (non modificarlo):\n${cod}`;
   const corto = t => { const a = Array.from(t); return a.length > 160 ? a.slice(0, 160).join("") + "…" : t; };
-  r.push("Ciao Alessandro, ecco le mie risposte per preparare la call.");
+  r.push("Ciao Noxford, ecco le mie risposte per preparare la call.");
   r.push(""); r.push(`*${d.attivita || "La mia attività"}* · ${d.s === "Altra attività" ? (d.tipoAltro || "altra attività") : d.s}${d.citta ? " · " + d.citta : ""}`);
   r.push(`Sono ${d.nome}${d.tel ? " · " + d.tel : ""}`);
   if (d.ob.length || d.obAltro) r.push("Obiettivo: " + [...d.ob.map(goalName), d.obAltro].filter(Boolean).join(", "));
@@ -935,8 +935,8 @@ function riepilogo() {
     bs.href = r.url; $("waAgain").href = r.url; $("copyArea").value = r.testo; $("copyArea").hidden = !r.copia;
     bs.textContent = r.copia ? "Copia e apri WhatsApp" : "Invia su WhatsApp";
     $("lungo").hidden = !r.copia; $("copyBtn").textContent = "Copia il messaggio";
-    $("doneTxt").textContent = r.copia ? "Il messaggio è troppo lungo per aprirsi da solo: l'ho copiato. Nella chat di WhatsApp con Alessandro tieni premuto nella casella di testo, scegli «Incolla» e premi invio." : "Se si è aperta la chat di WhatsApp, premi invio: il messaggio è già scritto. Appena lo ricevo preparo la call sulla tua attività.";
-    $("doneTxt2").textContent = r.copia ? "Se non si è copiato, tocca «Copia il messaggio» qui sotto e incollalo nella chat WhatsApp con Alessandro (+39 339 405 2935)." : "Se non vedi WhatsApp, tocca «Apri WhatsApp» oppure copia il messaggio e mandalo a questo numero:";
+    $("doneTxt").textContent = r.copia ? "Il messaggio è troppo lungo per aprirsi da solo: l'abbiamo copiato. Nella chat di WhatsApp con Noxford Agency tieni premuto nella casella di testo, scegli «Incolla» e premi invio." : "Se si è aperta la chat di WhatsApp, premi invio: il messaggio è già scritto. Appena lo riceviamo prepariamo la call sulla tua attività.";
+    $("doneTxt2").textContent = r.copia ? "Se non si è copiato, tocca «Copia il messaggio» qui sotto e incollalo nella chat WhatsApp con Noxford Agency (+39 339 405 2935)." : "Se non vedi WhatsApp, tocca «Apri WhatsApp» oppure copia il messaggio e mandalo a questo numero:";
     bs.classList.remove("wait"); bs.removeAttribute("aria-disabled");
   });
 }
@@ -962,7 +962,7 @@ function prenota() {
   try { if (PRENOTA_URL) { url = new URL(PRENOTA_URL); host = url.hostname; } } catch (e) { url = null; }
   if (!url) {
     btn.textContent = "Scrivimi su WhatsApp quando ti va bene";
-    btn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Ciao Alessandro, ho compilato il questionario. Per la call mi vanno bene: ");
+    btn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Ciao Noxford, ho compilato il questionario. Per la call mi vanno bene: ");
     $("bookHint").textContent = "Si apre WhatsApp: scrivimi i giorni e gli orari che ti vanno bene e ti confermo.";
     return;
   }
