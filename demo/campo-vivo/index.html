@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Campo Vivo · Padel e palestra (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di un circolo inventato di padel e fitness: campi liberi ora per ora, corsi della settimana, dettaglio della lezione e area personale con abbonamento. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0E1A2B">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E1A2B'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23C6F432'/%3E%3Cpath d='M9 10c5 3 5 9 0 12M23 10c-5 3-5 9 0 12' fill='none' stroke='%230E1A2B' stroke-width='1.6'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Campi, corsi e prezzi sono di esempio · Foto generate con l'IA</p>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/home" aria-label="Campo Vivo, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="var(--lime)"/><path d="M7 8c7 4 7 12 0 16M25 8c-7 4-7 12 0 16" fill="none" stroke="var(--notte)" stroke-width="2"/></svg><span>CAMPO<b>VIVO</b></span></a>
+      <span class="crediti" id="crediti"></span>
+    </header>
+    <main>
+      <section class="screen" data-screen="home" aria-labelledby="h-home">
+        <div class="hero"><img src="img/padel.webp" width="1000" height="747" alt="Campo da padel coperto con erba blu, pareti di vetro e luci accese, una racchetta e tre palline vicino alla rete" fetchpriority="high"><div class="hero-tx"><p class="kick">Padel · Fitness · Corsi</p><h1 id="h-home">Il campo libero lo trovi in 10 secondi.</h1></div></div>
+        <div class="next" id="next"></div>
+        <div class="quick"><a href="#/campi"><b>Prenota un campo</b><span>3 campi coperti, dalle 8 alle 23</span></a><a href="#/corsi"><b>Corsi di oggi</b><span>Funzionale, pilates, scuola padel</span></a></div>
+        <div class="sala"><img src="img/sala.webp" width="1200" height="896" alt="Sala di allenamento funzionale vuota con kettlebell, box di legno e vogatori" loading="lazy"><div><h2>Sala funzionale</h2><p>Aperta dalle 6:30. Entri con il tuo abbonamento e il codice nell'app.</p></div></div>
+      </section>
+
+      <section class="screen" data-screen="campi" aria-labelledby="h-campi" hidden>
+        <h1 class="title" id="h-campi">Campi</h1>
+        <div class="giorni" id="giorni" role="group" aria-label="Giorno"></div>
+        <div class="legenda"><span><i class="lib"></i>Libero</span><span><i class="occ"></i>Occupato</span><span><i class="tuo"></i>Scelto</span></div>
+        <div class="griglia" id="griglia"></div>
+        <div class="sheet" id="sheet" hidden></div>
+      </section>
+
+      <section class="screen" data-screen="corsi" aria-labelledby="h-corsi" hidden>
+        <h1 class="title" id="h-corsi">Corsi della settimana</h1>
+        <div class="giorni" id="c-giorni" role="group" aria-label="Giorno"></div>
+        <ul class="corsi" id="corsi"></ul>
+      </section>
+
+      <section class="screen" data-screen="lezione" aria-labelledby="l-nome" hidden>
+        <a class="back" href="#/corsi"><span aria-hidden="true">←</span> Corsi</a>
+        <div id="l-box"></div>
+      </section>
+
+      <section class="screen" data-screen="io" aria-labelledby="h-io" hidden>
+        <h1 class="title" id="h-io">Ciao, Davide</h1>
+        <div class="abbo"><p class="kick">Abbonamento Open</p><h2>Valido fino al 31 gennaio</h2><div class="num"><div><b id="ingressi">8</b><small>ingressi in sala rimasti</small></div><div><b>B2</b><small>il tuo livello padel</small></div></div><p class="codice">Codice d'ingresso <b>CV-4821</b></p></div>
+        <h2 class="sec">Le tue prenotazioni</h2>
+        <ul class="pren" id="pren"></ul>
+        <p class="nota">Profilo, abbonamento e prenotazioni sono di esempio e restano solo in questo browser.</p>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Home</a>
+      <a href="#/campi" data-tab="campi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 12h16M12 3v5M12 16v5" stroke="currentColor" stroke-width="2"/></svg>Campi</a>
+      <a href="#/corsi" data-tab="corsi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h3v4H3zM18 10h3v4h-3zM6 8h2v8H6zM16 8h2v8h-2zM8 12h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Corsi</a>
+      <a href="#/io" data-tab="io"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Io</a>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

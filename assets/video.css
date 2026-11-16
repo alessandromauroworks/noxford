@@ -1,0 +1,172 @@
+/* Noxford Agency - pagina Video Factory (solo video/index.html, dopo esperienza.css) */
+
+/* ---------- prima schermata con le anteprime a ventaglio ---------- */
+.vf-hero{display:grid;gap:44px;align-items:center}
+.vf-hero-t{min-width:0}
+.vf-fan{position:relative;height:300px;max-width:420px;width:100%;margin:0 auto}
+.vf-fan-i{position:absolute;top:0;left:50%;width:150px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:1px solid var(--line2);box-shadow:0 22px 50px rgba(0,0,0,.55);background:#0a0c10;
+  transform:translateX(-50%) translateX(var(--x,0)) translateY(var(--y,0)) rotate(var(--r,0deg));transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
+.vf-fan-i img{display:block;width:100%;height:100%;object-fit:cover}
+.vf-fan-i:nth-child(1){--x:-62%;--y:22px;--r:-9deg;z-index:1}
+.vf-fan-i:nth-child(2){--x:0%;--y:0px;--r:0deg;z-index:3}
+.vf-fan-i:nth-child(3){--x:62%;--y:22px;--r:9deg;z-index:2}
+.vf-fan-i:hover,.vf-fan-i:focus-visible{z-index:4;border-color:var(--ac);box-shadow:0 26px 60px rgba(0,0,0,.6),0 0 0 1px var(--ac)}
+.vf-fan-i:nth-child(1):hover{--y:6px}.vf-fan-i:nth-child(2):hover{--y:-12px}.vf-fan-i:nth-child(3):hover{--y:6px}
+.js:not(.no-anim) .vf-fan.in .vf-fan-i{animation:vf-galleggia 7s ease-in-out infinite alternate}
+.js:not(.no-anim) .vf-fan.in .vf-fan-i:nth-child(2){animation-delay:-2.3s}
+.js:not(.no-anim) .vf-fan.in .vf-fan-i:nth-child(3){animation-delay:-4.6s}
+@keyframes vf-galleggia{from{translate:0 0}to{translate:0 -8px}}
+@media(min-width:520px){.vf-fan{height:360px}.vf-fan-i{width:180px}}
+@media(min-width:900px){.vf-hero{grid-template-columns:1.15fr .85fr}.vf-fan{height:440px;max-width:none}.vf-fan-i{width:210px;top:10px}}
+
+/* ---------- filtri a pillola ---------- */
+.vf-sez{padding-top:40px}
+@media(min-width:900px){.vf-sez{padding-top:60px}}
+.vf-filtri{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;position:sticky;top:76px;z-index:20;padding:10px 0}
+.vf-filtri:before{content:"";position:absolute;inset:0 -16px;background:linear-gradient(var(--bg) 70%,transparent);z-index:-1;opacity:0;transition:opacity .3s}
+.top.sc~main .vf-filtri:before{opacity:1}
+.vf-filtri button{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 "Manrope",sans-serif;color:var(--mut);background:var(--card);border:1px solid var(--line2);padding:0 18px;border-radius:999px;cursor:pointer;min-height:46px;
+  transition:background .3s,color .3s,border-color .3s,transform .25s}
+.vf-filtri button:hover{color:var(--tx);border-color:var(--ac);transform:translateY(-1px)}
+.vf-filtri button .n{font-weight:400;opacity:.75;font-variant-numeric:tabular-nums}
+.vf-filtri button[aria-pressed="true"]{background:linear-gradient(120deg,var(--ac2),var(--hi) 50%,var(--ac));color:var(--on-ac);border-color:transparent}
+.vf-filtri button[aria-pressed="true"] .n{opacity:.7}
+@media(max-width:899px){.vf-filtri{position:static;padding:0;gap:8px}.vf-filtri:before{display:none}.vf-filtri button{padding:0 14px;font-size:13.5px}}
+
+/* ---------- pannelli per categoria ---------- */
+.vf-pannelli{display:grid;gap:22px}
+.vf-pan{display:grid;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 16px;scroll-margin-top:150px}
+.vf-pan[hidden]{display:none}
+.js .vf-pan.in{transition:opacity .45s cubic-bezier(.2,.7,.2,1),transform .45s cubic-bezier(.2,.7,.2,1)}
+.js .vf-pan.esce{opacity:0;transform:translateY(10px) scale(.99);transition-duration:.25s}
+.js .vf-pan.entra{opacity:0;transform:translateY(16px);transition:none}
+.vf-veri{border-color:var(--line2);background:radial-gradient(ellipse 70% 50% at 0 0,rgba(var(--ac-rgb),.10),transparent 70%),var(--card)}
+.vf-lato{min-width:0}
+.vf-let{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);color:var(--ac);font:600 22px/1 "Cormorant Garamond",Georgia,serif;margin-bottom:14px;background:rgba(var(--ac-rgb),.06)}
+.vf-lato h3{font-size:clamp(30px,4vw,38px);margin-bottom:8px}
+.vf-lato p{color:var(--mut);font-size:15px;margin:0 0 12px}
+.vf-stato-pan{display:inline-flex;align-items:center;gap:8px;font:600 12px/1.3 "Manrope",sans-serif !important;letter-spacing:.12em;text-transform:uppercase;color:var(--mut) !important}
+.vf-stato-pan i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ac2);flex:none}
+.vf-stato-pan.vero{color:var(--ac) !important}
+.vf-stato-pan.vero i{background:var(--ac);border-color:var(--ac);box-shadow:0 0 0 4px rgba(var(--ac-rgb),.18)}
+.vf-nota-pan{font-size:14px !important;border-left:2px solid var(--ac);padding-left:12px}
+.vf-griglia{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;min-width:0}
+@media(min-width:860px){
+  .vf-pan{grid-template-columns:240px minmax(0,1fr);gap:36px;padding:32px}
+  .vf-griglia{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 18px}
+  .vf-lato{position:sticky;top:160px;align-self:start}
+}
+@media(min-width:1100px){.vf-pan{grid-template-columns:280px minmax(0,1fr);gap:48px}}
+
+/* ---------- testo delle schede ---------- */
+.vf-v,.vf-f{min-width:0;display:flex;flex-direction:column}
+.vf-tag{font:600 11px/1.4 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin:14px 0 6px}
+.vf-v h4,.vf-f h4{margin:0 0 8px;font:600 16px/1.3 "Manrope",sans-serif;color:var(--tx)}
+.vf-v p,.vf-f p{font-size:14px;line-height:1.55;color:var(--mut);margin:0 0 8px}
+.vf-v .vf-tag,.vf-f .vf-tag{color:var(--ac);font-size:11px}
+.vf-meta{font-size:13px !important;color:var(--tx) !important;opacity:.8;margin-top:auto !important}
+.vf-v p,.vf-f p{font-size:15px}
+@media(max-width:419px){.vf-griglia{grid-template-columns:minmax(0,1fr);gap:30px}.vf-media,.vf-fr{max-width:300px;width:100%;margin:0 auto}}
+
+/* ---------- video veri ---------- */
+.vf-media{position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#0a0c10;border:1px solid var(--line2);box-shadow:0 18px 40px rgba(0,0,0,.45);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,border-color .45s}
+.vf-media video{display:block;width:100%;height:100%;object-fit:cover;background:#0a0c10}
+.vf-ia,.vf-dur{position:absolute;top:10px;z-index:2;font:600 10.5px/1 "Manrope",sans-serif;letter-spacing:.06em;padding:6px 9px;border-radius:999px;pointer-events:none;transition:opacity .3s}
+.vf-ia{left:10px;background:rgba(7,8,10,.72);color:var(--hi);border:1px solid rgba(var(--ac-rgb),.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.vf-dur{right:10px;background:rgba(7,8,10,.72);color:#fff;font-variant-numeric:tabular-nums}
+.vf-play{position:absolute;left:50%;top:50%;z-index:2;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:linear-gradient(120deg,var(--ac2),var(--hi) 50%,var(--ac));color:var(--on-ac);box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 8px rgba(var(--ac-rgb),.18);transition:opacity .3s,transform .3s}
+.vf-play svg{width:26px;height:26px;fill:currentColor;margin-left:3px}
+.vf-media:hover .vf-play{transform:scale(1.08)}
+.vf-media.gioca .vf-play,.vf-media.gioca .vf-dur,.vf-media.gioca .vf-ia{opacity:0;pointer-events:none}
+@media(hover:hover){.vf-v:hover .vf-media{transform:translateY(-4px) scale(1.02);border-color:var(--ac);box-shadow:0 26px 50px rgba(0,0,0,.55)}}
+@media(max-width:520px){.vf-play{width:52px;height:52px;margin:-26px 0 0 -26px}.vf-ia,.vf-dur{top:8px;font-size:9.5px;padding:5px 7px}.vf-ia{left:8px}.vf-dur{right:8px}}
+
+/* ---------- formati in preparazione ---------- */
+.vf-fr{position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px dashed rgba(var(--ac-rgb),.45);
+  background:radial-gradient(circle at 30% 18%,color-mix(in srgb,var(--t) 85%,#fff 15%),transparent 55%),linear-gradient(170deg,var(--t),var(--t2));
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s;color:#F3EBDA}
+@supports not (background:color-mix(in srgb,red,blue)){.vf-fr{background:linear-gradient(170deg,var(--t),var(--t2))}}
+.vf-fr:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,8,10,.55),transparent 35%);pointer-events:none}
+@media(hover:hover){.vf-f:hover .vf-fr{transform:translateY(-4px) scale(1.02);border-color:var(--ac);border-style:solid}}
+.vf-badge{position:absolute;top:10px;left:10px;z-index:2;font:600 10px/1 "Manrope",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:rgba(7,8,10,.6);color:var(--hi);border:1px solid rgba(var(--ac-rgb),.4)}
+.vf-dur-p{position:absolute;right:10px;bottom:10px;z-index:2;font:600 10.5px/1 "Manrope",sans-serif;padding:6px 9px;border-radius:999px;background:rgba(7,8,10,.6);color:#fff}
+.vf-il{position:absolute;inset:12% 6% 8%;width:88%;height:80%}
+.vf-il *{vector-effect:non-scaling-stroke}
+.vf-il .ln{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.vf-il .pan{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.35);stroke-width:1}
+.vf-il .av{fill:rgba(255,255,255,.14);stroke:currentColor;stroke-width:1.4}
+.vf-il .tt{fill:rgba(255,255,255,.85)}
+.vf-il .tt.t2{fill:rgba(255,255,255,.45)}
+.vf-il text{font:700 6px "Manrope",sans-serif;text-anchor:middle;fill:#1a1408;letter-spacing:.02em}
+.vf-il text.q{fill:#F3EBDA;font-size:7.5px}
+.vf-il .timbro rect{fill:#b8323c}
+.vf-il .timbro text{fill:#fff;font-size:6.4px;letter-spacing:.1em}
+.vf-il .pz{fill:var(--ac)}
+.vf-il .pzt{fill:#1a1408;letter-spacing:.14em}
+.vf-il .voce path,.vf-il .rumore path{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round}
+.vf-il .f1 rect{fill:#e9dcc3;stroke:#fff;stroke-width:1.2}
+.vf-il .f1 .ln{stroke:#5a4128}
+.vf-il .f2 rect{fill:rgba(255,255,255,.5);transform:rotate(-8deg);transform-origin:45px 47px}
+.vf-il .f3 rect{fill:rgba(255,255,255,.28);transform:rotate(9deg);transform-origin:45px 47px}
+.vf-il .onda path{stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
+.vf-il .parola rect{fill:#fff}
+.vf-il .parola.p3 rect{fill:var(--ac)}
+.vf-il .mute{opacity:.5}
+.vf-il .op rect{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.45);stroke-width:1}
+.vf-il .op text{fill:#F3EBDA}
+.vf-il .op.o2 rect{fill:var(--ac);stroke:var(--ac)}
+.vf-il .op.o2 text{fill:#1a1408}
+.vf-il .pin path{fill:var(--ac)}
+.vf-il .pin .buco{fill:var(--t2)}
+.vf-il .ok{fill:none;stroke:var(--ac);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vf-il .sc rect{fill:rgba(255,255,255,.9)}
+.vf-il .sc path{stroke:#1a1408;stroke-width:2;stroke-linecap:round}
+.vf-il .sc.s2 rect{fill:var(--ac)}
+.vf-il .bolla rect{fill:rgba(255,255,255,.92)}
+.vf-il .bolla.b2 rect{fill:var(--ac)}
+.vf-il .bolla text{font-size:5.4px}
+
+/* piccole animazioni dei formati: solo quando si vedono e se le animazioni sono attive */
+@media(prefers-reduced-motion:no-preference){
+  .js:not(.no-anim) .vivo .timbro{animation:vf-timbro 3.6s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:37px 35px}
+  .js:not(.no-anim) .vivo .voce path{animation:vf-onda 1.6s ease-in-out infinite}
+  .js:not(.no-anim) .vivo .voce path+path{animation-delay:.3s}
+  .js:not(.no-anim) .vivo .f1{animation:vf-sfoglia 4s ease-in-out infinite;transform-origin:45px 47px}
+  .js:not(.no-anim) .vivo .onda path{animation:vf-eq 1.2s ease-in-out infinite alternate;transform-origin:center;transform-box:fill-box}
+  .js:not(.no-anim) .vivo .onda path:nth-child(2n){animation-delay:-.4s}
+  .js:not(.no-anim) .vivo .onda path:nth-child(3n){animation-delay:-.8s}
+  .js:not(.no-anim) .vivo .parola{animation:vf-pop 3.6s cubic-bezier(.2,.8,.2,1) infinite both;transform-box:fill-box;transform-origin:center}
+  .js:not(.no-anim) .vivo .parola.p2{animation-delay:.35s}
+  .js:not(.no-anim) .vivo .parola.p3{animation-delay:.7s}
+  .js:not(.no-anim) .vivo .op.o2 rect{animation:vf-scelta 3s ease-in-out infinite}
+  .js:not(.no-anim) .vivo .rumore{animation:vf-silenzio 4s ease-in-out infinite}
+  .js:not(.no-anim) .vivo .pin{animation:vf-pin 2.4s cubic-bezier(.3,.7,.3,1) infinite;transform-box:fill-box;transform-origin:center bottom}
+  .js:not(.no-anim) .vivo .sc{animation:vf-pop 4s cubic-bezier(.2,.8,.2,1) infinite both;transform-box:fill-box;transform-origin:left center}
+  .js:not(.no-anim) .vivo .sc.s2{animation-delay:.5s}
+  .js:not(.no-anim) .vivo .bolla{animation:vf-pop 4.4s cubic-bezier(.2,.8,.2,1) infinite both;transform-box:fill-box;transform-origin:center}
+  .js:not(.no-anim) .vivo .bolla.b2{animation-delay:1.4s}
+}
+@keyframes vf-timbro{0%,15%{opacity:0;transform:scale(1.6) rotate(-14deg)}25%,85%{opacity:1;transform:scale(1) rotate(-8deg)}100%{opacity:0;transform:scale(1) rotate(-8deg)}}
+@keyframes vf-onda{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes vf-sfoglia{0%,40%{transform:none;opacity:1}50%{transform:translateX(30px) rotate(12deg);opacity:0}60%{transform:translateX(-10px);opacity:0}70%,100%{transform:none;opacity:1}}
+@keyframes vf-eq{from{transform:scaleY(.4)}to{transform:scaleY(1.15)}}
+@keyframes vf-pop{0%,8%{opacity:0;transform:scale(.6)}18%,80%{opacity:1;transform:scale(1)}92%,100%{opacity:0;transform:scale(1)}}
+@keyframes vf-scelta{0%,30%{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.45)}45%,100%{fill:var(--ac);stroke:var(--ac)}}
+@keyframes vf-silenzio{0%,35%{opacity:1}55%,90%{opacity:0}100%{opacity:1}}
+@keyframes vf-pin{0%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}60%{transform:translateY(0)}}
+
+.vf-voglio{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:6px;color:var(--ac);text-decoration:none;font:600 14px/1.2 "Manrope",sans-serif;align-self:flex-start}
+.vf-voglio:hover{color:var(--hi)}
+.vf-voglio span{transition:transform .25s}
+.vf-voglio:hover span{transform:translateX(4px)}
+
+/* ---------- quattro passi ---------- */
+@media(min-width:760px){.steps.t4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.steps.t4{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- movimento ridotto ---------- */
+.no-anim .vf-pan,.no-anim .vf-fan-i{transition:none}
+@media(prefers-reduced-motion:reduce){
+  .vf-fan-i,.vf-media,.vf-fr,.vf-pan{transition:none !important;animation:none !important}
+}

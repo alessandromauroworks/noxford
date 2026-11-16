@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Forno Vesuvio · Pizza a legna a Napoli (demo)</title>
+<meta name="description" content="Sito dimostrativo di una pizzeria inventata: menu con allergeni, componi la tua pizza, ordine con ritiro o consegna e stato in tempo reale.">
+<meta name="theme-color" content="#1C1310">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23B8321F'/%3E%3Cpath d='M7 22 L16 9 L25 22 Z' fill='%23F7E9D2'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="salta" href="#main">Vai al contenuto</a>
+<p class="striscia" role="note">Sito dimostrativo di un'attività inventata · Nomi, prezzi e piatti sono di esempio · Foto generate con l'IA</p>
+
+<header class="testa">
+  <div class="riga">
+    <a class="marchio" href="#main" aria-label="Forno Vesuvio, torna all'inizio">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#B8321F"/><path d="M8 28h24L23.5 15.5c-.9-1.3-2.1-1.3-3 0l-1.6 2.3-1.2-1.4c-.8-1-1.8-1-2.6.1Z" fill="#F7E9D2"/><path d="M18 11c1-2 3-2 4-4" stroke="#F7E9D2" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      <span>Forno <b>Vesuvio</b></span>
+    </a>
+    <nav class="voci" aria-label="Sezioni"><a href="#menu">Menu</a><a href="#componi">Componi</a><a href="#come">Come lavoriamo</a><a href="#locale">Orari e zone</a></nav>
+    <div class="azioni">
+      <button class="btn-ordine" type="button" id="apriOrdine" hidden><span class="punto" aria-hidden="true"></span><span><span class="lungo">Il tuo </span>ordine</span></button>
+      <button class="btn-carrello" type="button" id="apriCarrello" aria-label="Apri il carrello, 0 prodotti">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9V6a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="conta" id="contaCarrello">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="apertura">
+    <img class="apertura-foto" src="img/forno.webp" alt="Una margherita appena sfornata sulla pala, davanti al forno a legna acceso" width="896" height="1200" fetchpriority="high">
+    <div class="apertura-testo">
+      <p class="stato" id="statoLocale"><span class="led" aria-hidden="true"></span><span>Controllo gli orari…</span></p>
+      <h1>Pizza napoletana cotta a legna. <em>Da ritirare o a casa tua.</em></h1>
+      <p class="sotto">Scegli dal menu o componi la tua pizza ingrediente per ingrediente. Vedi il prezzo mentre scegli e segui l'ordine fino alla porta.</p>
+      <div class="bottoni">
+        <a class="btn pieno" href="#componi">Componi la tua pizza</a>
+        <a class="btn vuoto" href="#menu">Sfoglia il menu</a>
+      </div>
+      <ul class="fatti">
+        <li><b>30 min</b><span>per il ritiro</span></li>
+        <li><b>3 zone</b><span>di consegna</span></li>
+        <li><b>90 sec</b><span>nel forno a legna</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="giorno" id="giorno" aria-labelledby="tGiorno">
+    <div class="giorno-in rivela">
+      <div class="giorno-foto"><img id="giornoFoto" src="img/friarielli.webp" alt="" width="800" height="800" loading="lazy"></div>
+      <div class="giorno-testo">
+        <p class="occhiello" id="giornoQuando">La pizza di oggi</p>
+        <h2 id="tGiorno">Salsiccia e friarielli</h2>
+        <p id="giornoIngr">Provola affumicata, friarielli saltati, salsiccia di maiale, olio</p>
+        <p class="prezzo-giorno"><span id="giornoPrezzo">€ 8,00</span> <s id="giornoPrima">€ 9,00</s> <small>solo oggi, un euro in meno</small></p>
+        <button class="btn chiaro" type="button" id="giornoAggiungi">Aggiungi al carrello</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="tMenu">
+    <div class="largo">
+      <div class="titolo-sez rivela">
+        <h2 id="tMenu">Il menu</h2>
+        <p>Tocca un piatto per vedere ingredienti, allergeni e varianti.</p>
+      </div>
+      <div class="filtri rivela">
+        <label class="cerca"><span class="sr">Cerca nel menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="cerca" type="search" placeholder="Cerca: bufala, salsiccia, fritti…" autocomplete="off">
+        </label>
+        <div class="schede" role="tablist" aria-label="Categorie" id="schede"></div>
+        <details class="allergie">
+          <summary>Allergie o preferenze <span id="filtriAttivi"></span></summary>
+          <div class="allergie-in">
+            <p>Nascondi i piatti che contengono:</p>
+            <div class="spunte" id="spunteAllergeni"></div>
+            <label class="spunta"><input type="checkbox" id="soloVeg"> Solo vegetariani</label>
+            <p class="nota">Con "Glutine" le pizze restano visibili: si possono fare con l'impasto senza glutine, preparato a parte (+ € 2,50).</p>
+          </div>
+        </details>
+      </div>
+      <div id="listaMenu" class="lista-menu" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="componi" id="componi" aria-labelledby="tComponi">
+    <div class="largo">
+      <div class="titolo-sez chiaro rivela">
+        <h2 id="tComponi">Componi la tua pizza</h2>
+        <p>Parti dall'impasto e aggiungi quello che vuoi. Ogni ingrediente lo vedi cadere sulla pizza, il prezzo cambia subito.</p>
+      </div>
+      <div class="banco">
+        <div class="palco" id="palco">
+          <div class="palco-in">
+            <div class="tavolo" aria-hidden="true"></div>
+            <div id="pizzaViva" class="pizza-viva"></div>
+            <p class="cartellino"><span id="cartMisura">Normale · 32 cm</span><b id="cartPrezzo">€ 6,50</b></p>
+          </div>
+        </div>
+        <form class="scelte" id="formComponi" novalidate>
+          <div class="parti"><span>Parti da</span><button type="button" data-parti="margherita">Margherita</button><button type="button" data-parti="diavola">Diavola</button><button type="button" data-parti="ortolana">Ortolana</button><button type="button" data-parti="vuota">Vuota</button></div>
+          <fieldset><legend>Impasto</legend><div class="pillole" id="scImpasto"></div></fieldset>
+          <fieldset><legend>Misura</legend><div class="pillole" id="scMisura"></div></fieldset>
+          <fieldset><legend>Base</legend><div class="pillole" id="scSalsa"></div></fieldset>
+          <fieldset><legend>Formaggio</legend><div class="pillole" id="scFormaggio"></div></fieldset>
+          <fieldset><legend>Ingredienti <span class="quanti" id="quanti">0 di 8</span></legend><div class="tessere" id="scIngredienti"></div></fieldset>
+          <fieldset><legend>Cottura</legend><div class="pillole" id="scCottura"></div></fieldset>
+          <div class="riepilogo" aria-live="polite">
+            <h3>La tua pizza</h3>
+            <ul id="riepilogo"></ul>
+            <p class="totale"><span>Totale</span><b id="totComponi">€ 6,50</b></p>
+          </div>
+          <div class="barra-componi">
+            <button type="button" class="btn vuoto chiaro-b" id="ricomincia">Ricomincia</button>
+            <button type="submit" class="btn pieno" id="aggiungiComposta">Aggiungi · <span id="totBtn">€ 6,50</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="come" id="come" aria-labelledby="tCome">
+    <div class="largo">
+      <div class="titolo-sez rivela"><h2 id="tCome">Dal tuo ordine al cartone</h2><p>Cosa succede in cucina mentre aspetti. Lo stato lo vedi cambiare sul telefono.</p></div>
+      <ol class="passi" id="passi">
+        <li class="rivela"><img src="img/ingredienti.webp" alt="Impasto, pomodoro, mozzarella e ingredienti sul banco di marmo" width="1200" height="670" loading="lazy"><div><b>Ricevuto</b><p>L'ordine arriva sul tablet del banco con l'orario che hai scelto. Se manca un ingrediente ti scriviamo subito.</p></div></li>
+        <li class="rivela"><img src="img/impasto.webp" alt="Disco di impasto steso a mano" width="800" height="800" loading="lazy" class="tondo"><div><b>In preparazione</b><p>L'impasto ha riposato 24 ore. Lo stendiamo a mano e mettiamo gli ingredienti nell'ordine giusto.</p></div></li>
+        <li class="rivela"><img src="img/forno.webp" alt="Pizza nel forno a legna" width="896" height="1200" loading="lazy"><div><b>In forno</b><p>Circa 90 secondi vicino alla fiamma. Il bordo si gonfia, la mozzarella resta morbida.</p></div></li>
+        <li class="rivela"><img src="img/sala.webp" alt="La sala con il forno a legna sullo sfondo" width="1200" height="896" loading="lazy"><div><b>Pronta o in consegna</b><p>Al banco col tuo numero, oppure in borsa termica verso casa tua.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="locale" id="locale" aria-labelledby="tLocale">
+    <div class="largo due">
+      <div class="rivela">
+        <h2 id="tLocale">Orari, zone e domande</h2>
+        <img class="foto-sala" src="img/sala.webp" alt="La sala della pizzeria con tavoli in legno e maioliche" width="1200" height="896" loading="lazy">
+        <p class="indirizzo"><b>Vico del Forno Vecchio 12, Napoli</b><span>Indirizzo di esempio: l'attività non esiste.</span></p>
+      </div>
+      <div class="rivela">
+        <h3>Orari</h3>
+        <table class="orari">
+          <tbody><tr><th scope="row">Lunedì</th><td>Chiuso</td></tr><tr><th scope="row">Da martedì a domenica</th><td>12:00 – 15:00<br>19:00 – 23:30</td></tr></tbody>
+        </table>
+        <h3>Zone di consegna</h3>
+        <ul class="zone" id="zone"></ul>
+        <p class="nota">Ordine minimo per la consegna € 12,00. Il ritiro al banco non ha minimo.</p>
+        <h3>Domande frequenti</h3>
+        <div class="faq">
+          <details><summary>Fate pizze senza glutine?</summary><p>Sì, con un impasto preparato a parte e cotte su una teglia dedicata. In una cucina con farina non possiamo escludere ogni traccia: se sei celiaco scrivilo nelle note.</p></details>
+          <details><summary>Come pago?</summary><p>Al ritiro o alla consegna, in contanti o con carta. Il sito non chiede dati di pagamento.</p></details>
+          <details><summary>Posso cambiare l'orario dopo aver ordinato?</summary><p>Finché l'ordine è "Ricevuto" sì: chiamaci e lo spostiamo. Quando entra in forno non si può più cambiare.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="piede">
+  <div class="largo">
+    <p><b>Forno Vesuvio</b> è un'attività inventata. Questo sito è una demo realizzata da <a href="../../lavori/forno-vesuvio/">Noxford Agency</a>: gli ordini restano nel tuo browser e non vengono inviati a nessuno.</p>
+    <p><a href="admin.html">Apri il pannello ordini del titolare (demo)</a></p>
+  </div>
+</footer>
+
+<nav class="barra-tel" aria-label="Scorciatoie">
+  <a href="#menu">Menu</a>
+  <a href="#componi" class="evid">Componi</a>
+  <button type="button" id="apriCarrello2">Carrello <span class="conta" id="contaCarrello2">0</span></button>
+</nav>
+
+<!-- Scheda prodotto -->
+<div class="velo" id="velo" hidden></div>
+<section class="foglio" id="scheda" role="dialog" aria-modal="true" aria-labelledby="schedaNome" hidden tabindex="-1">
+  <button class="chiudi" type="button" data-chiudi aria-label="Chiudi">×</button>
+  <div class="scheda-media" id="schedaMedia"></div>
+  <div class="foglio-in">
+    <h2 id="schedaNome"></h2>
+    <p id="schedaIngr" class="scheda-ingr"></p>
+    <p id="schedaAll" class="scheda-all"></p>
+    <div id="schedaOpz"></div>
+    <div class="scheda-fondo">
+      <div class="passo-q" role="group" aria-label="Quantità"><button type="button" id="qMeno" aria-label="Uno in meno">−</button><output id="qNum">1</output><button type="button" id="qPiu" aria-label="Uno in più">+</button></div>
+      <button class="btn pieno" type="button" id="schedaAggiungi">Aggiungi · <span id="schedaTot"></span></button>
+    </div>
+    <button class="link" type="button" id="schedaPersonalizza" hidden>Personalizzala in "Componi la tua pizza"</button>
+  </div>
+</section>
+
+<!-- Carrello e ordine -->
+<section class="foglio laterale" id="carrello" role="dialog" aria-modal="true" aria-labelledby="carrelloTitolo" hidden tabindex="-1">
+  <button class="chiudi" type="button" data-chiudi aria-label="Chiudi">×</button>
+  <div class="foglio-in">
+    <div id="passoCarrello">
+      <h2 id="carrelloTitolo">Il tuo carrello</h2>
+      <ul class="righe" id="righe"></ul>
+      <p class="vuoto-msg" id="vuotoMsg">Il carrello è vuoto. Scegli dal menu o componi una pizza.</p>
+      <div id="checkout">
+        <div class="modo" role="radiogroup" aria-label="Come vuoi riceverlo">
+          <label><input type="radio" name="modo" value="ritiro" checked><span><b>Ritiro al banco</b><small>Pronto in 30 minuti</small></span></label>
+          <label><input type="radio" name="modo" value="consegna"><span><b>Consegna a casa</b><small>Da 45 minuti</small></span></label>
+        </div>
+        <form id="formOrdine" novalidate>
+          <label class="campo"><span>Orario</span><select id="orario" required></select></label>
+          <div id="campiConsegna" hidden>
+            <label class="campo"><span>Zona</span><select id="zona"></select></label>
+            <label class="campo"><span>Indirizzo e numero civico</span><input id="indirizzo" autocomplete="street-address" placeholder="Es. Via Esempio 4"></label>
+            <label class="campo"><span>Citofono e piano</span><input id="citofono" placeholder="Es. Esposito, 2° piano"></label>
+          </div>
+          <label class="campo"><span>Nome</span><input id="nome" autocomplete="given-name" required placeholder="Come ti chiamiamo al banco"></label>
+          <label class="campo"><span>Telefono</span><input id="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="Per avvisarti se c'è un problema"></label>
+          <label class="campo"><span>Note per la cucina (facoltative)</span><textarea id="note" rows="2" placeholder="Allergie, citofono rotto, pizza ben tagliata…"></textarea></label>
+          <div class="conti">
+            <p><span>Prodotti</span><span id="cSub">€ 0,00</span></p>
+            <p id="rigaConsegna" hidden><span>Consegna</span><span id="cCons">€ 0,00</span></p>
+            <p class="tot"><span>Totale</span><b id="cTot">€ 0,00</b></p>
+            <p class="nota">Paghi al ritiro o alla consegna, in contanti o con carta.</p>
+          </div>
+          <p class="errore" id="errOrdine" role="alert"></p>
+          <button class="btn pieno largo-btn" type="submit" id="invia">Conferma l'ordine</button>
+          <p class="nota">Demo: nessun dato esce dal tuo browser.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="foglio laterale" id="ordine" role="dialog" aria-modal="true" aria-labelledby="ordineTitolo" hidden tabindex="-1">
+  <button class="chiudi" type="button" data-chiudi aria-label="Chiudi">×</button>
+  <div class="foglio-in" id="ordineIn"></div>
+</section>
+
+<div class="avviso" id="avviso" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="pizza.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

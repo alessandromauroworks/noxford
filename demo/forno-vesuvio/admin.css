@@ -1,0 +1,64 @@
+/* Pannello ordini del titolare */
+.pannello { background: #F3EEE7; padding-bottom: 40px; }
+.orologio { margin-left: auto; font-size: 14px; color: #D9C6B4; display: none; }
+.orologio::first-letter { text-transform: uppercase; }
+.pannello .btn-carrello { text-decoration: none; margin-left: auto; }
+.pan { padding: 20px 0 40px; }
+.pan-avviso { background: #FFF6E3; border: 1px solid #F0D7A6; border-radius: 14px; padding: 12px 14px; font-size: 15px; }
+.numeri { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+.numeri div { background: #fff; border-radius: 14px; padding: 14px; display: grid; }
+.numeri b { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -.02em; font-size: 28px; line-height: 1.1; }
+.numeri span { font-size: 14px; color: var(--mut); }
+.pan-barra { margin-bottom: 14px; }
+.pan-barra .schede button { display: inline-flex; align-items: center; gap: 6px; }
+.pan-barra .schede button[aria-selected="true"] .conta { background: #fff; color: var(--brace); }
+.pan-griglia { display: grid; gap: 20px; }
+.ordini { display: grid; gap: 12px; }
+.ord { background: #fff; border-radius: 16px; padding: 16px; border-left: 6px solid var(--oro); box-shadow: 0 6px 20px -14px rgba(0, 0, 0, .4); animation: entra .35s var(--cubo); }
+.ord.nuovo { animation: nuovo 1.4s var(--cubo); }
+@keyframes nuovo { 0% { transform: scale(.96); box-shadow: 0 0 0 0 rgba(184, 50, 31, .5); } 40% { box-shadow: 0 0 0 8px rgba(184, 50, 31, .15); } 100% { transform: none; } }
+.ord.stato-ricevuto { border-left-color: var(--pomodoro); }
+.ord.stato-preparazione { border-left-color: var(--oro); }
+.ord.stato-forno { border-left-color: #E06A2C; }
+.ord.stato-uscita { border-left-color: var(--basilico2); }
+.ord.stato-chiuso, .ord.stato-annullato { border-left-color: #BDB2A8; opacity: .85; }
+.ord header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ord-num { font-weight: 800; font-size: 22px; letter-spacing: -.01em; }
+.ord-stato { font-size: 13px; font-weight: 700; background: var(--brace); color: #fff; padding: 4px 10px; border-radius: 999px; }
+.ord-auto { font-size: 12px; color: var(--mut); border: 1px solid var(--linea); padding: 2px 8px; border-radius: 999px; }
+.ord-quando { margin-top: 6px; font-weight: 600; }
+.ord-quando small { font-weight: 400; color: var(--mut); }
+.ord-modo { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: #E9F1E7; color: var(--basilico); }
+.ord-modo.consegna { background: var(--pomodoro-chiaro); color: var(--pomodoro2); }
+.ord-chi { margin-top: 6px; font-size: 15px; }
+.ord-chi a { display: inline-block; padding: 10px 0; }
+.ord-chi small { color: var(--mut); }
+.ord-righe { list-style: none; margin: 10px 0; padding: 0; border-top: 1px solid var(--linea); }
+.ord-righe li { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--linea); font-size: 15px; }
+.ord-righe small { display: block; color: var(--mut); font-size: 13px; }
+.ord-mini { width: 52px; height: 52px; flex: none; border-radius: 50%; background: #2A2523; overflow: hidden; }
+.ord-mini svg { width: 100%; height: 100%; }
+.ord-note { background: #FFF6E3; border-radius: 10px; padding: 8px 10px; font-size: 14px; margin-bottom: 8px; }
+.ord-tot { display: flex; justify-content: space-between; align-items: baseline; }
+.ord-tot b { font-weight: 800; font-size: 22px; color: var(--pomodoro); white-space: nowrap; }
+.ord-azioni { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.ord-azioni .btn.pieno { flex: 1 1 100%; }
+.btn.piccolo { min-height: 44px; padding: 0 16px; font-size: 15px; background: #fff; border: 1.5px solid var(--linea); color: var(--testo); }
+.btn.piccolo:hover { border-color: var(--testo); }
+.btn.rosso { color: #A3271A; }
+.vuoto-pan { background: #fff; border-radius: 16px; padding: 24px; text-align: center; color: var(--mut); }
+.vuoto-pan b { display: block; color: var(--testo); font-family: "Cormorant", serif; font-size: 28px; }
+.riquadro { background: #fff; border-radius: 16px; padding: 16px; display: grid; gap: 10px; }
+.riquadro + .riquadro { margin-top: 12px; }
+.riquadro h2 { font-size: 26px; }
+.interruttori { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+.interr { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-size: 15px; position: relative; }
+.interr input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.lev { width: 38px; height: 22px; border-radius: 11px; background: #CFC4BA; position: relative; flex: none; transition: background .2s; }
+.lev::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .2s var(--cubo); }
+.interr input:checked + .lev { background: var(--basilico2); }
+.interr input:checked + .lev::after { transform: translateX(16px); }
+.interr input:focus-visible + .lev { outline: 3px solid var(--oro); outline-offset: 2px; }
+.largo-sp { width: 100%; }
+@media (min-width: 760px) { .numeri { grid-template-columns: repeat(4, 1fr); } .ordini { grid-template-columns: 1fr 1fr; } .ord-azioni .btn.pieno { flex: 1 1 auto; } .orologio { display: block; } .pannello .btn-carrello { margin-left: 0; } }
+@media (min-width: 1100px) { .pan-griglia { grid-template-columns: 1fr 320px; align-items: start; } .pan-lato { position: sticky; top: calc(var(--testa) + 16px); } }

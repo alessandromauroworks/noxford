@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>La Cuccia del Colle · Pensione e toelettatura per cani (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di una pensione per cani inventata: servizi, prezzi per taglia, prenotazione con calcolo delle notti e scheda del cane con il diario della giornata. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FBF6EC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%232F5D3A'/%3E%3Ccircle cx='16' cy='19' r='5' fill='%23FBF6EC'/%3E%3Ccircle cx='9' cy='12' r='2.6' fill='%23FBF6EC'/%3E%3Ccircle cx='14' cy='8.5' r='2.6' fill='%23FBF6EC'/%3E%3Ccircle cx='19' cy='8.5' r='2.6' fill='%23FBF6EC'/%3E%3Ccircle cx='24' cy='12' r='2.6' fill='%23FBF6EC'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Servizi, prezzi e cani sono di esempio · Foto generate con l'IA</p>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/home" aria-label="La Cuccia del Colle, vai alla home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 24 11 12l5 6 4-4 9 10z" fill="var(--prato)"/><circle cx="16" cy="21" r="4.4" fill="var(--terra)"/><circle cx="10.5" cy="15.5" r="2" fill="var(--terra)"/><circle cx="14.5" cy="13" r="2" fill="var(--terra)"/><circle cx="18.5" cy="13" r="2" fill="var(--terra)"/><circle cx="22" cy="15.5" r="2" fill="var(--terra)"/></svg>
+        <span>La Cuccia<br><b>del Colle</b></span>
+      </a>
+      <a class="call" href="#/prenota">Prenota</a>
+    </header>
+    <main>
+      <section class="screen" data-screen="home" aria-labelledby="h-home">
+        <div class="hero">
+          <img src="img/prato.webp" width="1000" height="747" alt="Un cane dal pelo biondo che corre felice sul prato recintato, con ulivi e un fienile sullo sfondo" fetchpriority="high">
+        </div>
+        <h1 id="h-home">Tu parti tranquillo, <span>lui corre sul prato.</span></h1>
+        <p class="lead">Pensione con 4.000 m² di prato recintato, asilo di giorno e toelettatura. Ogni sera ti mandiamo foto e due righe su com'è andata.</p>
+        <div class="next" id="next"></div>
+        <h2 class="sec">Cosa facciamo</h2>
+        <div class="serv-mini" id="home-serv"></div>
+        <div class="rules">
+          <h2>Prima del primo soggiorno</h2>
+          <ol><li><b>Visita di conoscenza</b><span>Gratis, mezz'ora con il tuo cane in giardino.</span></li><li><b>Libretto in regola</b><span>Vaccini e trattamento antiparassitario aggiornati.</span></li><li><b>Le sue abitudini</b><span>Cibo, orari, paure: le segniamo nella sua scheda.</span></li></ol>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="servizi" aria-labelledby="h-serv" hidden>
+        <h1 class="title" id="h-serv">Servizi e prezzi</h1>
+        <div class="size" role="group" aria-label="Taglia del cane" id="taglie"></div>
+        <ul class="serv" id="serv-list"></ul>
+      </section>
+
+      <section class="screen" data-screen="servizio" aria-labelledby="s-nome" hidden>
+        <a class="back" href="#/servizi"><span aria-hidden="true">←</span> Servizi</a>
+        <div id="s-box"></div>
+      </section>
+
+      <section class="screen" data-screen="prenota" aria-labelledby="h-pren" hidden>
+        <h1 class="title" id="h-pren">Prenota</h1>
+        <form id="f-pren" novalidate>
+          <label class="f" for="p-serv">Servizio<select id="p-serv" name="serv"></select></label>
+          <div class="due">
+            <label class="f" for="p-dal"><span id="l-dal">Arrivo</span><input type="date" id="p-dal" name="dal" required></label>
+            <label class="f" for="p-al" id="w-al">Partenza<input type="date" id="p-al" name="al" required></label>
+          </div>
+          <p class="err" id="e-date" role="alert"></p>
+          <fieldset class="f"><legend>Per chi</legend><div class="cani" id="p-cani"></div></fieldset>
+          <fieldset class="f"><legend>Extra</legend>
+            <label class="ck"><input type="checkbox" name="ex" value="bagno" data-p="25"><span>Bagno prima del ritorno a casa</span><em>25 € a cane</em></label>
+            <label class="ck"><input type="checkbox" name="ex" value="ritiro" data-p="20"><span>Ritiro e riconsegna a casa (entro 15 km)</span><em>20 € a cane</em></label>
+            <label class="ck"><input type="checkbox" name="ex" value="passeggiata" data-p="8" data-notte="1"><span>Passeggiata lunga nel bosco, ogni giorno</span><em>8 € al giorno a cane</em></label>
+          </fieldset>
+          <label class="f" for="p-note">Note per noi<textarea id="p-note" rows="3" placeholder="Es. ha paura dei temporali, mangia alle 7 e alle 18"></textarea></label>
+          <div class="conto" id="conto" aria-live="polite"></div>
+          <button class="btn verde full" type="submit">Invia la richiesta (demo)</button>
+          <p class="nota">Demo: la richiesta non arriva a nessuno. Nella versione vera ti confermiamo entro un'ora per WhatsApp.</p>
+        </form>
+        <div class="ok" id="ok" hidden></div>
+      </section>
+
+      <section class="screen" data-screen="cane" aria-labelledby="h-cane" hidden>
+        <div class="dog-head"><img src="img/stanza.webp" width="1200" height="896" alt="Un cane marrone che dorme nella sua cuccia rotonda, in una stanza con pareti di legno e una finestra sul giardino" loading="lazy"><span class="live">Stanza 4 · foto delle 21:40</span></div>
+        <h1 class="title" id="h-cane">Birba</h1>
+        <p class="lead small">Meticcia, 6 anni, 14 kg. In pensione dal 14 al 18 novembre.</p>
+        <h2 class="sec">Il diario di oggi</h2>
+        <ol class="diario">
+          <li><b>7:30</b><span>Colazione finita tutta, con le sue crocchette.</span></li>
+          <li><b>10:00</b><span>Un'ora sul prato con Otto e Luna. Ha portato indietro la palla 23 volte.</span></li>
+          <li><b>13:00</b><span>Pisolino all'ombra degli ulivi.</span></li>
+          <li><b>17:30</b><span>Passeggiata nel bosco, 3 km.</span></li>
+          <li><b>21:40</b><span>Dorme nella sua stanza, con la coperta che ci hai lasciato.</span></li>
+        </ol>
+        <h2 class="sec">La sua scheda</h2>
+        <dl class="scheda">
+          <div><dt>Vaccini</dt><dd>In regola fino a marzo 2027</dd></div>
+          <div><dt>Cibo</dt><dd>Crocchette sue, 2 pasti (7:00 e 18:00)</dd></div>
+          <div><dt>Carattere</dt><dd>Socievole con i cani, timida con le persone nuove</dd></div>
+          <div><dt>Da sapere</dt><dd>Ha paura dei tuoni: tenerla dentro se piove</dd></div>
+        </dl>
+        <p class="nota">Cane, diario e foto sono di esempio.</p>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 10 9l4 5 3-3 4 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Home</a>
+      <a href="#/servizi" data-tab="servizi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Servizi</a>
+      <a href="#/prenota" data-tab="prenota"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Prenota</a>
+      <a href="#/cane" data-tab="cane"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="10" r="1.8" fill="currentColor"/><circle cx="10" cy="6.5" r="1.8" fill="currentColor"/><circle cx="14" cy="6.5" r="1.8" fill="currentColor"/><circle cx="18" cy="10" r="1.8" fill="currentColor"/></svg>Il mio cane</a>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* Bolle - app dimostrativa. Palette: acqua, blu profondo, giallo, ghiaccio. Font di sistema. */
+/* Font ospitati qui (licenza SIL OFL 1.1, vedi la cartella fonts/): nessuna richiesta ad altri siti. */
+@font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-wght.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+:root {
+  --ghiaccio: #EEF7FB;
+  --bianco: #FFFFFF;
+  --acqua: #00A6D6;
+  --acqua-chiara: #D4F0F9;
+  --blu: #0B2545;
+  --giallo: #FFD23F;
+  --testo: #0B2545;
+  --grigio: #5B6F86;
+  --linea: #D3E3EC;
+  --font: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; font-family: var(--font); color: var(--testo); font-size: 16px; line-height: 1.5; background: #D9EBF3; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--acqua); outline-offset: 2px; border-radius: 8px; }
+.demo-strip { margin: 0; padding: 8px 16px; background: var(--blu); color: #DCEBF5; font-size: 12.5px; text-align: center; line-height: 1.35; }
+.app { position: relative; max-width: 440px; margin: 0 auto; min-height: calc(100vh - 40px); background: var(--ghiaccio); padding-bottom: 96px; }
+@media (min-width: 600px) { .app { margin: 24px auto; border-radius: 28px; overflow: hidden; min-height: 820px; box-shadow: 0 30px 70px -30px rgba(11,37,69,.45); } }
+.top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; background: rgba(238,247,251,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-weight: 800; font-size: 25px; letter-spacing: -.03em; color: var(--blu); line-height: .95; }
+.brand svg { width: 34px; height: 34px; color: var(--acqua); }
+.brand small { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--grigio); }
+.coda { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--bianco); border: 1px solid var(--linea); font-size: 12.5px; font-weight: 600; }
+.coda i { width: 8px; height: 8px; border-radius: 50%; background: #2BB673; }
+.screen { padding: 0 18px 24px; animation: entra .3s var(--ease); }
+@keyframes entra { from { opacity: 0; transform: scale(.99); } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } }
+.hero { margin-top: 8px; border-radius: 26px; overflow: hidden; }
+.hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+h1 { margin: 18px 0 6px; font-size: 30px; line-height: 1.08; letter-spacing: -.02em; font-weight: 800; }
+h1 span { color: var(--acqua); }
+.lead { margin: 0 0 16px; color: var(--grigio); }
+.lead.small { font-size: 14.5px; margin-bottom: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 16px; border: 0; cursor: pointer; font-weight: 700; font-size: 16.5px; text-decoration: none; background: var(--bianco); }
+.btn.blu { background: var(--acqua); color: #fff; box-shadow: 0 12px 24px -12px var(--acqua); }
+.btn.blu:hover { background: #0096C2; }
+.btn.full { width: 100%; }
+.btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.tre { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; }
+.tre div { padding: 12px 10px; border-radius: 18px; background: var(--bianco); border: 1px solid var(--linea); }
+.tre b { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--giallo); font-size: 14px; margin-bottom: 6px; }
+.tre span { font-size: 13px; line-height: 1.3; display: block; }
+.interni { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: center; margin-top: 18px; padding: 12px; border-radius: 22px; background: var(--blu); color: #fff; }
+.interni img { width: 120px; height: 120px; object-fit: cover; border-radius: 16px; }
+.interni h2 { margin: 0 0 4px; font-size: 18px; }
+.interni p { margin: 0 0 6px; color: #B8CCE0; font-size: 14px; }
+.interni a { display: inline-flex; align-items: center; min-height: 44px; color: var(--giallo); font-weight: 700; text-decoration: none; }
+.title { margin: 18px 0 12px; font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
+.veicoli { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.veicoli button { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 76px; padding: 8px 4px; border-radius: 18px; border: 1.5px solid var(--linea); background: var(--bianco); cursor: pointer; font-weight: 600; font-size: 13.5px; }
+.veicoli svg { width: 44px; height: 26px; color: var(--grigio); }
+.veicoli button[aria-pressed="true"] { border-color: var(--acqua); background: var(--acqua-chiara); }
+.veicoli button[aria-pressed="true"] svg { color: var(--acqua); }
+.prog { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.prog > li { padding: 16px; border-radius: 22px; background: var(--bianco); border: 1px solid var(--linea); }
+.prog > li.best { border: 2px solid var(--acqua); }
+.prog .head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.prog h2 { margin: 0; font-size: 19px; }
+.prog .pr { font-size: 24px; font-weight: 800; color: var(--acqua); }
+.prog .min { color: var(--grigio); font-size: 13.5px; }
+.prog ul { margin: 8px 0 12px; padding-left: 18px; color: var(--grigio); font-size: 14.5px; }
+.prog .badge-top { display: inline-block; margin-bottom: 6px; padding: 2px 8px; border-radius: 6px; background: var(--giallo); font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.prog a { display: flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 14px; background: var(--ghiaccio); text-decoration: none; font-weight: 700; }
+.lab { display: block; margin: 18px 0 8px; font-weight: 700; font-size: 14.5px; }
+.lab small { font-weight: 400; color: var(--grigio); }
+.scelte { display: grid; gap: 8px; }
+.scelte label { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 8px 14px; border-radius: 16px; background: var(--bianco); border: 1.5px solid var(--linea); cursor: pointer; }
+.scelte label:has(input:checked) { border-color: var(--acqua); background: var(--acqua-chiara); }
+.scelte input { width: 20px; height: 20px; margin: 0; accent-color: var(--acqua); flex: none; }
+.scelte span { flex: 1; line-height: 1.25; }
+.scelte small { display: block; color: var(--grigio); font-size: 12.5px; }
+.scelte em { font-style: normal; font-weight: 700; white-space: nowrap; }
+.slot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.slot button { min-height: 52px; border-radius: 14px; border: 1.5px solid var(--linea); background: var(--bianco); cursor: pointer; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.slot button small { display: block; font-size: 11px; color: var(--grigio); }
+.slot button[aria-pressed="true"] { background: var(--blu); border-color: var(--blu); color: #fff; }
+.slot button[aria-pressed="true"] small { color: #B8CCE0; }
+.slot button:disabled { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+.in { width: 100%; min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid var(--linea); background: var(--bianco); text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+.in:focus { outline: none; border-color: var(--acqua); }
+.err { margin: 6px 0 0; color: #C0392B; font-size: 14px; font-weight: 600; }
+.err:empty { margin: 0; }
+.tot { margin: 18px 0 14px; padding: 16px; border-radius: 20px; background: var(--blu); color: #fff; }
+.tot p { display: flex; justify-content: space-between; margin: 3px 0; color: #B8CCE0; font-size: 15px; }
+.tot .g { color: #fff; font-size: 21px; font-weight: 800; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.15); }
+.nota { color: var(--grigio); font-size: 13px; margin-top: 12px; }
+.stato { padding: 18px; border-radius: 24px; background: var(--bianco); border: 1px solid var(--linea); }
+.stato .riga { display: flex; justify-content: space-between; align-items: baseline; }
+.stato b.min { font-size: 34px; font-weight: 800; color: var(--acqua); }
+.stato small { color: var(--grigio); }
+.barra { height: 10px; margin: 12px 0; border-radius: 5px; background: var(--acqua-chiara); overflow: hidden; }
+.barra i { display: block; height: 100%; background: linear-gradient(90deg, var(--acqua), #4FD1F0); border-radius: 5px; transition: width .6s var(--ease); }
+.fasi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; font-size: 12px; text-align: center; color: var(--grigio); }
+.fasi li.on { color: var(--blu); font-weight: 700; }
+.sec { margin: 26px 0 6px; font-size: 20px; font-weight: 800; }
+.bar { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.bar li { display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 14px; border-radius: 16px; background: var(--bianco); border: 1px solid var(--linea); }
+.bar li div { flex: 1; }
+.bar small { display: block; color: var(--grigio); font-size: 13px; }
+.bar button { min-width: 44px; min-height: 44px; border-radius: 12px; border: 0; background: var(--giallo); font-weight: 800; font-size: 20px; cursor: pointer; }
+.bar .n { min-width: 22px; text-align: center; font-weight: 700; }
+.conto-bar { margin-top: 10px; }
+.tess { padding: 20px; border-radius: 24px; background: linear-gradient(135deg, var(--acqua), #0077A8); color: #fff; }
+.tess h2 { margin: 0; font-size: 19px; }
+.tess p { margin: 4px 0 14px; color: #D4F0F9; font-size: 14px; }
+.gocce { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.gocce i { aspect-ratio: 1; border-radius: 50%; border: 2px dashed rgba(255,255,255,.6); }
+.gocce i.on { background: var(--giallo); border: 0; }
+.storico { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.storico li { padding: 12px 14px; border-radius: 16px; background: var(--bianco); border: 1px solid var(--linea); }
+.storico small { display: block; color: var(--grigio); }
+.vuoto { padding: 18px; border-radius: 20px; background: var(--bianco); color: var(--grigio); text-align: center; }
+.tabbar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100%, 440px); display: grid; grid-template-columns: repeat(5, 1fr); padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); background: var(--bianco); border-top: 1px solid var(--linea); z-index: 10; }
+@media (min-width: 600px) { .tabbar { bottom: 24px; border-radius: 0 0 28px 28px; } }
+.tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--grigio); }
+.tabbar svg { width: 24px; height: 24px; }
+.tabbar a[aria-current="page"] { color: var(--acqua); }
+.toast { position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; max-width: min(400px, calc(100% - 32px)); padding: 12px 18px; border-radius: 14px; background: var(--blu); color: #fff; font-weight: 600; transition: .3s var(--ease); z-index: 20; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* Su computer l'app sta dentro la cornice: scorre il contenuto, la barra resta in basso. */
+@media (min-width: 600px) {
+  .app { display: flex; flex-direction: column; height: max(620px, calc(100vh - 96px)); min-height: 0; padding-bottom: 0; overflow: hidden; }
+  .app > main { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-bottom: 8px; }
+  .app > .top { position: relative; flex: none; }
+  .tabbar { position: relative; flex: none; left: auto; bottom: auto; transform: none; width: 100%; border-radius: 0; }
+  .addbar, .sheet { bottom: 12px; }
+}

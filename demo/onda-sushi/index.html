@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Onda Sushi · Sushi da asporto e a domicilio (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di un sushi bar inventato: offerta a tempo, menu con ricerca, porzioni e allergeni, carrello con mancia e orario di consegna. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4EFE6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2323305A'/%3E%3Cpath d='M6 19c4-6 8-6 10 0s6 6 10 0' fill='none' stroke='%23F4EFE6' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23D9412B'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Piatti e prezzi sono di esempio · Foto generate con l'IA</p>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/home" aria-label="Onda Sushi, vai alla home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--indaco)"/><path d="M6 19c4-6 8-6 10 0s6 6 10 0" fill="none" stroke="#F4EFE6" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="10" r="3" fill="var(--vermiglio)"/></svg>
+        <span>Onda <i>sushi</i></span>
+      </a>
+      <span class="open"><i></i>Aperto · consegna 35-45 min</span>
+    </header>
+    <main>
+      <section class="screen" data-screen="home" aria-labelledby="h-home">
+        <div class="offerta">
+          <img src="img/tagliere.webp" width="1200" height="896" alt="Piatto nero con nigiri di salmone e tonno, uramaki al sesamo e hosomaki" fetchpriority="high">
+          <div class="off-tx">
+            <p class="kick">Offerta di oggi</p>
+            <h1 id="h-home">Barca Onda per due a 34 € invece di 42 €</h1>
+            <p class="timer" aria-live="off">Finisce tra <b id="countdown">--:--:--</b></p>
+            <a class="btn rosso" href="#/piatto/barca">Vedi la barca</a>
+          </div>
+        </div>
+        <h2 class="sec">Categorie</h2>
+        <div class="cats" id="home-cats"></div>
+        <h2 class="sec">Consigliati dallo chef</h2>
+        <ul class="chef" id="home-chef"></ul>
+      </section>
+
+      <section class="screen" data-screen="menu" aria-labelledby="h-menu" hidden>
+        <h1 class="title" id="h-menu">Il menu</h1>
+        <label class="search"><span class="sr">Cerca un piatto</span><input id="cerca" type="search" placeholder="Cerca: salmone, tempura, veg…" autocomplete="off"></label>
+        <div class="tabs" id="menu-tabs" role="group" aria-label="Categorie"></div>
+        <ul class="grid" id="menu-list"></ul>
+        <p class="empty" id="menu-vuoto" hidden>Nessun piatto trovato.</p>
+      </section>
+
+      <section class="screen" data-screen="piatto" aria-labelledby="d-nome" hidden>
+        <a class="back" href="#/menu"><span aria-hidden="true">←</span> Torna al menu</a>
+        <div id="d-head"></div>
+        <form id="d-form" novalidate></form>
+      </section>
+
+      <section class="screen" data-screen="carrello" aria-labelledby="h-cart" hidden>
+        <h1 class="title" id="h-cart">Carrello</h1>
+        <div id="cart-box"></div>
+      </section>
+
+      <section class="screen" data-screen="ordini" aria-labelledby="h-ord" hidden>
+        <h1 class="title" id="h-ord">I tuoi ordini</h1>
+        <div id="ord-box"></div>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c3-5 6-5 9 0s6 5 9 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Oggi</a>
+      <a href="#/menu" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v18M17 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</a>
+      <a href="#/carrello" data-tab="carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-2 10H6zM8 9l4-5 4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Carrello<i class="badge" id="badge" hidden>0</i></a>
+      <a href="#/ordini" data-tab="ordini"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Ordini</a>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

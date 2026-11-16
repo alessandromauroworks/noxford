@@ -1,0 +1,134 @@
+/* Salvia - app dimostrativa. Palette: salvia, sabbia, bosco, cipria. Font di sistema con grazie. */
+/* Font ospitati qui (licenza SIL OFL 1.1, vedi la cartella fonts/): nessuna richiesta ad altri siti. */
+@font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-wght.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant"; src: url("fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant"; src: url("fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+:root {
+  --sabbia: #EFE7DC;
+  --latte: #FAF6F0;
+  --salvia: #8A9A7B;
+  --salvia-chiara: #DDE3D3;
+  --bosco: #2E3A2F;
+  --cipria: #D9A9A0;
+  --cipria-chiara: #F3DFD9;
+  --grigio: #5E594F;
+  --linea: #DED4C5;
+  --titoli: "Cormorant", "Georgia", serif;
+  --testo: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; font-family: var(--testo); color: var(--bosco); font-size: 16px; line-height: 1.55; background: #E4DACB; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--bosco); outline-offset: 3px; border-radius: 10px; }
+.demo-strip { margin: 0; padding: 8px 16px; background: var(--cipria-chiara); color: #5B3A33; font-size: 12.5px; text-align: center; line-height: 1.35; }
+.app { position: relative; max-width: 440px; margin: 0 auto; min-height: calc(100vh - 40px); background: var(--sabbia); padding-bottom: 96px; }
+@media (min-width: 600px) { .app { margin: 24px auto; border-radius: 30px; overflow: hidden; min-height: 820px; box-shadow: 0 30px 70px -30px rgba(46,58,47,.4); } }
+.top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; background: rgba(239,231,220,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-family: var(--titoli); font-size: 23px; line-height: 1; }
+.brand svg { width: 30px; height: 30px; }
+.brand small { display: block; font-family: var(--testo); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--grigio); margin-top: 3px; }
+.pill { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--linea); text-decoration: none; font-size: 13px; background: var(--latte); }
+.screen { padding: 0 18px 24px; animation: entra .45s var(--ease); }
+@keyframes entra { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } }
+.hero { position: relative; margin-top: 8px; border-radius: 200px 200px 24px 24px; overflow: hidden; }
+.hero img { width: 100%; aspect-ratio: 3 / 3.6; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(46,58,47,.9)); }
+.hero-tx { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 20px; color: var(--latte); }
+.hero h1 { margin: 0; font-family: var(--titoli); font-weight: 400; font-size: 38px; line-height: 1.05; }
+.hero p { margin: 6px 0 14px; color: #E8E2D6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border-radius: 999px; border: 0; cursor: pointer; text-decoration: none; font-weight: 600; background: var(--latte); color: var(--bosco); }
+.btn.scuro { background: var(--bosco); color: var(--latte); }
+.btn.scuro:hover { background: #3D4C3E; }
+.btn.full { width: 100%; margin-top: 18px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.appt { margin-top: 18px; }
+.appt a { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border-radius: 22px; background: var(--latte); border: 1px solid var(--linea); text-decoration: none; }
+.appt .d { flex: none; width: 54px; padding: 6px 0; border-radius: 14px; background: var(--salvia); color: var(--latte); text-align: center; line-height: 1.1; }
+.appt .d b { display: block; font-size: 22px; font-family: var(--titoli); }
+.appt .d small { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+.appt span small { display: block; color: var(--grigio); }
+.sec { margin: 28px 0 12px; font-family: var(--titoli); font-weight: 400; font-size: 24px; }
+.tr-list { list-style: none; margin: 0; padding: 0; }
+.tr-list li + li { border-top: 1px solid var(--linea); }
+.tr-list a { display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 14px 2px; text-decoration: none; min-height: 64px; }
+.tr-list b { display: block; font-family: var(--titoli); font-weight: 400; font-size: 19px; }
+.tr-list small { color: var(--grigio); font-size: 13.5px; }
+.tr-list .pr { flex: none; text-align: right; font-weight: 600; }
+.tr-list .pr small { display: block; font-weight: 400; }
+.gift { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: center; margin-top: 26px; padding: 12px; border-radius: 24px; background: var(--cipria-chiara); }
+.gift img { width: 110px; height: 110px; object-fit: cover; border-radius: 18px; }
+.gift h2 { margin: 0 0 4px; font-family: var(--titoli); font-weight: 400; font-size: 20px; }
+.gift p { margin: 0; font-size: 14px; color: #5B4A44; }
+.title { margin: 18px 0 14px; font-family: var(--titoli); font-weight: 400; font-size: 34px; }
+.filtri { display: flex; gap: 8px; overflow-x: auto; margin: 0 -18px 8px; padding: 0 18px 4px; scrollbar-width: none; }
+.filtri::-webkit-scrollbar { display: none; }
+.filtri button { flex: none; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--linea); background: var(--latte); cursor: pointer; }
+.filtri button[aria-pressed="true"] { background: var(--bosco); color: var(--latte); border-color: var(--bosco); }
+.back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px; color: var(--grigio); text-decoration: none; }
+.t-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 24px; }
+.t-ill { display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: 24px; background: radial-gradient(circle at 30% 30%, var(--cipria-chiara), var(--salvia-chiara)); }
+.t-ill svg { width: 30%; color: var(--bosco); opacity: .7; }
+#t-nome { margin: 18px 0 6px; font-family: var(--titoli); font-weight: 400; font-size: 30px; line-height: 1.15; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+.meta span { padding: 6px 12px; border-radius: 999px; background: var(--latte); border: 1px solid var(--linea); font-size: 14px; }
+.fasi { list-style: none; margin: 16px 0 0; padding: 0; counter-reset: f; }
+.fasi li { counter-increment: f; position: relative; padding: 10px 0 10px 42px; border-bottom: 1px solid var(--linea); }
+.fasi li::before { content: counter(f); position: absolute; left: 0; top: 10px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--salvia); display: grid; place-items: center; font-family: var(--titoli); color: var(--salvia); }
+.adatto { margin-top: 16px; padding: 14px 16px; border-radius: 18px; background: var(--salvia-chiara); font-size: 14.5px; }
+.f { display: block; font-weight: 600; font-size: 14px; }
+.f select { display: block; width: 100%; margin-top: 6px; min-height: 50px; padding: 0 14px; border-radius: 16px; border: 1px solid var(--linea); background: var(--latte); font-weight: 400; font-size: 16px; }
+.f-lab { margin: 18px 0 8px; font-weight: 600; font-size: 14px; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.seg button { min-height: 48px; border-radius: 14px; border: 1px solid var(--linea); background: var(--latte); cursor: pointer; font-size: 14.5px; }
+.seg button[aria-pressed="true"] { background: var(--salvia); border-color: var(--salvia); color: #fff; }
+.giorni { display: flex; gap: 8px; overflow-x: auto; margin: 0 -18px; padding: 0 18px 4px; scrollbar-width: none; }
+.giorni::-webkit-scrollbar { display: none; }
+.giorni button { flex: none; width: 58px; min-height: 70px; border-radius: 18px; border: 1px solid var(--linea); background: var(--latte); cursor: pointer; line-height: 1.15; }
+.giorni button small { display: block; font-size: 11px; text-transform: uppercase; color: var(--grigio); }
+.giorni button b { font-size: 20px; font-family: var(--titoli); font-weight: 400; }
+.giorni button[aria-pressed="true"] { background: var(--bosco); color: var(--latte); border-color: var(--bosco); }
+.giorni button[aria-pressed="true"] small { color: #C9D1C3; }
+.giorni button:disabled { opacity: .4; cursor: not-allowed; }
+.orari { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.orari button { min-height: 46px; border-radius: 12px; border: 1px solid var(--linea); background: var(--latte); cursor: pointer; font-variant-numeric: tabular-nums; }
+.orari button[aria-pressed="true"] { background: var(--cipria); border-color: var(--cipria); color: #3A2420; font-weight: 700; }
+.orari button:disabled { text-decoration: line-through; opacity: .4; cursor: not-allowed; }
+.riep { margin-top: 18px; padding: 16px; border-radius: 20px; background: var(--latte); border: 1px solid var(--linea); }
+.riep p { margin: 2px 0; }
+.riep .g { font-family: var(--titoli); font-size: 20px; }
+.nota { color: var(--grigio); font-size: 13px; margin-top: 12px; }
+.ag { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ag li { display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 20px; background: var(--latte); border: 1px solid var(--linea); }
+.ag .d { flex: none; width: 54px; padding: 6px 0; border-radius: 14px; background: var(--salvia-chiara); text-align: center; line-height: 1.1; }
+.ag .d b { display: block; font-size: 22px; font-family: var(--titoli); }
+.ag .d small { font-size: 11px; text-transform: uppercase; }
+.ag .info { flex: 1; } .ag .info small { display: block; color: var(--grigio); }
+.ag button { min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--linea); background: transparent; cursor: pointer; font-size: 13px; }
+.carnet { margin-top: 20px; padding: 18px; border-radius: 22px; background: var(--bosco); color: var(--latte); }
+.carnet h2 { margin: 0; font-family: var(--titoli); font-weight: 400; font-size: 21px; }
+.carnet p { margin: 2px 0 12px; color: #C9D1C3; }
+.bar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.15); }
+.bar i { display: block; height: 100%; border-radius: 4px; background: var(--cipria); }
+.vuoto { padding: 18px; border-radius: 20px; background: var(--latte); text-align: center; color: var(--grigio); }
+.tabbar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100%, 440px); display: grid; grid-template-columns: repeat(4, 1fr); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: rgba(250,246,240,.97); border-top: 1px solid var(--linea); z-index: 10; }
+@media (min-width: 600px) { .tabbar { bottom: 24px; border-radius: 0 0 30px 30px; } }
+.tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; text-decoration: none; font-size: 11.5px; color: var(--grigio); }
+.tabbar svg { width: 24px; height: 24px; }
+.tabbar a[aria-current="page"] { color: var(--bosco); font-weight: 700; }
+
+/* Su computer l'app sta dentro la cornice: scorre il contenuto, la barra resta in basso. */
+@media (min-width: 600px) {
+  .app { display: flex; flex-direction: column; height: max(620px, calc(100vh - 96px)); min-height: 0; padding-bottom: 0; overflow: hidden; }
+  .app > main { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-bottom: 8px; }
+  .app > .top { position: relative; flex: none; }
+  .tabbar { position: relative; flex: none; left: auto; bottom: auto; transform: none; width: 100%; border-radius: 0; }
+  .addbar, .sheet { bottom: 12px; }
+}
+
+/* numeri allineati anche con Cormorant (date, orari, prezzi) */
+body, button { font-variant-numeric: lining-nums; }

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Spiedo Nero · Kebab e street food (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di un kebab inventato: menu, kebab da comporre, carrello, ordine seguito passo passo e tessera punti. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141110">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141110'/%3E%3Cpath d='M16 5v22' stroke='%23FFC23D' stroke-width='2.5'/%3E%3Cpath d='M10 10h12l-2 4h-8zM9 16h14l-2 5H11z' fill='%23FF6B1A'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Menu, prezzi e indirizzi sono di esempio · Foto generate con l'IA</p>
+
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/home" aria-label="Spiedo Nero, vai alla home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v26" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M9.5 9h13l-2.2 4.4h-8.6zM8.5 15.5h15l-2.4 5.5h-10.2z" fill="var(--brace)"/></svg>
+        <span>Spiedo<b>Nero</b></span>
+      </a>
+      <p class="where"><small>Consegna a</small><b>Via dei Mille 12</b></p>
+    </header>
+
+    <main id="main">
+      <!-- HOME -->
+      <section class="screen" data-screen="home" aria-labelledby="h-home">
+        <div class="hero">
+          <img src="img/wrap.webp" width="1200" height="896" alt="Un dürüm tagliato a metà con carne alla piastra, insalata, pomodoro e salsa yogurt" fetchpriority="high">
+          <div class="hero-tx">
+            <p class="kick">Aperti fino alle 2 di notte</p>
+            <h1 id="h-home">Il kebab come lo vuoi tu, <em>a casa in 30 minuti.</em></h1>
+            <a class="btn hot" href="#/menu">Ordina adesso</a>
+          </div>
+        </div>
+        <div class="promo">
+          <div><b>Martedì Box</b><span>Box kebab con patatine e bibita a 11&nbsp;€</span></div>
+          <a class="chip-link" href="#/prodotto/box">Lo voglio</a>
+        </div>
+        <h2 class="sec">Cosa ti va?</h2>
+        <div class="cats" id="home-cats"></div>
+        <h2 class="sec">I più ordinati</h2>
+        <div class="row-scroll" id="home-pop"></div>
+        <div class="story">
+          <img src="img/spiedo.webp" width="896" height="1200" alt="Lo spiedo verticale che gira davanti alla piastra, con il coltello che taglia la carne" loading="lazy">
+          <div><h2>Lo spiedo lo montiamo noi, ogni mattina</h2><p>Carne marinata dalla sera prima con yogurt, paprica e cumino. La piadina la cuociamo al momento sulla piastra.</p></div>
+        </div>
+      </section>
+
+      <!-- MENU -->
+      <section class="screen" data-screen="menu" aria-labelledby="h-menu" hidden>
+        <h1 class="title" id="h-menu">Menu</h1>
+        <label class="search"><span class="sr">Cerca nel menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="cerca" type="search" placeholder="Cerca: pollo, falafel, piccante…" autocomplete="off"></label>
+        <div class="tabs" id="menu-tabs" role="group" aria-label="Categorie"></div>
+        <ul class="list" id="menu-list"></ul>
+        <p class="empty" id="menu-vuoto" hidden>Niente con questo nome. Prova con un'altra parola.</p>
+      </section>
+
+      <!-- DETTAGLIO -->
+      <section class="screen" data-screen="prodotto" aria-labelledby="p-nome" hidden>
+        <a class="back" href="#/menu"><span aria-hidden="true">←</span> Menu</a>
+        <div class="p-head" id="p-head"></div>
+        <form id="p-form" class="opts" novalidate></form>
+      </section>
+
+      <!-- CARRELLO -->
+      <section class="screen" data-screen="carrello" aria-labelledby="h-cart" hidden>
+        <h1 class="title" id="h-cart">Il tuo ordine</h1>
+        <div id="cart-box"></div>
+      </section>
+
+      <!-- ORDINE -->
+      <section class="screen" data-screen="ordine" aria-labelledby="h-ord" hidden>
+        <h1 class="title" id="h-ord">Segui l'ordine</h1>
+        <div id="ord-box"></div>
+      </section>
+
+      <!-- PROFILO -->
+      <section class="screen" data-screen="profilo" aria-labelledby="h-prof" hidden>
+        <h1 class="title" id="h-prof">Ciao, Giulia</h1>
+        <div class="card-punti" id="punti"></div>
+        <h2 class="sec">I tuoi ordini</h2>
+        <ul class="storico" id="storico"></ul>
+        <h2 class="sec">Indirizzi salvati</h2>
+        <ul class="storico">
+          <li><b>Casa</b><span>Via dei Mille 12, 2° piano, citofono Ferri</span></li>
+          <li><b>Ufficio</b><span>Corso Italia 48, scala B</span></li>
+        </ul>
+        <p class="nota">Profilo di esempio: nome, indirizzi e ordini sono inventati e restano solo in questo browser.</p>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Home</a>
+      <a href="#/menu" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</a>
+      <a href="#/carrello" data-tab="carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.5 11h-11zM9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Ordine<i class="badge" id="badge" hidden>0</i></a>
+      <a href="#/ordine" data-tab="ordine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 17h5M4 8h7v6M14 9h3l3 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Rider</a>
+      <a href="#/profilo" data-tab="profilo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Profilo</a>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
+</html>

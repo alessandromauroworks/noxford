@@ -1,0 +1,137 @@
+/* Campo Vivo - app dimostrativa. Palette: notte, lime, blu campo. Font di sistema pesante e corsivo. */
+/* Font ospitati qui (licenza SIL OFL 1.1, vedi la cartella fonts/): nessuna richiesta ad altri siti. */
+@font-face { font-family: "Manrope"; src: url("fonts/manrope-latin-wght.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+:root {
+  --notte: #0E1A2B;
+  --notte-2: #16263C;
+  --notte-3: #20344F;
+  --lime: #C6F432;
+  --blu: #2D6CDF;
+  --bianco: #F3F6FA;
+  --grigio: #8FA0B6;
+  --rosso: #FF6B5E;
+  --font: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; font-family: var(--font); color: var(--bianco); font-size: 16px; line-height: 1.5; background: #070E18; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; border-radius: 6px; }
+.demo-strip { margin: 0; padding: 8px 16px; background: var(--lime); color: var(--notte); font-size: 12.5px; font-weight: 600; text-align: center; line-height: 1.35; }
+.app { position: relative; max-width: 440px; margin: 0 auto; min-height: calc(100vh - 40px); background: var(--notte); padding-bottom: 96px; }
+@media (min-width: 600px) { .app { margin: 24px auto; border-radius: 26px; overflow: hidden; min-height: 820px; box-shadow: 0 0 0 1px rgba(198,244,50,.15), 0 30px 80px -30px #000; } }
+.top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(14,26,43,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-weight: 900; font-style: italic; font-size: 21px; letter-spacing: -.01em; }
+.brand svg { width: 30px; height: 30px; }
+.brand b { color: var(--lime); }
+.crediti { font-size: 13px; color: var(--grigio); text-align: right; line-height: 1.2; }
+.crediti b { display: block; color: var(--lime); font-size: 16px; }
+.screen { padding: 0 18px 24px; animation: entra .3s var(--ease); }
+@keyframes entra { from { opacity: 0; transform: translateX(10px); } }
+@media (prefers-reduced-motion: reduce) { .screen { animation: none; } }
+.hero { position: relative; margin: 8px -18px 0; }
+.hero img { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, var(--notte)); }
+.hero-tx { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 6px; }
+.kick { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); }
+.hero h1 { margin: 6px 0 0; font-weight: 900; font-style: italic; font-size: 32px; line-height: 1.02; letter-spacing: -.02em; }
+.next { margin-top: 18px; }
+.next a { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 20px; background: var(--lime); color: var(--notte); text-decoration: none; }
+.next .ora { font-weight: 900; font-style: italic; font-size: 28px; line-height: 1; }
+.next small { display: block; font-size: 13px; }
+.next b { display: block; }
+.quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.quick a { display: flex; flex-direction: column; gap: 4px; min-height: 104px; padding: 14px; border-radius: 20px; background: var(--notte-2); border: 1px solid var(--notte-3); text-decoration: none; }
+.quick b { font-size: 16px; }
+.quick span { color: var(--grigio); font-size: 13px; line-height: 1.35; }
+.quick a:hover { border-color: var(--lime); }
+.sala { margin-top: 18px; border-radius: 22px; overflow: hidden; background: var(--notte-2); }
+.sala img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.sala div { padding: 14px 16px 16px; }
+.sala h2 { margin: 0 0 4px; font-style: italic; font-weight: 900; font-size: 20px; }
+.sala p { margin: 0; color: var(--grigio); font-size: 14px; }
+.title { margin: 18px 0 12px; font-weight: 900; font-style: italic; font-size: 30px; letter-spacing: -.02em; }
+.giorni { display: flex; gap: 8px; overflow-x: auto; margin: 0 -18px 12px; padding: 0 18px 4px; scrollbar-width: none; }
+.giorni::-webkit-scrollbar { display: none; }
+.giorni button { flex: none; width: 56px; min-height: 64px; border-radius: 16px; border: 1px solid var(--notte-3); background: var(--notte-2); cursor: pointer; line-height: 1.1; }
+.giorni small { display: block; font-size: 11px; text-transform: uppercase; color: var(--grigio); }
+.giorni b { font-size: 20px; font-weight: 900; }
+.giorni button[aria-pressed="true"] { background: var(--lime); color: var(--notte); border-color: var(--lime); }
+.giorni button[aria-pressed="true"] small { color: var(--notte); }
+.legenda { display: flex; gap: 14px; font-size: 12.5px; color: var(--grigio); margin-bottom: 10px; }
+.legenda i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.lib { background: var(--notte-3); border: 1px solid #3B5372; } .occ { background: repeating-linear-gradient(45deg, #1A2A40 0 4px, #24384F 4px 8px); } .tuo { background: var(--lime); }
+.griglia { display: grid; grid-template-columns: 52px repeat(3, 1fr); gap: 6px; align-items: center; }
+.griglia .h { font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--grigio); text-align: center; padding-bottom: 2px; }
+.griglia .o { font-size: 13px; color: var(--grigio); font-variant-numeric: tabular-nums; }
+.griglia button { min-height: 44px; border-radius: 10px; border: 1px solid #3B5372; background: var(--notte-3); cursor: pointer; font-size: 12.5px; font-weight: 700; color: var(--grigio); }
+.griglia button:hover:not(:disabled) { border-color: var(--lime); color: var(--bianco); }
+.griglia button:disabled { border: 0; background: repeating-linear-gradient(45deg, #1A2A40 0 4px, #24384F 4px 8px); color: transparent; cursor: not-allowed; }
+.griglia button[aria-pressed="true"] { background: var(--lime); border-color: var(--lime); color: var(--notte); }
+.sheet { position: sticky; bottom: 84px; margin-top: 16px; padding: 16px; border-radius: 22px; background: var(--bianco); color: var(--notte); box-shadow: 0 -10px 40px -10px rgba(0,0,0,.6); }
+.sheet h2 { margin: 0; font-style: italic; font-weight: 900; font-size: 20px; }
+.sheet p { margin: 2px 0 10px; font-size: 14px; color: #4A5A70; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+.seg button { min-height: 44px; border-radius: 12px; border: 1.5px solid #C9D3E0; background: #fff; cursor: pointer; font-weight: 700; color: var(--notte); }
+.seg button[aria-pressed="true"] { border-color: var(--notte); background: var(--notte); color: var(--lime); }
+.split { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-top: 1px dashed #C9D3E0; }
+.split b { font-size: 24px; font-weight: 900; font-style: italic; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 14px; border: 0; cursor: pointer; font-weight: 800; font-size: 16px; text-decoration: none; background: var(--lime); color: var(--notte); }
+.btn.full { width: 100%; }
+.btn.scuro { background: var(--notte); color: var(--lime); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.corsi { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.corsi a { display: grid; grid-template-columns: 58px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 18px; background: var(--notte-2); border: 1px solid var(--notte-3); text-decoration: none; }
+.corsi .ora { font-weight: 900; font-style: italic; font-size: 18px; color: var(--lime); }
+.corsi small { display: block; color: var(--grigio); font-size: 13px; }
+.posti { font-size: 12.5px; font-weight: 700; padding: 4px 9px; border-radius: 8px; background: rgba(198,244,50,.12); color: var(--lime); white-space: nowrap; }
+.posti.pochi { background: rgba(255,107,94,.15); color: var(--rosso); }
+.back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px; color: var(--grigio); text-decoration: none; font-weight: 700; }
+.l-head { padding: 20px; border-radius: 24px; background: linear-gradient(135deg, var(--blu), #1B3E86); }
+.l-head .kick { color: var(--lime); }
+#l-nome { margin: 6px 0 4px; font-weight: 900; font-style: italic; font-size: 30px; line-height: 1.05; }
+.l-head p { margin: 0; color: #D2DEF5; }
+.dati { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.dati div { padding: 12px 10px; border-radius: 16px; background: var(--notte-2); text-align: center; }
+.dati b { display: block; font-size: 18px; font-weight: 900; }
+.dati small { color: var(--grigio); font-size: 12px; }
+.coach { display: flex; gap: 12px; align-items: center; margin-top: 12px; padding: 14px; border-radius: 18px; background: var(--notte-2); }
+.coach .av { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--lime); color: var(--notte); font-weight: 900; }
+.coach small { display: block; color: var(--grigio); }
+.portare { margin: 12px 0 0; padding-left: 20px; color: var(--grigio); }
+.portare li { padding: 3px 0; }
+.abbo { padding: 20px; border-radius: 24px; background: var(--lime); color: var(--notte); }
+.abbo .kick { color: var(--notte); opacity: .7; }
+.abbo h2 { margin: 4px 0 14px; font-weight: 900; font-style: italic; font-size: 22px; }
+.num { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.num div { padding: 12px; border-radius: 16px; background: rgba(14,26,43,.1); }
+.num b { display: block; font-size: 30px; font-weight: 900; font-style: italic; line-height: 1; }
+.num small { font-size: 12.5px; }
+.codice { margin: 14px 0 0; font-size: 14px; }
+.codice b { font-family: Consolas, monospace; font-size: 17px; letter-spacing: .08em; }
+.sec { margin: 26px 0 10px; font-weight: 900; font-style: italic; font-size: 20px; }
+.pren { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pren li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: var(--notte-2); }
+.pren li div { flex: 1; }
+.pren small { display: block; color: var(--grigio); font-size: 13px; }
+.pren button { min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--notte-3); background: transparent; cursor: pointer; font-size: 13px; color: var(--grigio); }
+.nota { color: var(--grigio); font-size: 13px; margin-top: 14px; }
+.tabbar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100%, 440px); display: grid; grid-template-columns: repeat(4, 1fr); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: rgba(10,19,32,.97); border-top: 1px solid var(--notte-3); z-index: 10; }
+@media (min-width: 600px) { .tabbar { bottom: 24px; border-radius: 0 0 26px 26px; } }
+.tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; text-decoration: none; font-size: 11.5px; font-weight: 700; color: var(--grigio); }
+.tabbar svg { width: 24px; height: 24px; }
+.tabbar a[aria-current="page"] { color: var(--lime); }
+.toast { position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; max-width: min(400px, calc(100% - 32px)); padding: 12px 18px; border-radius: 12px; background: var(--lime); color: var(--notte); font-weight: 700; transition: .3s var(--ease); z-index: 20; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* Su computer l'app sta dentro la cornice: scorre il contenuto, la barra resta in basso. */
+@media (min-width: 600px) {
+  .app { display: flex; flex-direction: column; height: max(620px, calc(100vh - 96px)); min-height: 0; padding-bottom: 0; overflow: hidden; }
+  .app > main { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding-bottom: 8px; }
+  .app > .top { position: relative; flex: none; }
+  .tabbar { position: relative; flex: none; left: auto; bottom: auto; transform: none; width: 100%; border-radius: 0; }
+  .addbar, .sheet { bottom: 12px; }
+}

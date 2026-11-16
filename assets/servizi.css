@@ -1,0 +1,171 @@
+/* Noxford Agency - pannelli dei servizi e "Chi siamo" della home (16/11/2026).
+   Caricato dopo esperienza.css. Usa i colori del tema (--ac, --line, --card...) e il telefono .iph già pronto. */
+
+/* ---------- sezione servizi ---------- */
+.spn-sec{background:
+  radial-gradient(60% 40% at 92% 0%,rgba(var(--ac-rgb),.10),transparent 70%),
+  radial-gradient(50% 35% at 0% 55%,rgba(var(--ac-rgb),.05),transparent 70%),
+  linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px) 0 0/60px 60px,
+  linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px) 0 0/60px 60px,
+  #060709;overflow:hidden}
+.spn-sec .sh{margin-left:auto;margin-right:auto;text-align:center}
+.spn-sec .sh:after{content:"";display:block;width:56px;height:2px;margin:26px auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent)}
+.spn-l{display:grid;gap:28px}
+
+/* pannello */
+.spn{position:relative;display:grid;gap:30px;padding:56px 18px 26px;border-radius:24px;
+  border:1px solid transparent;
+  background:linear-gradient(180deg,#121109,#0b0c0e 60%) padding-box,
+    conic-gradient(from var(--ang,0deg),var(--line) 0deg,rgba(var(--acc-rgb,var(--ac-rgb)),.9) 40deg,var(--hi) 60deg,rgba(var(--acc-rgb,var(--ac-rgb)),.9) 80deg,var(--line) 130deg,var(--line) 360deg) border-box;
+  box-shadow:0 30px 70px -40px rgba(0,0,0,.9),0 0 0 rgba(var(--ac-rgb),0);
+  transition:box-shadow .5s}
+.js:not(.no-anim) .spn{animation:giro 9s linear infinite,spn-alone 5s ease-in-out infinite}
+@keyframes spn-alone{0%,100%{box-shadow:0 30px 70px -40px rgba(0,0,0,.9),0 0 30px -18px rgba(var(--acc-rgb,var(--ac-rgb)),.18)}50%{box-shadow:0 30px 70px -40px rgba(0,0,0,.9),0 0 46px -14px rgba(var(--acc-rgb,var(--ac-rgb)),.3)}}
+.spn-badge{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;
+  font:600 11px/1 "Manrope",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(var(--acc-rgb,var(--ac-rgb)),.22);border:1px solid rgba(var(--acc-rgb,var(--ac-rgb)),.6)}
+.spn-badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc,var(--ac))}
+.spn-dots{position:absolute;top:22px;right:22px;width:26px;height:26px;opacity:.45;
+  background:radial-gradient(circle,rgba(var(--acc-rgb,var(--ac-rgb)),.9) 1.4px,transparent 1.6px) 0 0/9px 9px}
+
+/* telefono a sinistra */
+.spn-tel{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative}
+.spn-tel:before{content:"";position:absolute;left:50%;top:44%;width:78%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(var(--acc-rgb,var(--ac-rgb)),.26),rgba(var(--ac-rgb),.07) 45%,transparent 70%);filter:blur(18px);opacity:.75;transition:opacity .6s,transform .7s}
+.spn-tel .iph{width:min(42vw,176px);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.spn-tel figcaption{position:relative;font-size:12.5px;line-height:1.45;color:var(--mut);text-align:center;max-width:240px}
+@media(hover:hover){
+  .spn:hover .spn-tel:before{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+  .js:not(.no-anim) .spn:hover .spn-tel .iph{transform:scale(1.04) translateY(-4px)}
+}
+
+/* contenuto a destra */
+.spn-cn{min-width:0}
+.spn-t{display:flex;align-items:center;gap:14px;font-size:clamp(30px,4.4vw,40px);margin:0 0 10px}
+.spn-ti,.spn-fi{flex:none;display:grid;place-items:center;border-radius:12px;color:var(--acc,var(--ac));border:1px solid rgba(var(--acc-rgb,var(--ac-rgb)),.45);background:rgba(var(--acc-rgb,var(--ac-rgb)),.09)}
+.spn-ti{width:46px;height:46px}
+.spn-ti svg{width:24px;height:24px}
+.spn-p{color:var(--mut);margin:0 0 22px;max-width:60ch}
+.spn-lb{margin:24px 0 12px;font:600 11px/1 "Manrope",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ac)}
+.spn-f{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.spn-f li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);
+  transition:transform .3s,background-color .3s,border-color .3s}
+.spn-f li:hover{transform:translateY(-2px);background:rgba(255,255,255,.045);border-color:var(--line)}
+.spn-fi{width:36px;height:36px;border-radius:10px}
+.spn-fi svg{width:19px;height:19px}
+.spn-f b{display:block;font-weight:600;font-size:15px;line-height:1.35;color:var(--tx)}
+.spn-f small{display:block;font-size:13.5px;line-height:1.45;color:var(--mut);margin-top:2px}
+@media(min-width:620px){.spn-f{grid-template-columns:1fr 1fr}}
+
+/* due formule (automazioni) */
+.spn-for{display:grid;gap:10px;margin-bottom:22px}
+.spn-for div{padding:14px 16px;border-radius:14px;border:1px solid var(--line2);background:linear-gradient(135deg,rgba(var(--ac-rgb),.10),rgba(var(--ac-rgb),.02))}
+.spn-for b{display:block;color:var(--hi);font-size:15px;line-height:1.35}
+.spn-for span{display:block;color:var(--mut);font-size:13.5px;line-height:1.5;margin-top:4px}
+.spn-for div+div{position:relative}
+@media(min-width:620px){.spn-for{grid-template-columns:1fr 1fr}}
+
+/* strumenti: solo il nome con una piccola icona generica */
+.spn-st{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.spn-st li{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:10px;font-size:13.5px;line-height:1.2;color:var(--tx);background:#101114;border:1px solid rgba(255,255,255,.08)}
+.spn-st svg{width:16px;height:16px;color:var(--acc,var(--ac));flex:none}
+
+/* barra dei servizi e "Vedi tutte": solo sotto 760 px (servizi.js) */
+.spn-bar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-14px -16px 22px;padding:2px 16px 6px;scroll-snap-type:x proximity}
+.spn-bar::-webkit-scrollbar{display:none}
+.spn-bar[hidden]{display:none}
+.spn-bar button{flex:none;min-height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:#0e0f12;color:var(--mut);font:600 14px/1 "Manrope",sans-serif;cursor:pointer;scroll-snap-align:start}
+.spn-bar button[aria-pressed="true"]{color:var(--on-ac);background:var(--ac);border-color:var(--ac)}
+.spn-bar button:focus-visible,.spn-tutte:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.spn-l.una .spn[data-off]{display:none}
+.spn-f.corta li:nth-child(n+4){display:none}
+.spn-tutte{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:10px;padding:0 18px;border-radius:12px;border:1px solid var(--line2);background:transparent;color:var(--ac);font:600 14px/1 "Manrope",sans-serif;cursor:pointer}
+.spn-tutte[hidden]{display:none}
+
+/* il nostro punto di vista */
+.spn-pv{margin-top:24px;padding:16px 18px;border-left:2px solid var(--ac);border-radius:0 14px 14px 0;background:rgba(var(--ac-rgb),.06)}
+.spn-pv b{display:block;font:600 11px/1 "Manrope",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:9px}
+.spn-pv p{margin:0;font-size:15px;line-height:1.6;color:var(--tx)}
+
+/* link "scopri di più": area di tocco di almeno 44 px */
+.spn-more{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:14px;padding:0 2px;color:var(--ac);font-weight:600;font-size:15px;text-decoration:none}
+.spn-more:hover{color:var(--hi)}
+.spn-more span{transition:transform .25s}
+.spn-more:hover span{transform:translateX(5px)}
+.spn-more:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+
+/* video vero nel telefono (Video Factory): parte solo quando il pannello è sullo schermo (servizi.js) */
+.spn-vid{background:#000}
+.spn-vid video{position:absolute;left:0;right:0;top:11.5cqw;width:100%;height:calc(100% - 11.5cqw);object-fit:cover;display:block;background:#000}
+.vid-ia{position:absolute;right:4cqw;top:14cqw;z-index:3;padding:1.2cqw 2.6cqw;border-radius:99px;background:rgba(0,0,0,.6);color:#fbe9bd;font:600 3.2cqw/1 "Manrope",sans-serif;letter-spacing:.04em}
+
+/* computer: telefono a sinistra, contenuto a destra */
+@media(min-width:980px){
+  .spn{grid-template-columns:300px 1fr;gap:56px;padding:64px 56px 44px 40px;align-items:start}
+  .spn-tel{position:sticky;top:110px;padding-top:6px}
+  .spn-tel .iph{width:236px}
+  .spn-badge{top:22px;left:26px}
+  .spn-dots{top:24px;right:28px}
+}
+
+/* ---------- Chi siamo: lupo con luce e mosaico delle demo ---------- */
+.chi-sec{overflow:hidden}
+.chi-g{display:grid;gap:44px;align-items:center}
+.chi-tx p{color:var(--mut)}
+.chi-tx h2{margin-bottom:22px}
+.chi-ref{font:500 clamp(26px,4vw,34px)/1.2 "Cormorant Garamond",Georgia,serif;color:var(--tx)!important;border-left:2px solid var(--ac);padding-left:18px;margin:0 0 20px}
+.chi-st{position:relative;height:420px;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);background:radial-gradient(60% 60% at 28% 50%,rgba(var(--ac-rgb),.14),transparent 70%),#0a0b0d}
+.chi-lupo{position:absolute;z-index:2;left:2%;top:50%;width:54%;max-width:330px;transform:translateY(-50%)}
+.chi-lupo img{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.6))}
+.chi-luce{position:absolute;left:10%;top:10%;width:80%;aspect-ratio:1;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(var(--ac-rgb),.55),rgba(var(--ac-rgb),.12) 45%,transparent 70%);filter:blur(22px)}
+.js:not(.no-anim) .chi-luce{animation:chi-giro 16s ease-in-out infinite alternate}
+@keyframes chi-giro{0%{transform:translate(-14%,-8%) scale(.9)}50%{transform:translate(12%,6%) scale(1.08)}100%{transform:translate(-4%,14%) scale(.96)}}
+/* riflesso dorato che passa sul lupo, ritagliato sulla sua forma */
+.chi-rif{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;
+  background:linear-gradient(110deg,transparent 35%,rgba(255,226,160,.85) 50%,transparent 65%) 0 0/260% 100% no-repeat;background-position:120% 0;
+  -webkit-mask:url(brand/logo-lupo-660.webp) center/contain no-repeat;mask:url(brand/logo-lupo-660.webp) center/contain no-repeat}
+.js:not(.no-anim) .chi-rif{animation:chi-luccica 7s ease-in-out infinite}
+@keyframes chi-luccica{0%,20%{background-position:120% 0}70%,100%{background-position:-20% 0}}
+
+.chi-mos{position:absolute;z-index:1;top:0;bottom:0;right:0;width:60%;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 12px 0 0;
+  -webkit-mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(90deg,transparent,#000 22%);-webkit-mask-composite:source-in;
+  mask:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(90deg,transparent,#000 22%);mask-composite:intersect}
+.chi-col{overflow:visible;transform:translate3d(0,var(--py,0px),0);will-change:transform}
+.chi-col.c3{display:none}
+.chi-tr img{display:block;width:100%;height:auto;aspect-ratio:1/2;object-fit:cover;object-position:top;border-radius:14px;margin-bottom:10px;
+  border:1px solid rgba(255,255,255,.1);box-shadow:0 12px 26px -12px rgba(0,0,0,.8)}
+.js:not(.no-anim) .chi-tr{animation:chi-scorre 46s linear infinite}
+.js:not(.no-anim) .chi-col.c2 .chi-tr{animation-duration:58s;animation-direction:reverse}
+.js:not(.no-anim) .chi-col.c3 .chi-tr{animation-duration:52s}
+.chi-st:not(.vivo) .chi-tr{animation-play-state:paused!important}
+@keyframes chi-scorre{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.chi-col.c2{margin-top:-60px}
+
+@media(min-width:600px){.chi-st{height:480px}.chi-mos{grid-template-columns:repeat(3,1fr)}.chi-col.c3{display:block;margin-top:-120px}}
+@media(min-width:900px){
+  .chi-g{grid-template-columns:.9fr 1.1fr;gap:64px}
+  .chi-st{height:540px}
+  .chi-lupo{width:50%}
+  .chi-mos{width:58%}
+}
+
+/* ---------- meno movimento ---------- */
+@media(prefers-reduced-motion:reduce){
+  .js .spn,.js .chi-luce,.js .chi-rif,.js .chi-tr{animation:none!important}
+  .chi-col{transform:none!important}
+  .spn-tel .iph{transition:none}
+}
+.no-anim .chi-col{transform:none!important}
+
+/* ---------- Per il tuo settore: immagine 16:10 in cima a ogni scheda ---------- */
+#lavori .tile{justify-content:flex-start;min-height:0}
+#lavori .tile-img{position:relative;display:block;aspect-ratio:16/10;margin:-26px -26px 22px;overflow:hidden;border-bottom:1px solid var(--line);background:#0d0f12}
+#lavori .tile-img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+/* le schermate da telefono si inquadrano sulla foto, non sui testi */
+#lavori .t-salute img,#lavori .t-imm img{position:absolute;left:-10%;width:120%;height:auto;max-width:none}
+#lavori .t-salute img{top:-236%}
+#lavori .t-imm img{top:-227%}
+#lavori .t-osp img{object-position:top}
+@media(hover:hover){#lavori .tile:hover .tile-img img{transform:scale(1.04)}}
+@media(min-width:900px){#lavori .mos{grid-template-columns:repeat(3,1fr)}#lavori .tile,#lavori .tile:nth-child(n){grid-column:auto;min-height:0}}

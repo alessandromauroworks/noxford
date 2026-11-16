@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Salvia · Centro estetico e spa (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di un centro estetico inventato: trattamenti viso, corpo e mani, scelta del giorno e dell'orario libero, appuntamenti e carnet. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#EFE7DC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23EFE7DC'/%3E%3Cpath d='M16 27C9 20 9 10 16 4c7 6 7 16 0 23zM16 8v19' fill='%238A9A7B' stroke='%232E3A2F' stroke-width='1.2'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Trattamenti, prezzi e orari sono di esempio · Foto generate con l'IA</p>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/home" aria-label="Salvia, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29C8 21 8 10 16 3c8 7 8 18 0 26zM16 8v21" fill="var(--salvia)" stroke="var(--bosco)" stroke-width="1.3"/></svg><span>Salvia<small>estetica &amp; spa</small></span></a>
+      <a class="pill" href="#/agenda">I miei appuntamenti</a>
+    </header>
+    <main>
+      <section class="screen" data-screen="home" aria-labelledby="h-home">
+        <div class="hero">
+          <img src="img/cabina.webp" width="896" height="1200" alt="Una cabina per massaggi con lettino coperto di lino, pareti verde salvia, candele e una tenda chiara" fetchpriority="high">
+          <div class="hero-tx"><h1 id="h-home">Un'ora solo per te.</h1><p>Prenoti in tre tocchi e vedi subito gli orari liberi.</p><a class="btn" href="#/prenota">Trova un orario</a></div>
+        </div>
+        <div class="appt" id="home-appt"></div>
+        <h2 class="sec">I più richiesti</h2>
+        <ul class="tr-list" id="home-top"></ul>
+        <div class="gift">
+          <img src="img/pietre.webp" width="1024" height="1024" alt="Pietre nere levigate, un asciugamano arrotolato, eucalipto e boccette d'olio" loading="lazy">
+          <div><h2>Regala un trattamento</h2><p>Buono regalo da 50, 80 o 120 €, valido un anno. Lo ricevi come immagine da inoltrare.</p></div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="trattamenti" aria-labelledby="h-tr" hidden>
+        <h1 class="title" id="h-tr">Trattamenti</h1>
+        <div class="filtri" id="filtri" role="group" aria-label="Filtra per tipo"></div>
+        <ul class="tr-list" id="tr-list"></ul>
+      </section>
+
+      <section class="screen" data-screen="trattamento" aria-labelledby="t-nome" hidden>
+        <a class="back" href="#/trattamenti"><span aria-hidden="true">←</span> Trattamenti</a>
+        <div id="t-box"></div>
+      </section>
+
+      <section class="screen" data-screen="prenota" aria-labelledby="h-pr" hidden>
+        <h1 class="title" id="h-pr">Prenota</h1>
+        <form id="f-pr" novalidate>
+          <label class="f" for="pr-tr">Trattamento<select id="pr-tr"></select></label>
+          <p class="f-lab">Con chi</p>
+          <div class="seg" id="pr-op" role="group" aria-label="Estetista"></div>
+          <p class="f-lab">Giorno</p>
+          <div class="giorni" id="pr-giorni" role="group" aria-label="Giorno"></div>
+          <p class="f-lab">Orari liberi</p>
+          <div class="orari" id="pr-orari" role="group" aria-label="Orario"></div>
+          <div class="riep" id="riep" aria-live="polite"></div>
+          <button class="btn scuro full" type="submit" id="pr-ok">Conferma (demo)</button>
+          <p class="nota">Demo: l'appuntamento resta solo in questo browser. Nella versione vera arriva in agenda al centro e ti mandiamo un promemoria il giorno prima.</p>
+        </form>
+      </section>
+
+      <section class="screen" data-screen="agenda" aria-labelledby="h-ag" hidden>
+        <h1 class="title" id="h-ag">I miei appuntamenti</h1>
+        <div id="ag-box"></div>
+        <div class="carnet"><h2>Carnet pressoterapia</h2><p>4 sedute su 10 usate</p><div class="bar"><i style="width:40%"></i></div></div>
+        <p class="nota">Appuntamenti e carnet sono di esempio.</p>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C6 15 6 8 12 3c6 5 6 12 0 18zM12 7v14" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Home</a>
+      <a href="#/trattamenti" data-tab="trattamenti"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 6h6M4 18h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Trattamenti</a>
+      <a href="#/prenota" data-tab="prenota"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Prenota</a>
+      <a href="#/agenda" data-tab="agenda"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Agenda</a>
+    </nav>
+  </div>
+</body>
+</html>

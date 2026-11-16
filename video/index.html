@@ -5,13 +5,13 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Video Factory | Noxford Agency</title>
-<meta name="description" content="Video verticali per i social fatti con l&#x27;IA, per attività locali e professionisti: genera, monta, pubblica.">
+<meta name="description" content="Video verticali per i social, montati da noi anche con l&#x27;IA, per attività locali, professionisti e studi di salute. Guarda i video veri e scegli il formato.">
 <meta name="theme-color" content="#07080A">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Noxford Agency">
 <meta property="og:title" content="Video Factory | Noxford Agency">
-<meta property="og:description" content="Video verticali per i social fatti con l&#x27;IA, per attività locali e professionisti: genera, monta, pubblica.">
+<meta property="og:description" content="Video verticali per i social, montati da noi anche con l&#x27;IA, per attività locali, professionisti e studi di salute. Guarda i video veri e scegli il formato.">
 <link rel="icon" href="../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../assets/brand/icona-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../assets/sito.css">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="../assets/esperienza.css">
+<link rel="stylesheet" href="../assets/video.css">
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -32,36 +33,232 @@
 </header>
 <div class="mob" id="mob" aria-hidden="true"><a href="../#servizi">Servizi</a><a href="../lavori/">Portfolio</a><a href="../#lavori">Per il tuo settore</a><a href="../#chi">Chi siamo</a><a class="btn p" href="../#contatti">Contatti</a></div>
 <main id="main">
-<section class="ph"><div class="wrap">
-  <p class="crumb rv"><a href="../" data-home="../">Home</a> / Video Factory</p>
-  <h1 class="rv" style="--d:.06s">Video che fanno <em class="acc">fermare chi scorre</em></h1>
-  <p class="lead rv" style="--d:.12s">Video verticali per Instagram, TikTok e Facebook, fatti con l'IA. Pubblichi con regolarità, senza girare niente da solo.</p>
-  <div class="cta rv" style="--d:.18s"><a class="btn p" href="../questionario/">Raccontaci la tua attività</a><a class="btn" href="https://wa.me/393394052935" rel="noopener">Scrivici su WhatsApp</a></div>
+<section class="ph vf-ph"><div class="wrap vf-hero">
+  <div class="vf-hero-t">
+    <p class="crumb rv"><a href="../" data-home="../">Home</a> / Video Factory</p>
+    <h1 class="rv" style="--d:.06s">Video che fanno <em class="acc">fermare chi scorre</em></h1>
+    <p class="lead rv" style="--d:.12s">Video verticali per Instagram, TikTok e Facebook. Partiamo da quello che hai già: un video girato col telefono, le foto del sito, il tuo profilo. Copione, montaggio e grafiche li facciamo noi, anche con l'IA.</p>
+    <div class="cta rv" style="--d:.18s"><a class="btn p" href="#video">Guarda i video</a><a class="btn" href="../questionario/">Raccontaci la tua attività</a></div>
+  </div>
+  <div class="vf-fan rv" style="--d:.24s" aria-label="Anteprime dei video realizzati">
+    <a class="vf-fan-i" href="#v-carboidrati" aria-label="Vai al video Carboidrati la sera"><img src="media/dietista-carboidrati-sera.webp" width="720" height="1280" alt="Fotogramma del video: il dietista in studio con le scritte Mito e Verità" decoding="async"></a>
+    <a class="vf-fan-i" href="#v-chi-sono" aria-label="Vai al video Chi sono e come lavoro"><img src="media/dietista-chi-sono.webp" width="720" height="1280" alt="Fotogramma del video: il dietista in camice con la scheda del suo nome" decoding="async"></a>
+    <a class="vf-fan-i" href="#v-presentazione" aria-label="Vai al video Presentazione con i pasti"><img src="media/dietista-presentazione.webp" width="720" height="1280" alt="Fotogramma del video: contenitori di pasti preparati, immagine creata con IA" decoding="async"></a>
+  </div>
 </div></section>
-<section><div class="wrap">
-  <div class="sh rv"><span class="kick">Come funziona</span><h2>Tre passi, dal foglio al social</h2></div>
-  <ol class="steps t3"><li class="rv"><b>Genera</b><span>Creiamo scene, immagini e voce con l'IA, partendo dalla tua attività.</span></li>
-  <li class="rv" style="--d:.1s"><b>Monta</b><span>Ritmo, musica, sottotitoli e formato verticale, come lo vuole il telefono.</span></li>
-  <li class="rv" style="--d:.2s"><b>Pubblica</b><span>Ricevi i video pronti e un calendario di uscita chiaro.</span></li></ol>
+
+<section id="video" class="vf-sez"><div class="wrap">
+  <div class="sh rv"><span class="kick">Video e formati</span><h2>Tre video veri, otto formati da ordinare</h2><p>Tocca un video per guardarlo con l'audio. Per le categorie dove non abbiamo ancora un video da mostrarti trovi i formati che possiamo preparare per te.</p></div>
+
+  <div class="vf-filtri rv" role="group" aria-label="Filtra per categoria">
+    <button type="button" data-f="tutti" aria-pressed="true">Tutti <span class="n">11</span></button>
+    <button type="button" data-f="salute" aria-pressed="false">Salute <span class="n">3</span></button>
+    <button type="button" data-f="locali" aria-pressed="false">Attività locali <span class="n">6</span></button>
+    <button type="button" data-f="consulenti" aria-pressed="false">Consulenti e professionisti <span class="n">2</span></button>
+  </div>
+  <p class="sr" aria-live="polite" id="vf-stato"></p>
+
+  <div class="vf-pannelli">
+
+  <!-- A · Salute: video veri -->
+  <article class="vf-pan vf-veri rv" data-c="salute" aria-labelledby="pan-a">
+    <div class="vf-lato">
+      <span class="vf-let" aria-hidden="true">A</span>
+      <h3 id="pan-a">Salute</h3>
+      <p>Studi medici, dietisti, nutrizionisti. Video che spiegano con calma e rispettano le regole della professione.</p>
+      <p class="vf-stato-pan vero"><i></i>3 video realizzati</p>
+      <p class="vf-nota-pan">Lavori fatti per il Dott. Leonardo Antonio Mauro, dietista, che ci ha dato il consenso a mostrarli. I primi due nascono dallo stesso girato, montato in due modi diversi.</p>
+    </div>
+    <div class="vf-griglia">
+
+      <div class="vf-v" id="v-carboidrati">
+        <div class="vf-media">
+          <video src="media/dietista-carboidrati-sera.mp4" poster="media/dietista-carboidrati-sera.webp" preload="none" playsinline controls controlslist="nodownload" width="720" height="1280" aria-label="Video: Carboidrati la sera, mito o verità?"></video>
+          <span class="vf-ia">Creato con IA</span>
+          <span class="vf-dur">0:56</span>
+          <span class="vf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        </div>
+        <p class="vf-tag">Dietista · Creato con IA</p>
+        <h4>Carboidrati la sera: mito o verità?</h4>
+        <p>Una sola ripresa in studio. In apertura la domanda di un paziente come messaggio in chat, poi una linea della giornata che si accende pasto per pasto. Le immagini di tavola, pasti e camera da letto sono create con l'IA.</p>
+        <p class="vf-meta">56 secondi</p>
+      </div>
+
+      <div class="vf-v" id="v-chi-sono">
+        <div class="vf-media">
+          <video src="media/dietista-chi-sono.mp4" poster="media/dietista-chi-sono.webp" preload="none" playsinline controls controlslist="nodownload" width="720" height="1280" aria-label="Video: Chi sono e come lavoro"></video>
+          <span class="vf-dur">0:55</span>
+          <span class="vf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        </div>
+        <p class="vf-tag">Dietista · Presentazione</p>
+        <h4>Chi sono e come lavoro</h4>
+        <p>Da più di due minuti di girato abbiamo tenuto solo le frasi buone. Domande numerate in apertura, schede ed etichette che entrano sulle parole, chiusura sul profilo Instagram.</p>
+        <p class="vf-meta">55 secondi</p>
+      </div>
+
+      <div class="vf-v" id="v-presentazione">
+        <div class="vf-media">
+          <video src="media/dietista-presentazione.mp4" poster="media/dietista-presentazione.webp" preload="none" playsinline controls controlslist="nodownload" width="720" height="1280" aria-label="Video: Presentazione con i pasti"></video>
+          <span class="vf-ia">Creato con IA</span>
+          <span class="vf-dur">0:55</span>
+          <span class="vf-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        </div>
+        <p class="vf-tag">Dietista · Creato con IA</p>
+        <h4>Presentazione con i pasti</h4>
+        <p>Stesso girato, altro montaggio. Volto raddrizzato e schiarito, la giornata tipo su una linea, l'anteprima del suo format «Mito o verità». L'immagine dei pasti pronti è creata con l'IA.</p>
+        <p class="vf-meta">55 secondi</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- B · Attività locali -->
+  <article class="vf-pan rv" data-c="locali" aria-labelledby="pan-b">
+    <div class="vf-lato">
+      <span class="vf-let" aria-hidden="true">B</span>
+      <h3 id="pan-b">Attività locali</h3>
+      <p>Chi lavora con i clienti della sua zona: agenzie, ospitalità, negozi, artigiani.</p>
+      <p class="vf-stato-pan"><i></i>6 formati in preparazione</p>
+    </div>
+    <div class="vf-griglia">
+
+      <div class="vf-f" style="--t:#2c5866;--t2:#123039">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-casa"><rect x="15" y="22" width="60" height="44" rx="5" class="pan"/><path d="M27 52l18-14 18 14v10H27z" class="ln"/><rect x="40" y="53" width="10" height="9" class="ln"/><g class="timbro"><rect x="20" y="30" width="34" height="11" rx="2"/><text x="37" y="38.4">VENDUTO</text></g><rect x="20" y="72" width="50" height="10" rx="3" class="pz"/><text x="45" y="79.4" class="pzt">PREZZO</text><circle cx="45" cy="113" r="13" class="av"/><path d="M33 140c2-10 22-10 24 0" class="ln"/><g class="voce"><path d="M63 108q4 5 0 10"/><path d="M67 104q7 9 0 18"/></g></svg>
+          <span class="vf-dur-p">40-50 s</span>
+        </div>
+        <p class="vf-tag">Agenzia immobiliare</p>
+        <h4>Tour dell'immobile con l'avatar del titolare</h4>
+        <p>Il titolare racconta la casa con la sua voce, mentre scorrono gli ambienti. Prezzo e cartello «venduto» entrano animati.</p>
+        <p class="vf-meta">Durata prevista: 40-50 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#6b4a2f;--t2:#2c1d12">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-foto"><g class="f3"><rect x="22" y="30" width="46" height="34" rx="3"/></g><g class="f2"><rect x="22" y="30" width="46" height="34" rx="3"/></g><g class="f1"><rect x="22" y="30" width="46" height="34" rx="3"/><path d="M26 58l11-12 8 8 6-5 13 9" class="ln"/><circle cx="57" cy="40" r="4" class="ln"/></g><rect x="16" y="84" width="58" height="8" rx="2" class="tt"/><rect x="24" y="96" width="42" height="6" rx="2" class="tt t2"/><g class="onda"><path d="M20 130h4M28 126v8M34 122v16M40 127v6M46 120v20M52 125v10M58 128v4M64 124v12M70 130h0"/></g></svg>
+          <span class="vf-dur-p">40-50 s</span>
+        </div>
+        <p class="vf-tag">B&amp;B e case vacanza</p>
+        <h4>Dalle foto dell'annuncio a un reel</h4>
+        <p>Usiamo solo le foto che hai già sul sito o sull'annuncio. Aggiungiamo titoli animati, voce narrante e musica.</p>
+        <p class="vf-meta">Durata prevista: 40-50 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#6a3550;--t2:#2a1220">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-parole"><circle cx="45" cy="52" r="20" class="pan"/><path d="M36 56q9 8 18 0" class="ln"/><path d="M33 44q3-4 7 0M50 44q3-4 7 0" class="ln"/><g class="parola p1"><rect x="14" y="88" width="30" height="11" rx="5.5"/><text x="29" y="95.8">pelle</text></g><g class="parola p2"><rect x="46" y="88" width="30" height="11" rx="5.5"/><text x="61" y="95.8">luce</text></g><g class="parola p3"><rect x="27" y="103" width="36" height="11" rx="5.5"/><text x="45" y="110.8">in 20 s</text></g><path d="M30 134h30" class="ln mute"/><path d="M38 128l14 12M52 128l-14 12" class="ln mute"/></svg>
+          <span class="vf-dur-p">circa 20 s</span>
+        </div>
+        <p class="vf-tag">Centro estetico e spa</p>
+        <h4>Spot breve da una ripresa senza audio</h4>
+        <p>Ci basta un video muto di un trattamento. Diventa uno spot con titoli che entrano parola per parola, voce e musica.</p>
+        <p class="vf-meta">Durata prevista: circa 20 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#4f3a6b;--t2:#1f1530">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-quiz"><text x="45" y="34" class="q">Quale fa per te?</text><g class="op o1"><rect x="16" y="44" width="58" height="14" rx="7"/><text x="45" y="53.6">A · fresco</text></g><g class="op o2"><rect x="16" y="62" width="58" height="14" rx="7"/><text x="45" y="71.6">B · caldo</text></g><g class="op o3"><rect x="16" y="80" width="58" height="14" rx="7"/><text x="45" y="89.6">C · intenso</text></g><rect x="31" y="110" width="28" height="30" rx="4" class="ln"/><path d="M38 110v-5h14v5" class="ln"/><path d="M45 110v30M31 122h28" class="ln"/></svg>
+          <span class="vf-dur-p">40-50 s</span>
+        </div>
+        <p class="vf-tag">Profumeria e negozi</p>
+        <h4>Quiz: scegli il prodotto giusto</h4>
+        <p>Tre domande e tre risposte. Il titolare in camera guida chi guarda fino al prodotto adatto.</p>
+        <p class="vf-meta">Durata prevista: 40-50 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#33486b;--t2:#121b2c">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-fin"><rect x="26" y="40" width="38" height="56" rx="2" class="ln"/><path d="M45 40v56M26 68h38" class="ln"/><g class="rumore"><path d="M12 56q4 6 0 12"/><path d="M7 52q7 10 0 20"/><path d="M78 56q-4 6 0 12"/><path d="M83 52q-7 10 0 20"/></g><text x="45" y="120" class="q">silenzio</text><path d="M28 130h34" class="ln"/></svg>
+          <span class="vf-dur-p">30-40 s</span>
+        </div>
+        <p class="vf-tag">Infissi e serramenti</p>
+        <h4>Il rumore che sparisce</h4>
+        <p>Si sente il traffico, la finestra si chiude, cala il silenzio. Il prodotto spiegato con il suono, poi lo showroom.</p>
+        <p class="vf-meta">Durata prevista: 30-40 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#2b5e4c;--t2:#0f271f">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-mappa"><path d="M14 30l20-6 22 6 20-6v52l-20 6-22-6-20 6z" class="pan"/><path d="M34 24v52M56 30v52" class="ln"/><g class="pin"><path d="M45 40c-6 0-10 4-10 9 0 7 10 16 10 16s10-9 10-16c0-5-4-9-10-9z"/><circle cx="45" cy="49" r="3.5" class="buco"/></g><rect x="24" y="98" width="42" height="34" rx="4" class="ln"/><path d="M30 108h30M30 116h22M30 124h14" class="ln"/><path d="M54 122l4 4 8-9" class="ok"/></svg>
+          <span class="vf-dur-p">fino a 60 s</span>
+        </div>
+        <p class="vf-tag">Idraulici e artigiani</p>
+        <h4>Dal problema al preventivo</h4>
+        <p>Il guasto, il telefono che nessuno richiama, poi arrivi tu: il preventivo chiaro e la zona che servi sulla mappa.</p>
+        <p class="vf-meta">Durata prevista: fino a 60 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- C · Consulenti e professionisti -->
+  <article class="vf-pan rv" data-c="consulenti" aria-labelledby="pan-c">
+    <div class="vf-lato">
+      <span class="vf-let" aria-hidden="true">C</span>
+      <h3 id="pan-c">Consulenti e professionisti</h3>
+      <p>Chi vende competenza: commercialisti, avvocati, consulenti. Il video deve far capire in fretta di cosa ti occupi.</p>
+      <p class="vf-stato-pan"><i></i>2 formati in preparazione</p>
+    </div>
+    <div class="vf-griglia due">
+
+      <div class="vf-f" style="--t:#5c5232;--t2:#221e10">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-schede"><circle cx="45" cy="98" r="15" class="av"/><path d="M24 140c4-16 38-16 42 0" class="ln"/><g class="sc s1"><rect x="12" y="28" width="46" height="16" rx="4"/><path d="M18 36h20"/></g><g class="sc s2"><rect x="32" y="50" width="46" height="16" rx="4"/><path d="M38 58h26"/></g><rect x="22" y="122" width="46" height="7" rx="3.5" class="tt"/></svg>
+          <span class="vf-dur-p">50-60 s</span>
+        </div>
+        <p class="vf-tag">Commercialisti e consulenti</p>
+        <h4>Parlato in camera con schede animate</h4>
+        <p>Parli tu, in modo naturale. Noi togliamo pause e ripetizioni e aggiungiamo schede che spiegano i termini difficili, con i sottotitoli.</p>
+        <p class="vf-meta">Durata prevista: 50-60 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <div class="vf-f" style="--t:#3a3f63;--t2:#141628">
+        <div class="vf-fr" aria-hidden="true">
+          <span class="vf-badge">In preparazione</span>
+          <svg viewBox="0 0 90 160" class="vf-il il-due"><circle cx="26" cy="70" r="10" class="av"/><path d="M12 100c3-12 25-12 28 0" class="ln"/><circle cx="64" cy="70" r="10" class="av"/><path d="M50 100c3-12 25-12 28 0" class="ln"/><g class="bolla b1"><rect x="8" y="30" width="38" height="16" rx="5"/><text x="27" y="40.6">Come funziona?</text></g><g class="bolla b2"><rect x="44" y="114" width="38" height="16" rx="5"/><text x="63" y="124.6">Te lo spiego</text></g></svg>
+          <span class="vf-dur-p">45-55 s</span>
+        </div>
+        <p class="vf-tag">Avvocati e servizi complessi</p>
+        <h4>Il servizio raccontato da due personaggi</h4>
+        <p>Chi ha il problema chiede, chi lo risolve risponde. Un servizio difficile da spiegare diventa una breve scena.</p>
+        <p class="vf-meta">Durata prevista: 45-55 secondi</p>
+        <a class="vf-voglio" href="../#contatti">Voglio questo video <span aria-hidden="true">&rarr;</span></a>
+      </div>
+
+    </div>
+  </article>
+
+  </div>
 </div></section>
+
 <section class="alt"><div class="wrap">
-  <div class="sh rv"><span class="kick">Le aperture</span><h2>I primi secondi decidono tutto</h2><p>Chi scorre il telefono decide subito se fermarsi. Ogni video parte da una frase che parla al tuo cliente. Alcuni esempi:</p></div>
-  <ul class="hooks"><li class="rv">«Il telefono squilla e hai le mani occupate.»</li><li class="rv">«Quante prenotazioni perdi quando non puoi rispondere?»</li><li class="rv">«Il tuo cliente ha scritto alle 23. Chi gli risponde?»</li><li class="rv">«Prima: l'agenda di carta. Dopo: tutto sul telefono.»</li></ul>
-</div></section>
-<section><div class="wrap">
-  <div class="sh rv"><span class="kick">Esempi</span><h2>Video per il tuo settore</h2><p>Il primo esempio è in preparazione. Lo trovi qui appena è pronto.</p></div>
-  <div class="vids uno"><div class="vid" data-c="medico">
-  <!-- VIDEO: inserire qui il video esempio di Alessandro, con etichetta "Creato con IA" -->
-  <div class="iph"><i class="sb a"></i><i class="sb b"></i><i class="sb c"></i><i class="sb d"></i><i class="sb e"></i><div class="phone" role="img" aria-label="Riquadro telefono: esempio per Studi medici, in arrivo"><span class="sbar" aria-hidden="true"><b>9:41</b><i></i></span><span class="isl" aria-hidden="true"></span><div class="bg"></div>
-    <svg class="wv" viewBox="0 0 100 20" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width=".5" style="color:var(--ac);width:100%;height:30px"><path d="M0 10c10-8 15 8 25 0s15 8 25 0 15 8 25 0 15 8 25 0"/></svg>
-    <div class="cap"><b>Esempio per il tuo settore</b>in arrivo</div></div></div>
-  <p>Il primo esempio è in preparazione</p></div></div>
+  <div class="sh rv"><span class="kick">Come lavoriamo</span><h2>Come nasce un video, in quattro passi</h2><p>Vedi il copione prima del montaggio e il video prima della consegna. Se qualcosa non ti torna, lo cambiamo.</p></div>
+  <ol class="steps t4">
+    <li class="rv"><b>Il materiale che ci mandi</b><span>Un video girato col telefono, le foto del sito o dell'annuncio, il profilo Instagram. Spesso basta quello che hai già.</span></li>
+    <li class="rv" style="--d:.08s"><b>Il copione</b><span>Scriviamo le frasi e decidiamo cosa compare sullo schermo, momento per momento. Lo approvi prima di andare avanti.</span></li>
+    <li class="rv" style="--d:.16s"><b>Generazione e montaggio</b><span>Tagli, sottotitoli, grafiche, voce e musica. Le parti create con l'IA le dichiariamo sempre.</span></li>
+    <li class="rv" style="--d:.24s"><b>Consegna</b><span>Ricevi il video verticale pronto per Instagram, TikTok e Facebook, con la copertina e il testo per il post.</span></li>
+  </ol>
   <div class="avviso rv"><b>Creato con IA.</b> I video realistici fatti con l'IA portano l'etichetta «Creato con IA», e mostrano solo ciò che è vero della tua attività.</div>
   <div class="avviso rv"><b>Una regola per tutti.</b> I video non promettono cose false e non mostrano persone reali senza il loro permesso. Per i contenuti sanitari valgono anche le regole della professione.</div>
 </div></section>
-<section class="alt"><div class="wrap"><div class="sh rv"><span class="kick">Come lavoriamo</span><h2>Cinque fasi, in ordine</h2><p>Prima vedi una demo, poi decidi. Non paghi niente prima di averla vista.</p></div><ol class="steps t5 rv"><li><b>Ascolto</b><span>Capiamo come lavori oggi e cosa ti pesa.</span></li><li><b>Progetto</b><span>Decidiamo insieme cosa costruire.</span></li><li><b>Costruzione</b><span>Lo costruiamo sul modo in cui lavori tu, non su un modello pronto.</span></li><li><b>Collaudo</b><span>Lo proviamo a fondo prima che lo veda un cliente.</span></li><li><b>Consegna</b><span>Ti spieghiamo come usarlo e restiamo a disposizione.</span></li></ol></div></section>
+
 <section class="pronto"><div class="wrap rv">
-  <h2>Ti va di vedere una demo?</h2><p>Raccontaci la tua attività. Prima vedi una proposta, poi decidi.</p>
+  <h2>Quale video ti serve?</h2><p>Raccontaci la tua attività e il formato che ti interessa. Ti mostriamo prima il copione, poi decidi.</p>
   <div class="cta"><a class="btn p" href="../questionario/">Raccontaci la tua attività</a><a class="btn" href="https://wa.me/393394052935" rel="noopener">Scrivici su WhatsApp</a></div>
 </div></section>
 </main>
@@ -84,5 +281,78 @@
 <nav class="barra" aria-label="Contatto rapido"><a href="https://wa.me/393394052935" rel="noopener">WhatsApp</a><a class="p" href="../#contatti">Inizia il progetto</a></nav>
 <script src="../assets/sito.js" defer></script>
 <script src="../assets/esperienza.js" defer></script>
+<script>
+/* Video Factory: filtri morbidi, un solo video alla volta, illustrazioni animate solo quando si vedono */
+(function () {
+  var d = document, root = d.documentElement;
+  var mq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
+  function fermo() { return mq.matches || root.classList.contains("no-anim"); }
+
+  var video = [].slice.call(d.querySelectorAll(".vf-v video"));
+  var pannelli = [].slice.call(d.querySelectorAll(".vf-pan"));
+  var pulsanti = [].slice.call(d.querySelectorAll(".vf-filtri button"));
+  var stato = d.getElementById("vf-stato");
+
+  /* contatori calcolati dalle schede presenti */
+  pulsanti.forEach(function (b) {
+    var f = b.getAttribute("data-f"), n = 0;
+    pannelli.forEach(function (p) { if (f === "tutti" || p.getAttribute("data-c") === f) n += p.querySelectorAll(".vf-v, .vf-f").length; });
+    var s = b.querySelector(".n"); if (s) s.textContent = n;
+  });
+
+  /* un solo video alla volta */
+  video.forEach(function (v) {
+    var box = v.parentNode;
+    v.addEventListener("play", function () {
+      video.forEach(function (a) { if (a !== v && !a.paused) a.pause(); });
+      box.classList.add("gioca");
+    });
+    v.addEventListener("pause", function () { if (v.currentTime === 0) box.classList.remove("gioca"); });
+    v.addEventListener("ended", function () { box.classList.remove("gioca"); });
+  });
+  /* il tasto play disegnato fa partire il video (sul telefono e col mouse) */
+  d.querySelectorAll(".vf-play").forEach(function (p) {
+    p.addEventListener("click", function () { var v = p.parentNode.querySelector("video"); if (v) v.play(); });
+  });
+
+  /* filtri con dissolvenza */
+  var t = 0;
+  pulsanti.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var f = b.getAttribute("data-f");
+      pulsanti.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      var vedi = pannelli.filter(function (p) { return f === "tutti" || p.getAttribute("data-c") === f; });
+      var togli = pannelli.filter(function (p) { return vedi.indexOf(p) < 0; });
+      togli.forEach(function (p) { p.querySelectorAll("video").forEach(function (v) { if (!v.paused) v.pause(); }); });
+      if (stato) stato.textContent = "Mostro: " + b.childNodes[0].textContent.trim();
+      clearTimeout(t);
+      if (fermo()) {
+        togli.forEach(function (p) { p.hidden = true; p.classList.remove("esce", "entra"); });
+        vedi.forEach(function (p) { p.hidden = false; p.classList.remove("esce", "entra"); p.classList.add("in"); });
+        return;
+      }
+      var visibili = togli.filter(function (p) { return !p.hidden; });
+      visibili.forEach(function (p) { p.classList.add("esce"); });
+      t = setTimeout(function () {
+        togli.forEach(function (p) { p.hidden = true; p.classList.remove("esce"); });
+        vedi.forEach(function (p) {
+          var era = p.hidden;
+          p.hidden = false; p.classList.add("in"); p.classList.remove("esce");
+          if (era) { p.classList.add("entra"); void p.offsetWidth; p.classList.remove("entra"); }
+        });
+      }, visibili.length ? 260 : 0);
+    });
+  });
+
+  /* le illustrazioni dei formati si muovono solo quando sono sullo schermo */
+  var fr = d.querySelectorAll(".vf-fr");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle("vivo", e.isIntersecting); });
+    }, { rootMargin: "60px 0px" });
+    fr.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
 </body>
 </html>
