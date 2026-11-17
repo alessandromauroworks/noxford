@@ -1,4 +1,4 @@
-/* Noxford Agency - telefoni stile iPhone 17 Pro Max, movimento e correzioni dello scanner anti-IA (16/11/2026).
+/* Noxford Agency - telefoni stile iPhone 17 Pro Max, movimento (16/11/2026).
    Caricato dopo sito.css e portfolio.css: qui si sovrascrive, i file di prima restano com'erano. */
 
 /* ---------- telefono stile iPhone 17 Pro Max ---------- */
@@ -225,7 +225,7 @@ main>section:not(.hero):not(.gar):not(.ph):after{content:"";position:absolute;le
 .no-anim *,.no-anim *:before,.no-anim *:after{animation:none!important;transition:none!important}
 .no-anim .rv{opacity:1!important;transform:none!important}
 
-/* ---------- correzioni del design (scanner 16/11) ---------- */
+/* ---------- correzioni del design ---------- */
 .acc{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--ac2);-webkit-text-fill-color:currentColor;animation:none}
 .hero:after{background:linear-gradient(180deg,transparent 60%,var(--bg) 100%)}
 .pronto{background:var(--bg2)}

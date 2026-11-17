@@ -85,7 +85,7 @@
       W = Math.max(1, r.width); H = Math.max(1, r.height);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = 0; /* scanner 16/11: niente stelline, restano le onde */
+      var n = 0; /* niente stelline, restano le onde */
       stelle = [];
       for (var i = 0; i < n; i++) stelle.push({ x: Math.random() * W, y: Math.random() * H * 0.62, r: Math.random() * 1.3 + 0.3, f: Math.random() * 6.28, v: 0.4 + Math.random() * 1.1 });
     };
