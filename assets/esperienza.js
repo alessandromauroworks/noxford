@@ -111,7 +111,7 @@
   if (fine) {
     d.querySelectorAll(".card, .prog, .tile, .rec a, .box, .g").forEach(function (el) {
       el.classList.add("spot");
-      var inclina = el.classList.contains("prog") || el.classList.contains("tile");
+      var inclina = false; /* schede ferme: solo bordo dorato e piccolo sollevamento dal CSS */
       el.addEventListener("pointermove", function (e) {
         var r = el.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
         el.style.setProperty("--mx", x + "px"); el.style.setProperty("--my", y + "px");
@@ -130,16 +130,6 @@
         t.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) scale(1.03)";
       });
       t.addEventListener("pointerleave", function () { t.style.transform = ""; });
-    });
-    /* pulsanti che si avvicinano al cursore */
-    d.querySelectorAll(".btn").forEach(function (b) {
-      b.addEventListener("pointermove", function (e) {
-        if (ferme()) return;
-        var r = b.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * 0.22, y = (e.clientY - r.top - r.height / 2) * 0.3;
-        b.style.transform = "translate(" + Math.max(-8, Math.min(8, x)).toFixed(1) + "px," + Math.max(-6, Math.min(6, y)).toFixed(1) + "px)";
-      });
-      b.addEventListener("pointerleave", function () { b.style.transform = ""; });
     });
   }
 

@@ -1,64 +1,70 @@
-/* Pannello ordini del titolare */
-.pannello { background: #F3EEE7; padding-bottom: 40px; }
-.orologio { margin-left: auto; font-size: 14px; color: #D9C6B4; display: none; }
-.orologio::first-letter { text-transform: uppercase; }
-.pannello .btn-carrello { text-decoration: none; margin-left: auto; }
-.pan { padding: 20px 0 40px; }
-.pan-avviso { background: #FFF6E3; border: 1px solid #F0D7A6; border-radius: 14px; padding: 12px 14px; font-size: 15px; }
-.numeri { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
-.numeri div { background: #fff; border-radius: 14px; padding: 14px; display: grid; }
-.numeri b { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -.02em; font-size: 28px; line-height: 1.1; }
-.numeri span { font-size: 14px; color: var(--mut); }
-.pan-barra { margin-bottom: 14px; }
-.pan-barra .schede button { display: inline-flex; align-items: center; gap: 6px; }
-.pan-barra .schede button[aria-selected="true"] .conta { background: #fff; color: var(--brace); }
-.pan-griglia { display: grid; gap: 20px; }
-.ordini { display: grid; gap: 12px; }
-.ord { background: #fff; border-radius: 16px; padding: 16px; border-left: 6px solid var(--oro); box-shadow: 0 6px 20px -14px rgba(0, 0, 0, .4); animation: entra .35s var(--cubo); }
-.ord.nuovo { animation: nuovo 1.4s var(--cubo); }
-@keyframes nuovo { 0% { transform: scale(.96); box-shadow: 0 0 0 0 rgba(184, 50, 31, .5); } 40% { box-shadow: 0 0 0 8px rgba(184, 50, 31, .15); } 100% { transform: none; } }
-.ord.stato-ricevuto { border-left-color: var(--pomodoro); }
-.ord.stato-preparazione { border-left-color: var(--oro); }
-.ord.stato-forno { border-left-color: #E06A2C; }
-.ord.stato-uscita { border-left-color: var(--basilico2); }
-.ord.stato-chiuso, .ord.stato-annullato { border-left-color: #BDB2A8; opacity: .85; }
-.ord header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.ord-num { font-weight: 800; font-size: 22px; letter-spacing: -.01em; }
-.ord-stato { font-size: 13px; font-weight: 700; background: var(--brace); color: #fff; padding: 4px 10px; border-radius: 999px; }
-.ord-auto { font-size: 12px; color: var(--mut); border: 1px solid var(--linea); padding: 2px 8px; border-radius: 999px; }
-.ord-quando { margin-top: 6px; font-weight: 600; }
-.ord-quando small { font-weight: 400; color: var(--mut); }
-.ord-modo { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: #E9F1E7; color: var(--basilico); }
-.ord-modo.consegna { background: var(--pomodoro-chiaro); color: var(--pomodoro2); }
-.ord-chi { margin-top: 6px; font-size: 15px; }
-.ord-chi a { display: inline-block; padding: 10px 0; }
-.ord-chi small { color: var(--mut); }
-.ord-righe { list-style: none; margin: 10px 0; padding: 0; border-top: 1px solid var(--linea); }
-.ord-righe li { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--linea); font-size: 15px; }
-.ord-righe small { display: block; color: var(--mut); font-size: 13px; }
+/* Forno Vesuvio · pannello ordini del titolare, sul kit Noxford. */
+:root { --tinta: #B8321F; }
+body.nx { margin: 0; min-height: 100vh; }
+.nx a { color: inherit; }
+.p-striscia { margin: 0; padding: 8px 16px; font-size: 13px; line-height: 1.4; text-align: center; color: var(--nx-tx2); background: var(--nx-card2); border-bottom: .5px solid var(--nx-sep); }
+.p-nav { padding-bottom: 6px; }
+.p-nav .nx-nb-riga { max-width: 1200px; margin: 0 auto; gap: 12px; }
+.p-marchio { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 600; font-size: var(--nx-t-l); text-decoration: none; }
+.p-marchio svg { width: 32px; height: 32px; flex: none; }
+.p-orologio { flex: 1; margin: 0; text-align: right; color: var(--nx-tx2); font-size: var(--nx-t-s); }
+.p-main { max-width: 1200px; margin: 0 auto; padding: 16px 16px 48px; }
+.p-avviso { margin: 0 0 16px; padding: 12px 16px; border-radius: var(--nx-r); background: var(--nx-tinta-l); font-size: var(--nx-t-s); }
+.p-numeri { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.p-numeri div { padding: 14px 16px; border-radius: var(--nx-r); background: var(--nx-card); box-shadow: var(--nx-ombra-1); }
+.p-numeri b { display: block; font-size: var(--nx-t-xl); font-weight: 600; letter-spacing: -.01em; }
+.p-numeri span { color: var(--nx-tx2); font-size: var(--nx-t-s); }
+.p-filtri { margin-bottom: 16px; }
+.p-filtri em { font-style: normal; opacity: .65; margin-left: 4px; }
+.p-griglia { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; }
+.p-ordini { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.p-vuoto { grid-column: 1 / -1; border-radius: var(--nx-r); background: var(--nx-card); box-shadow: var(--nx-ombra-1); }
+.p-lato { position: sticky; top: 80px; }
+.p-nota { margin: 0 4px 10px; color: var(--nx-tx2); font-size: var(--nx-t-s); }
+.p-conf { margin: 0; font-size: var(--nx-t); }
+.p-riga-tg { justify-content: space-between; min-height: 48px; }
+.p-bottoni { display: grid; gap: 8px; }
+.p-rosso { background: var(--nx-no) !important; }
+#finiti { max-height: 52vh; overflow: auto; }
+
+.ord { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: var(--nx-r-l); background: var(--nx-card); box-shadow: var(--nx-ombra-1); }
+.ord.nuovo { animation: p-nuovo 1.2s var(--nx-molla); box-shadow: 0 0 0 2px var(--tinta), var(--nx-ombra-2); }
+@keyframes p-nuovo { 0% { transform: scale(.96); opacity: 0; } 40% { opacity: 1; } 100% { transform: none; } }
+.ord.stato-chiuso, .ord.stato-annullato { opacity: .78; }
+.ord header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ord-num { font-size: var(--nx-t-l); font-weight: 600; margin-right: auto; }
+.ord-auto { font-size: 12.5px; color: var(--nx-tx2); padding: 2px 8px; border-radius: 99px; box-shadow: inset 0 0 0 1px var(--nx-sep); }
+.ord-quando, .ord-chi, .ord-note { margin: 0; font-size: var(--nx-t-s); }
+.ord-quando small, .ord-chi small { color: var(--nx-tx2); }
+.ord-modo { display: inline-block; padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 13px; background: var(--nx-fill); }
+.ord-modo.consegna { background: var(--nx-info-l); color: var(--nx-info); }
+.ord-chi a { color: var(--nx-tinta-tx); font-weight: 600; }
+.ord-righe { list-style: none; margin: 0; padding: 8px 0; border-top: .5px solid var(--nx-sep); border-bottom: .5px solid var(--nx-sep); display: grid; gap: 8px; }
+.ord-righe li { display: flex; gap: 10px; align-items: center; font-size: var(--nx-t-s); }
+.ord-righe b { font-weight: 600; display: block; }
+.ord-righe small { display: block; color: var(--nx-tx2); font-size: 13.5px; }
 .ord-mini { width: 52px; height: 52px; flex: none; border-radius: 50%; background: #2A2523; overflow: hidden; }
 .ord-mini svg { width: 100%; height: 100%; }
-.ord-note { background: #FFF6E3; border-radius: 10px; padding: 8px 10px; font-size: 14px; margin-bottom: 8px; }
-.ord-tot { display: flex; justify-content: space-between; align-items: baseline; }
-.ord-tot b { font-weight: 800; font-size: 22px; color: var(--pomodoro); white-space: nowrap; }
-.ord-azioni { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.ord-azioni .btn.pieno { flex: 1 1 100%; }
-.btn.piccolo { min-height: 44px; padding: 0 16px; font-size: 15px; background: #fff; border: 1.5px solid var(--linea); color: var(--testo); }
-.btn.piccolo:hover { border-color: var(--testo); }
-.btn.rosso { color: #A3271A; }
-.vuoto-pan { background: #fff; border-radius: 16px; padding: 24px; text-align: center; color: var(--mut); }
-.vuoto-pan b { display: block; color: var(--testo); font-family: "Cormorant", serif; font-size: 28px; }
-.riquadro { background: #fff; border-radius: 16px; padding: 16px; display: grid; gap: 10px; }
-.riquadro + .riquadro { margin-top: 12px; }
-.riquadro h2 { font-size: 26px; }
-.interruttori { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
-.interr { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-size: 15px; position: relative; }
-.interr input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.lev { width: 38px; height: 22px; border-radius: 11px; background: #CFC4BA; position: relative; flex: none; transition: background .2s; }
-.lev::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .2s var(--cubo); }
-.interr input:checked + .lev { background: var(--basilico2); }
-.interr input:checked + .lev::after { transform: translateX(16px); }
-.interr input:focus-visible + .lev { outline: 3px solid var(--oro); outline-offset: 2px; }
-.largo-sp { width: 100%; }
-@media (min-width: 760px) { .numeri { grid-template-columns: repeat(4, 1fr); } .ordini { grid-template-columns: 1fr 1fr; } .ord-azioni .btn.pieno { flex: 1 1 auto; } .orologio { display: block; } .pannello .btn-carrello { margin-left: 0; } }
-@media (min-width: 1100px) { .pan-griglia { grid-template-columns: 1fr 320px; align-items: start; } .pan-lato { position: sticky; top: calc(var(--testa) + 16px); } }
+.ord-note { padding: 8px 10px; border-radius: 10px; background: var(--nx-wait-l); }
+.ord-tot { display: flex; justify-content: space-between; margin: 0; font-size: var(--nx-t-s); color: var(--nx-tx2); }
+.ord-tot b { color: var(--nx-tx); font-size: var(--nx-t-l); font-weight: 600; }
+.ord-azioni { display: flex; flex-wrap: wrap; gap: 8px; }
+.ord-azioni .nx-btn.p { flex: 1 1 100%; min-height: 48px; }
+
+/* strati della pizza (pizza.js) nelle miniature */
+.pz .pz-crusca { opacity: 0; }
+.pz[data-impasto="integrale"] .pz-crusca { opacity: 1; }
+.pz[data-impasto="integrale"] .pz-impasto { filter: sepia(.5) saturate(1.5) hue-rotate(-10deg) brightness(.84); }
+.pz[data-impasto="senzaglutine"] .pz-impasto { filter: sepia(.25) saturate(1.3) brightness(1.04); }
+.pz .pz-tostato { opacity: 0; mix-blend-mode: multiply; }
+.pz[data-cottura="bencotta"] .pz-tostato { opacity: 1; }
+
+@media (max-width: 899px) {
+  .p-griglia { grid-template-columns: 1fr; }
+  .p-lato { position: static; }
+  .p-numeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-orologio { display: none; }
+  .p-nav .nx-nb-riga { justify-content: space-between; }
+  .p-marchio { margin-right: auto; }
+}
+@media (max-width: 420px) { .p-app { padding: 0 12px; } .p-marchio span { font-size: var(--nx-t); } }

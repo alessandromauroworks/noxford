@@ -73,3 +73,13 @@
 .funz li{padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-size:17px}
 .funz li b{display:block;margin-bottom:4px;font-size:18px}
 .funz li span{color:var(--mut)}
+
+/* schede delle app: tre telefoni iPhone 18 Pro Max del Kit Noxford (.ip18, in assets/kit/noxford-kit.css) */
+.prog .vis .ip18{width:calc((100% - 20px)/3);max-width:118px;flex:0 0 auto;align-self:flex-start;padding:3px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.prog .vis .ip18:nth-child(2){margin-top:26px}
+.prog .vis .ip18:nth-child(3){margin-top:52px}
+.prog:hover .vis .ip18:nth-child(1){transform:translateY(-6px) rotate(-2deg)}
+.prog:hover .vis .ip18:nth-child(2){transform:translateY(-14px)}
+.prog:hover .vis .ip18:nth-child(3){transform:translateY(-6px) rotate(2deg)}
+@media(min-width:1100px){.port .prog:first-child .vis .ip18{max-width:150px}}
+@media(prefers-reduced-motion:reduce){.prog .vis .ip18{transition:none}}

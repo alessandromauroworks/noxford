@@ -1,0 +1,102 @@
+/* Noxford Agency - settori: sezione della home e pagine di settore (dopo sito.css ed esperienza.css) */
+
+/* ---------- home: filtri per area ---------- */
+.st-bar{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 26px}
+.st-bar[hidden]{display:none}
+.st-bar button{display:inline-flex;align-items:center;gap:8px;flex:none;font:600 14px/1 "Manrope",sans-serif;color:var(--mut);background:var(--card);border:1px solid var(--line2);padding:0 15px;border-radius:999px;cursor:pointer;min-height:46px;transition:background .3s,color .3s,border-color .3s,transform .25s}
+.st-bar button:hover{color:var(--tx);border-color:var(--ac);transform:translateY(-1px)}
+.st-bar button .n{font-weight:400;opacity:.7;font-variant-numeric:tabular-nums}
+@media(min-width:900px){.st-bar{gap:6px}.st-bar button{font-size:13px;padding:0 11px;gap:5px}}
+.st-bar button[aria-pressed="true"]{background:linear-gradient(120deg,var(--ac2),var(--hi) 50%,var(--ac));color:var(--on-ac);border-color:transparent}
+@media(max-width:899px){
+  .st-bar{flex-wrap:nowrap;overflow-x:auto;margin:-18px -16px 22px;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .st-bar::-webkit-scrollbar{display:none}
+  .st-bar button{padding:0 15px;font-size:13.5px;min-height:44px}
+}
+
+/* ---------- home: aree e schede compatte ---------- */
+.st-area{display:grid;gap:14px;padding:26px 0;border-top:1px solid var(--line)}
+.st-area[hidden]{display:none}
+.st-area-h h3{font-size:clamp(28px,3.2vw,34px);margin:0 0 4px}
+.st-area-h p{color:var(--mut);font-size:14.5px;margin:0 0 8px;max-width:420px}
+.st-area-n{font:600 11px/1 "Manrope",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
+.st-griglia{display:grid;gap:10px;min-width:0}
+@media(min-width:620px){.st-griglia{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:900px){.st-area-h h3{font-size:30px}.st-area{grid-template-columns:240px minmax(0,1fr);gap:32px;padding:30px 0}.st-area-h{padding-top:6px}}
+@media(min-width:1150px){.st-griglia{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.st-c{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:11px 14px 11px 11px;border:1px solid var(--line);border-radius:16px;background:var(--card);text-decoration:none;color:var(--tx);transition:border-color .3s,transform .3s,background .3s}
+.st-c:hover,.st-c:focus-visible{border-color:var(--ac);transform:translateY(-2px);background:rgba(var(--ac-rgb),.05)}
+.st-th{width:64px;height:64px;border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:#0d0f12}
+.st-th img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--o,50% 35%);scale:var(--z,1);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.st-c:hover .st-th img{transform:scale(1.08)}
+.st-tx{min-width:0}
+.st-tx b{display:block;font:600 15px/1.3 "Manrope",sans-serif;margin-bottom:3px}
+.st-tx span{display:block;font-size:13.5px;line-height:1.45;color:var(--mut)}
+.st-fr{color:var(--ac);font-weight:600;transition:transform .25s}
+.st-c:hover .st-fr{transform:translateX(4px)}
+#lavori .nota a{color:var(--ac)}
+
+/* ---------- pagina di settore: prima schermata ---------- */
+.st-hero{display:grid;gap:44px;align-items:center}
+.st-hero-t{min-width:0}
+.st-hero .tag{margin-bottom:18px}
+.st-hv{margin:0;min-width:0}
+.st-hv .iph{width:min(62vw,250px);margin:0 auto}
+.st-hv .pc{max-width:560px;margin:0 auto}
+.st-hv .ph-cap{text-align:center}
+@media(min-width:900px){.st-hero{grid-template-columns:1.25fr .75fr}.st-hero.pc-h{grid-template-columns:1fr 1fr}.st-hv .iph{width:250px}}
+
+/* ---------- problemi concreti ---------- */
+.st-prob{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:10px}
+.st-prob li{position:relative;padding:13px 16px 13px 40px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--mut);font-size:15.5px;line-height:1.5}
+.st-prob li:before{content:"";position:absolute;left:17px;top:1.2em;width:8px;height:8px;border-radius:50%;background:var(--ac)}
+
+/* ---------- demo del portfolio ---------- */
+.st-demo{display:grid;gap:18px}
+@media(min-width:760px){.st-demo.n2,.st-demo.n3,.st-demo.n4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.st-demo.n3{grid-template-columns:repeat(3,minmax(0,1fr))}.st-demo.n4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.st-d{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden;text-decoration:none;color:var(--tx);transition:transform .35s,border-color .35s}
+.st-d:hover,.st-d:focus-visible{transform:translateY(-4px);border-color:var(--ac)}
+.st-d-v{position:relative;display:flex;justify-content:center;align-items:flex-start;height:230px;padding:26px 18px 0;overflow:hidden;background:radial-gradient(circle at 50% 0,rgba(var(--ac-rgb),.18),transparent 65%),var(--bg2);border-bottom:1px solid var(--line)}
+.st-d-v img{display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.st-d-v.tel img{width:136px;height:auto;border:4px solid #1b1e24;border-bottom:0;border-radius:20px 20px 0 0;box-shadow:0 0 0 1px var(--line2),0 20px 40px rgba(0,0,0,.5)}
+.st-d-v.pc img{width:100%;max-width:460px;height:auto;margin-top:6px;border:1px solid var(--line2);border-bottom:0;border-radius:10px 10px 0 0;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.st-d:hover .st-d-v img{transform:translateY(-8px)}
+.st-d-tx{display:flex;flex-direction:column;flex:1;padding:20px 22px 22px}
+.st-d-tx .tag{line-height:1.4}
+.st-d-tx h3{font-size:clamp(26px,3vw,30px);margin:0 0 8px}
+.st-d-tx p{color:var(--mut);font-size:15px;margin:0 0 10px}
+.st-d-tx .more{margin-top:auto}
+@media(min-width:760px){
+  .st-demo.n1 .st-d{display:grid;grid-template-columns:1fr 1fr}
+  .st-demo.n1 .st-d-v{height:auto;min-height:300px;border-bottom:0;border-right:1px solid var(--line)}
+  .st-demo.n1 .st-d-v.tel img{width:170px}
+  .st-demo.n1 .st-d-tx{justify-content:center;padding:36px}
+  .st-demo.n1 .st-d-tx .more{margin-top:8px}
+}
+
+/* ---------- formati video del settore ---------- */
+.st-fmt{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:900px){.st-fmt{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.st-fmt li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-content:start;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.st-fmt b{font:600 15.5px/1.35 "Manrope",sans-serif;color:var(--tx)}
+.st-fmt i{font:600 11px/1 "Manrope",sans-serif;font-style:normal;white-space:nowrap;align-self:start;padding:6px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--tx)}
+.st-fmt span{grid-column:1/-1;color:var(--mut);font-size:14.5px;line-height:1.5}
+.st-fmt .more{grid-column:1/-1;justify-self:start;font-size:14px}
+.st-fmt li.vero{border-color:var(--ac);background:radial-gradient(ellipse 80% 80% at 0 0,rgba(var(--ac-rgb),.12),transparent 70%),var(--card)}
+.st-fmt-cta{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:26px}
+
+/* ---------- altri settori della stessa area ---------- */
+.st-altri-w{display:grid;gap:22px}
+.st-altri-h{font-size:clamp(28px,4vw,40px)}
+.st-altri{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.st-altri a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:999px;color:var(--tx);text-decoration:none;font-size:14.5px;background:var(--card);transition:border-color .25s,background .25s}
+.st-altri a:hover{border-color:var(--ac);background:rgba(var(--ac-rgb),.08)}
+.st-altri a.tutti{border-color:transparent;background:none;color:var(--ac);font-weight:600}
+@media(min-width:900px){.st-altri-w{grid-template-columns:.8fr 1.2fr;align-items:center;gap:40px}}
+
+@media(prefers-reduced-motion:reduce){.st-c,.st-d,.st-d-v img,.st-th img{transition:none!important}}
+.no-anim .st-c,.no-anim .st-d,.no-anim .st-d-v img,.no-anim .st-th img{transition:none!important}
+.st-d-tx .tag{font-size:10.5px;letter-spacing:.1em;border-radius:12px}
+.st-d-v.pc{align-items:center;padding:18px}
+.st-d-v.pc img{margin:0;border-bottom:1px solid var(--line2);border-radius:10px}

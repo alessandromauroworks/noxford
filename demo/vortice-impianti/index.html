@@ -1,100 +1,54 @@
 <!doctype html>
-<html lang="it" data-stile-c="Scuro">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a" style="--tinta:#1E5AA8">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Vortice Impianti · Idraulico e climatizzazione (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un idraulico inventato: descrivi il problema con una foto, ricevi un preventivo indicativo, chiami l'intervento urgente, segui il tecnico e gestisci il contratto della caldaia. Realizzata da Noxford Agency.">
+  <title>Vortice Impianti · Idraulica e clima (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di una ditta di idraulica e climatizzazione inventata: servizi con prezzi indicativi, richiesta con foto e preventivo, tecnico urgente da seguire sulla mappa, storico e contratto della caldaia. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#0E2A47">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E2A47'/%3E%3Cpath d='M16 6c5 6 7 9 7 12a7 7 0 0 1-14 0c0-3 2-6 7-12z' fill='%23FF7A1A'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="stili.js"></script>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E2A47'/%3E%3Cpath d='M16 6c5 6 7 9 7 12a7 7 0 0 1-14 0c0-3 2-6 7-12z' fill='%23FF7A1A'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = q.get("stile"), ts = null, vs = null;
+      try { ts = localStorage.getItem("nx-tema"); vs = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : ts || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || vs) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(s || "") ? s : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Prezzi, tempi e tecnici sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Vortice Impianti, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0E2A47"/><path d="M16 6c5 6 7 9 7 12a7 7 0 0 1-14 0c0-3 2-6 7-12z" fill="#FF7A1A"/></svg><span>Vortice<small>idraulica e clima</small></span></a>
-      <a class="sos" href="#/urgente">Urgenza</a>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <a class="sos-big" href="#/urgente"><span class="puls" aria-hidden="true"></span><span><b>Intervento urgente</b><small>Perdita, niente caldo o bagno bloccato: un tecnico entro 2 ore, sabato compreso</small></span></a>
-        <h1 class="hello" id="h-home">Che problema hai in casa?</h1>
-        <p class="sub">Scegli il lavoro, fai una foto e vedi subito quanto costa più o meno.</p>
-        <h2 class="sec">Servizi più richiesti</h2>
-        <ul class="serv" id="home-serv"></ul>
-        <a class="tutti" href="#/servizi">Tutti i servizi <span aria-hidden="true">→</span></a>
-        <div class="contr" id="home-contr"></div>
-        <h2 class="sec">Ultimi interventi</h2>
-        <ul class="storico" id="home-sto"></ul>
-      </section>
-
-      <section class="screen" data-screen="servizi" aria-labelledby="h-se" hidden>
-        <h1 class="title" id="h-se">Servizi e prezzi</h1>
-        <div class="chips" id="se-cat" role="group" aria-label="Filtra i servizi"></div>
-        <ul class="serv" id="se-lista"></ul>
-        <p class="nota">Prezzi indicativi IVA inclusa, uscita compresa. Il prezzo finale lo conferma il tecnico prima di iniziare.</p>
-      </section>
-
-      <section class="screen" data-screen="servizio" aria-labelledby="sv-nome" hidden>
-        <a class="back" href="#/servizi"><span aria-hidden="true">←</span> Servizi</a>
-        <div id="sv-box"></div>
-      </section>
-
-      <section class="screen" data-screen="problema" aria-labelledby="h-pb" hidden>
-        <a class="back" href="#/home"><span aria-hidden="true">←</span> Indietro</a>
-        <h1 class="title" id="h-pb">Prenota un intervento</h1>
-        <p class="f-lab">Cosa devi sistemare</p>
-        <div class="chips" id="pb-tipo" role="group" aria-label="Tipo di problema"></div>
-        <label class="f" for="pb-dove">Dove<select id="pb-dove"><option>Bagno</option><option>Cucina</option><option>Lavanderia</option><option>Soggiorno o camera</option><option>Esterno o balcone</option></select></label>
-        <label class="f" for="pb-desc">Due parole su cosa vedi<textarea id="pb-desc" rows="3" placeholder="Es. gocciola sotto il lavandino quando apro l'acqua calda"></textarea></label>
-        <p class="f-lab">Foto del problema</p>
-        <div class="foto" id="pb-foto"></div>
-        <p class="f-lab">Quando possiamo venire</p>
-        <div class="fasce" id="pb-fasce" role="group" aria-label="Fascia oraria"></div>
-        <p class="err" id="pb-err" role="alert"></p>
-        <button class="btn full" type="button" id="pb-vai">Vedi il preventivo</button>
-      </section>
-
-      <section class="screen" data-screen="preventivo" aria-labelledby="h-pv" hidden>
-        <a class="back" href="#/problema"><span aria-hidden="true">←</span> Modifica</a>
-        <h1 class="title" id="h-pv">Preventivo indicativo</h1>
-        <div id="pv-box"></div>
-      </section>
-
-      <section class="screen" data-screen="urgente" aria-labelledby="h-ur" hidden>
-        <div id="ur-box"></div>
-      </section>
-
-      <section class="screen" data-screen="storico" aria-labelledby="h-st" hidden>
-        <h1 class="title" id="h-st">I tuoi interventi</h1>
-        <ul class="storico grande" id="st-lista"></ul>
-        <a class="contr-link" href="#/caldaia">La tua caldaia e il contratto di manutenzione <span aria-hidden="true">→</span></a>
-      </section>
-
-      <section class="screen" data-screen="caldaia" aria-labelledby="h-cd" hidden>
-        <h1 class="title" id="h-cd">La tua caldaia</h1>
-        <div class="cald">
-          <img src="img/caldaia.webp" width="896" height="1200" alt="Caldaia bianca a parete con tubi di rame e una cassetta degli attrezzi a terra" loading="lazy">
-          <div><b>Caldaia a condensazione 24 kW</b><small>Installata nel 2021 · lavanderia</small><p class="bollino" id="cd-boll"></p></div>
+<body class="nx">
+  <div class="x-pagina">
+    <aside class="x-lato" aria-label="Informazioni sulla demo">
+      <div class="x-lato-marchio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0E2A47"/><path d="M16 6c5 6 7 9 7 12a7 7 0 0 1-14 0c0-3 2-6 7-12z" fill="#FF7A1A"/></svg><h2>Vortice Impianti<small>Idraulica, caldaie e clima</small></h2></div>
+      <p class="x-lato-tx">L'app di una ditta di idraulici: il cliente vede quanto costa più o meno un lavoro, manda la foto del guasto e, se è urgente, segue il tecnico che arriva.</p>
+      <ul class="x-lato-punti"><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 6.5A6.5 6.5 0 1 0 17 17.5M4 10.5h9M4 13.5h9"/></svg><span>Prezzi indicativi prima della chiamata</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.5-2.5h4L15.5 6"/></svg><span>Richiesta con foto e preventivo calcolato</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4.5M12 17.2v.1"/></svg><span>Urgenza con tecnico da seguire sulla mappa</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a6 6 0 0 0 6-6c0-4-3-6-4-10-2 2-3 4-3 6-1-1-1.5-2-1.5-3C7.5 10 6 12.5 6 15a6 6 0 0 0 6 6z"/></svg><span>Libretto e contratto della caldaia</span></li></ul>
+      <div class="x-lato-opz" id="x-lato-opz"></div>
+      <p class="x-lato-piede">App dimostrativa di un'attività inventata · Prezzi, tempi e tecnici sono di esempio · Foto generate con l'IA. Realizzata da Noxford Agency.</p>
+    </aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Prezzi, tempi e tecnici sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-bar" id="x-bar">
+        <div class="nx-nb-riga x-riga">
+          <div id="x-sx"></div>
+          <span class="nx-nb-pic" id="x-pic" aria-hidden="true"></span>
+          <div class="x-dx"><span id="x-dx-app"></span><button type="button" class="nx-btn ico t" id="x-opz" aria-label="Opzioni della demo"><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg></button></div>
         </div>
-        <h2 class="sec">Contratto di manutenzione</h2>
-        <div class="piani" id="cd-piani" role="group" aria-label="Scegli il contratto"></div>
-        <div class="riep" id="cd-riep" aria-live="polite"></div>
-        <h2 class="sec">Libretto dell'impianto</h2>
-        <ul class="storico"><li><b>Controllo e pulizia annuale</b><small>18 nov 2025 · fumi nella norma</small></li><li><b>Sostituito vaso di espansione</b><small>3 feb 2025 · 140 €</small></li><li><b>Prima accensione</b><small>12 ott 2021</small></li></ul>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Home</a>
-      <a href="#/servizi" data-tab="servizi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Servizi</a>
-      <a href="#/urgente" data-tab="urgente"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v6M12 16v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Tecnico</a>
-      <a href="#/storico" data-tab="storico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Storico</a>
-    </nav>
+        <nav class="x-sez nx-chips" id="x-sez" aria-label="Sezioni"></nav>
+      </header>
+      <main class="x-vista" id="x-vista" tabindex="-1"></main>
+      <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
+      <a id="x-fab" hidden></a>
+    </div>
   </div>
 </body>
 </html>

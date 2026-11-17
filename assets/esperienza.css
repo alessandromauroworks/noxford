@@ -263,3 +263,8 @@ footer li a{padding:10px 0}
   html:not(.no-anim) .card:before,html:not(.no-anim) .prog:before,html:not(.no-anim) .tile:before,html:not(.no-anim) .box:before{transition:left 1s cubic-bezier(.2,.7,.2,1)!important}
 }
 @media(prefers-reduced-motion:reduce) and (min-width:900px){.hero .stemma{opacity:.8}}
+
+/* ---------- effetti ammorbiditi (17/11): niente luce sotto il mouse, niente griglia che si accende, niente riflesso che passa sui pulsanti ---------- */
+.spot:after{display:none}
+.hero:before{display:none}
+.btn.p:after{display:none}

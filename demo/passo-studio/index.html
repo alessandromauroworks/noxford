@@ -1,66 +1,44 @@
 <!doctype html>
-<html lang="it" data-stile-c="Editoriale">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" style="--tinta:#2F4BFF">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Passo Studio · Sneakers su misura (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un concept store inventato: configuratore di sneakers con colori, materiali e iniziali, anteprima che cambia mentre scegli, borsa e ordine. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un concept store inventato: configuratore di sneakers con colori, materiali e iniziali, anteprima che cambia mentre scegli, borsa e ordine. In tre stili, tema chiaro o scuro. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#F5F5F2">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Cpath d='M5 21h22v4H5zM6 21l1-7h8l3 3h6l3 4' fill='%23F5F5F2'/%3E%3Ccircle cx='24' cy='9' r='3' fill='%232F4BFF'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="stili.js"></script>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111'/%3E%3Cpath d='M5 21h22v4H5zM6 21l1-7h8l3 3h6l3 4' fill='%23F5F5F2'/%3E%3Ccircle cx='24' cy='9' r='3' fill='%232F4BFF'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema prima del primo disegno: parametro ?tema= > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = null, sv = null;
+      try { s = localStorage.getItem("nx-tema"); sv = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : s || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || sv) === "no" ? "no" : "si");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Modelli e prezzi sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Passo Studio, vai alla home">PASSO<span>studio</span></a>
-      <a class="borsa" href="#/borsa">Borsa <b id="n-borsa">0</b></a>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <h1 class="big" id="h-home">Le tue sneakers. <span>Le disegni tu, le cuciamo noi.</span></h1>
-        <div class="hero"><img src="img/banco.webp" width="1200" height="896" alt="Banco di lavoro artigianale con ritagli di pelle colorata, rocchetti di filo, cartamodelli e una sneaker bianca senza marchi" fetchpriority="high"></div>
-        <a class="btn full" href="#/crea">Inizia a crearla</a>
-        <ol class="come" id="h-come"></ol>
-        <div class="neg"><img src="img/negozio.webp" width="896" height="1200" alt="Il negozio: mensola lunga in rovere con sneakers in vari colori e una pianta" loading="lazy"><div><b>Vieni a provarle</b><p>In negozio trovi tutti i colori dal vero e la prova delle taglie. Dal martedì al sabato, 10–19:30.</p></div></div>
-      </section>
-
-      <section class="screen" data-screen="modelli" aria-labelledby="h-mo" hidden>
-        <h1 class="title" id="h-mo">Modelli</h1>
-        <ul class="modelli" id="mo-lista"></ul>
-      </section>
-
-      <section class="screen" data-screen="crea" aria-labelledby="h-cr" hidden>
-        <div class="anteprima" id="cr-ant" aria-live="polite"></div>
-        <div class="vista" role="group" aria-label="Vista"><button type="button" data-vista="lato" aria-pressed="true">Di lato</button><button type="button" data-vista="retro" aria-pressed="false">Tallone</button></div>
-        <h1 class="title small" id="h-cr">Crea la tua</h1>
-        <div class="modsel" id="cr-mod" role="group" aria-label="Modello"></div>
-        <p class="f-lab">Parte da colorare</p>
-        <div class="parti" id="cr-parti" role="group" aria-label="Parte"></div>
-        <div class="colori" id="cr-col" role="group" aria-label="Colore"></div>
-        <p class="f-lab">Materiale della tomaia</p>
-        <div class="mat" id="cr-mat" role="group" aria-label="Materiale"></div>
-        <label class="f" for="cr-ini">Iniziali sul tallone <small>fino a 3 lettere, +10 €</small><input id="cr-ini" maxlength="3" autocomplete="off" placeholder="Es. GLR"></label>
-        <p class="f-lab">Taglia</p>
-        <div class="taglie" id="cr-tg" role="group" aria-label="Taglia"></div>
-        <div class="tot" id="cr-tot"></div>
-      </section>
-
-      <section class="screen" data-screen="borsa" aria-labelledby="h-bo" hidden>
-        <h1 class="title" id="h-bo">Borsa</h1>
-        <div id="bo-box"></div>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home">Studio</a>
-      <a href="#/modelli" data-tab="modelli">Modelli</a>
-      <a href="#/crea" data-tab="crea">Crea</a>
-      <a href="#/borsa" data-tab="borsa">Borsa</a>
-    </nav>
+<body class="nx x" data-stile="a">
+  <a class="x-salta" href="#x-vista">Vai al contenuto</a>
+  <div class="x-pagina">
+    <aside class="x-lato x-solo-largo" id="x-lato" aria-label="Passo Studio: sezioni e opzioni"></aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Modelli e prezzi sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-nav" id="x-nav">
+        <div class="nx-nb-riga"><span class="x-nb-sx" id="x-nb-sx"></span><span class="nx-nb-pic" id="x-pic"></span><span class="x-nb-dx" id="x-nb-dx"></span></div>
+      </header>
+      <h1 class="nx-tit-grande x-tit" id="x-tit">Passo Studio</h1>
+      <main id="x-vista" tabindex="-1"></main>
+    </div>
   </div>
+  <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
 </body>
 </html>

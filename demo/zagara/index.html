@@ -1,64 +1,64 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Zagara · Bar e pasticceria (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un bar pasticceria inventato: banco del giorno, torte su ordinazione con scritta, carrello con ritiro a orario e numero d'ordine. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un bar pasticceria inventato: banco del giorno, torte su ordinazione con la scritta, vassoio con ritiro a orario e numero d'ordine. Tre stili, tema chiaro o scuro. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#FFF8EF">
-  <link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#F2F2F7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23F6E1DF'/%3E%3Cg fill='%23fff' stroke='%234A2C22' stroke-width='1.2'%3E%3Cellipse cx='16' cy='9' rx='3' ry='5'/%3E%3Cellipse cx='16' cy='23' rx='3' ry='5'/%3E%3Cellipse cx='9' cy='16' rx='5' ry='3'/%3E%3Cellipse cx='23' cy='16' rx='5' ry='3'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%239DB46C'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: parametro dell'indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = null, sv = null;
+      try { s = localStorage.getItem("nx-tema"); sv = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : s || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || sv) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(q.get("stile") || "") ? q.get("stile") : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Dolci e prezzi sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Zagara, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#fff" stroke="var(--cacao)" stroke-width="1.1"><ellipse cx="16" cy="8.5" rx="3.2" ry="5.5"/><ellipse cx="16" cy="23.5" rx="3.2" ry="5.5"/><ellipse cx="8.5" cy="16" rx="5.5" ry="3.2"/><ellipse cx="23.5" cy="16" rx="5.5" ry="3.2"/></g><circle cx="16" cy="16" r="2.8" fill="var(--pistacchio)"/></svg><span>Zagara<small>bar · pasticceria</small></span></a>
-      <span class="ora" id="ora-aperto"></span>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <h1 class="big" id="h-home">Ordina prima,<br><em>ritira senza fila.</em></h1>
-        <div class="hero"><img src="img/vetrina.webp" width="1200" height="896" alt="Il banco della pasticceria con cornetti, cornetti al pistacchio, cannoli, crostatine e bignè" fetchpriority="high"></div>
-        <div class="modi"><a href="#/menu/colazione"><b>Colazione</b><span>al banco o da portare via</span></a><a href="#/menu/torte"><b>Torte</b><span>su ordinazione, con la tua scritta</span></a></div>
-        <h2 class="sec">Appena sfornati</h2>
-        <div class="row" id="home-row"></div>
-        <div class="sic"><img src="img/cannoli.webp" width="1024" height="1024" alt="Tre cannoli con ricotta, granella di pistacchio e scorza d'arancia candita su un piatto bianco" loading="lazy"><div><h2>Il cannolo si riempie al momento</h2><p>La cialda resta croccante: la ricotta la mettiamo quando arrivi a ritirarlo.</p></div></div>
-      </section>
+<body class="nx">
+  <a class="a-salta" href="#a-vista">Vai al contenuto</a>
+  <p class="a-striscia">App dimostrativa di un'attività inventata · Dolci e prezzi sono di esempio · Foto generate con l'IA</p>
 
-      <section class="screen" data-screen="menu" aria-labelledby="h-menu" hidden>
-        <h1 class="title" id="h-menu">Il banco</h1>
-        <div class="tabs" id="tabs" role="group" aria-label="Categorie"></div>
-        <ul class="lista" id="lista"></ul>
-      </section>
+  <div class="a-quadro">
+    <aside class="a-lato" aria-label="Informazioni sulla demo">
+      <div class="a-lato-marchio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F6E1DF"/><g fill="#fff" stroke="#4A2C22" stroke-width="1.1"><ellipse cx="16" cy="8.5" rx="3.2" ry="5.5"/><ellipse cx="16" cy="23.5" rx="3.2" ry="5.5"/><ellipse cx="8.5" cy="16" rx="5.5" ry="3.2"/><ellipse cx="23.5" cy="16" rx="5.5" ry="3.2"/></g><circle cx="16" cy="16" r="2.8" fill="#9DB46C"/></svg>
+        <span><b>Zagara</b><small>Bar e pasticceria</small></span>
+      </div>
+      <p>Un bar pasticceria di paese. Il cliente ordina la colazione e la ritira all'orario scelto, senza fila; per le torte sceglie grandezza, farcitura e scritta, con almeno 48 ore di anticipo.</p>
+      <ul class="nx-lista a-lato-vie">
+        <li><a class="nx-cella" href="#/home"><span class="nx-c-tx"><b>Home</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/banco"><span class="nx-c-tx"><b>Il banco</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/dolce/torta"><span class="nx-c-tx"><b>Torta con la scritta</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/vassoio"><span class="nx-c-tx"><b>Vassoio</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/ritiro"><span class="nx-c-tx"><b>Numero di ritiro</b></span><i class="nx-chev"></i></a></li>
+      </ul>
+      <button class="nx-btn pieno" type="button" data-a="opzioni">Stile, tema e vetro</button>
+      <p class="a-lato-nota">Attività inventata. Gli ordini restano solo in questo browser.</p>
+    </aside>
 
-      <section class="screen" data-screen="dolce" aria-labelledby="d-nome" hidden>
-        <a class="back" href="#/menu"><span aria-hidden="true">←</span> Il banco</a>
-        <div id="d-head"></div>
-        <form id="d-form" novalidate></form>
-      </section>
-
-      <section class="screen" data-screen="carrello" aria-labelledby="h-cart" hidden>
-        <h1 class="title" id="h-cart">Il tuo vassoio</h1>
-        <div id="cart"></div>
-      </section>
-
-      <section class="screen" data-screen="ordini" aria-labelledby="h-ord" hidden>
-        <h1 class="title" id="h-ord">Ritiro</h1>
-        <div id="ord"></div>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Home</a>
-      <a href="#/menu" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15c2-6 14-6 16 0zM3 15h18v2H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Banco</a>
-      <a href="#/carrello" data-tab="carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18l-3 10H6zM8 9l2-5M16 9l-2-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Vassoio<i class="badge" id="badge" hidden>0</i></a>
-      <a href="#/ordini" data-tab="ordini"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Ritiro</a>
-    </nav>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="a-col">
+      <main id="a-vista" tabindex="-1"></main>
+    </div>
   </div>
+
+  <nav class="nx-tabbar nx-vetro" id="a-tab" aria-label="Sezioni dell'app">
+    <a href="#/home" data-t="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20H4z"/></svg><span>Home</span></a>
+    <a href="#/banco" data-t="banco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15c2-6 14-6 16 0z"/><path d="M3 15h18v3H3z"/></svg><span>Banco</span></a>
+    <a href="#/vassoio" data-t="vassoio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18l-3 10H6z"/><path d="M8 9l2-5M16 9l-2-5"/></svg><span>Vassoio</span><b class="a-badge" id="a-badge" hidden>0</b></a>
+    <a href="#/ritiro" data-t="ritiro"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l3 3 5-6"/></svg><span>Ritiro</span></a>
+  </nav>
+  <a class="a-barra-c nx-vetro" id="a-barra-c" href="#/vassoio" hidden></a>
 </body>
 </html>

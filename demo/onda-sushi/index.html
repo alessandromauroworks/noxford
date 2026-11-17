@@ -1,75 +1,64 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Onda Sushi · Sushi da asporto e a domicilio (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un sushi bar inventato: offerta a tempo, menu con ricerca, porzioni e allergeni, carrello con mancia e orario di consegna. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un sushi bar inventato: offerta a tempo, menu con ricerca, porzioni e allergeni, carrello con orario e mancia, ordini da ripetere. Tre stili, tema chiaro o scuro. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#F4EFE6">
+  <meta name="theme-color" content="#F2F2F7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2323305A'/%3E%3Cpath d='M6 19c4-6 8-6 10 0s6 6 10 0' fill='none' stroke='%23F4EFE6' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23D9412B'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: parametro dell'indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = null, sv = null;
+      try { s = localStorage.getItem("nx-tema"); sv = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : s || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || sv) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(q.get("stile") || "") ? q.get("stile") : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Piatti e prezzi sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Onda Sushi, vai alla home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--indaco)"/><path d="M6 19c4-6 8-6 10 0s6 6 10 0" fill="none" stroke="#F4EFE6" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="10" r="3" fill="var(--vermiglio)"/></svg>
-        <span>Onda <i>sushi</i></span>
-      </a>
-      <span class="open"><i></i>Aperto · consegna 35-45 min</span>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <div class="offerta">
-          <img src="img/tagliere.webp" width="1200" height="896" alt="Piatto nero con nigiri di salmone e tonno, uramaki al sesamo e hosomaki" fetchpriority="high">
-          <div class="off-tx">
-            <p class="kick">Offerta di oggi</p>
-            <h1 id="h-home">Barca Onda per due a 34 € invece di 42 €</h1>
-            <p class="timer" aria-live="off">Finisce tra <b id="countdown">--:--:--</b></p>
-            <a class="btn rosso" href="#/piatto/barca">Vedi la barca</a>
-          </div>
-        </div>
-        <h2 class="sec">Categorie</h2>
-        <div class="cats" id="home-cats"></div>
-        <h2 class="sec">Consigliati dallo chef</h2>
-        <ul class="chef" id="home-chef"></ul>
-      </section>
+<body class="nx">
+  <a class="a-salta" href="#a-vista">Vai al contenuto</a>
+  <p class="a-striscia">App dimostrativa di un'attività inventata · Piatti e prezzi sono di esempio · Foto generate con l'IA</p>
 
-      <section class="screen" data-screen="menu" aria-labelledby="h-menu" hidden>
-        <h1 class="title" id="h-menu">Il menu</h1>
-        <label class="search"><span class="sr">Cerca un piatto</span><input id="cerca" type="search" placeholder="Cerca: salmone, tempura, veg…" autocomplete="off"></label>
-        <div class="tabs" id="menu-tabs" role="group" aria-label="Categorie"></div>
-        <ul class="grid" id="menu-list"></ul>
-        <p class="empty" id="menu-vuoto" hidden>Nessun piatto trovato.</p>
-      </section>
+  <div class="a-quadro">
+    <aside class="a-lato" aria-label="Informazioni sulla demo">
+      <div class="a-lato-marchio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#23305A"/><path d="M6 19c4-6 8-6 10 0s6 6 10 0" fill="none" stroke="#F4EFE6" stroke-width="2.4" stroke-linecap="round"/><circle cx="22" cy="10" r="3" fill="#D9412B"/></svg>
+        <span><b>Onda Sushi</b><small>Asporto e consegna</small></span>
+      </div>
+      <p>Un sushi bar di quartiere. L'offerta della sera ha il conto alla rovescia; il cliente sceglie porzioni e salse, vede gli allergeni, sceglie l'orario e ripete l'ordine della settimana scorsa.</p>
+      <ul class="nx-lista a-lato-vie">
+        <li><a class="nx-cella" href="#/home"><span class="nx-c-tx"><b>Offerta di oggi</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/menu"><span class="nx-c-tx"><b>Menu</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/piatto/crunch"><span class="nx-c-tx"><b>Scheda di un piatto</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/carrello"><span class="nx-c-tx"><b>Carrello</b></span><i class="nx-chev"></i></a></li>
+        <li><a class="nx-cella" href="#/ordini"><span class="nx-c-tx"><b>Ordini</b></span><i class="nx-chev"></i></a></li>
+      </ul>
+      <button class="nx-btn pieno" type="button" data-a="opzioni">Stile, tema e vetro</button>
+      <p class="a-lato-nota">Attività inventata. Gli ordini restano solo in questo browser.</p>
+    </aside>
 
-      <section class="screen" data-screen="piatto" aria-labelledby="d-nome" hidden>
-        <a class="back" href="#/menu"><span aria-hidden="true">←</span> Torna al menu</a>
-        <div id="d-head"></div>
-        <form id="d-form" novalidate></form>
-      </section>
-
-      <section class="screen" data-screen="carrello" aria-labelledby="h-cart" hidden>
-        <h1 class="title" id="h-cart">Carrello</h1>
-        <div id="cart-box"></div>
-      </section>
-
-      <section class="screen" data-screen="ordini" aria-labelledby="h-ord" hidden>
-        <h1 class="title" id="h-ord">I tuoi ordini</h1>
-        <div id="ord-box"></div>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c3-5 6-5 9 0s6 5 9 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Oggi</a>
-      <a href="#/menu" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v18M17 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</a>
-      <a href="#/carrello" data-tab="carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-2 10H6zM8 9l4-5 4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Carrello<i class="badge" id="badge" hidden>0</i></a>
-      <a href="#/ordini" data-tab="ordini"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Ordini</a>
-    </nav>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="a-col">
+      <main id="a-vista" tabindex="-1"></main>
+    </div>
   </div>
+
+  <nav class="nx-tabbar nx-vetro" id="a-tab" aria-label="Sezioni dell'app">
+    <a href="#/home" data-t="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14c3-5 6-5 9 0s6 5 9 0"/><path d="M3 19c3-3 6-3 9 0s6 3 9 0"/></svg><span>Oggi</span></a>
+    <a href="#/menu" data-t="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v18M17 3v18"/></svg><span>Menu</span></a>
+    <a href="#/carrello" data-t="carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.8 10H5.8z"/><path d="M8.5 9 12 4.5 15.5 9"/></svg><span>Carrello</span><b class="a-badge" id="a-badge" hidden>0</b></a>
+    <a href="#/ordini" data-t="ordini"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><span>Ordini</span></a>
+  </nav>
+  <a class="a-barra-c nx-vetro" id="a-barra-c" href="#/carrello" hidden></a>
 </body>
 </html>

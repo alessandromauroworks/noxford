@@ -1,69 +1,44 @@
 <!doctype html>
-<html lang="it" data-stile-c="Scuro">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" style="--tinta:#2F6B4F">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Cedro · Cucina libanese (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un ristorante libanese inventato: menu con il livello di piccante, prenotazione del tavolo e ordine da asporto con orario di ritiro. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un ristorante libanese inventato: menu con il livello di piccante, prenotazione del tavolo e ordine da asporto con orario di ritiro. In tre stili, tema chiaro o scuro. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#1F3B2D">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231F3B2D'/%3E%3Cpath d='M16 5l7 9h-4l6 7h-5l3 4H9l3-4H7l6-7H9z' fill='%23E0A526'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="stili.js"></script>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232F6B4F'/%3E%3Cpath d='M16 5l7 9h-4l6 7h-5l3 4H9l3-4H7l6-7H9z' fill='%23E0A526'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema prima del primo disegno: parametro ?tema= > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = null, sv = null;
+      try { s = localStorage.getItem("nx-tema"); sv = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : s || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || sv) === "no" ? "no" : "si");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Piatti, prezzi e orari sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Cedro, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l8 10h-5l7 8h-6l3 5H9l3-5H6l7-8H8z" fill="var(--zafferano)"/><path d="M16 26v4" stroke="var(--zafferano)" stroke-width="2"/></svg><span>Cedro<small>cucina libanese</small></span></a>
-      <a class="borsa" href="#/asporto" aria-label="Ordine da asporto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><b id="n-borsa">0</b></a>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <div class="hero">
-          <img src="img/sala.webp" width="896" height="1200" alt="La sala del ristorante la sera: pareti verde scuro, lanterne di ottone, tavoli di legno apparecchiati e piastrelle a disegni" fetchpriority="high">
-          <div class="hero-tx"><p class="aperto" id="h-aperto"></p><h1 id="h-home">Mezze da dividere, <em>griglia a carbone.</em></h1></div>
-        </div>
-        <div class="cta2"><a class="btn" href="#/prenota">Prenota un tavolo</a><a class="btn chiaro" href="#/menu">Ordina da asporto</a></div>
-        <h2 class="sec">Il piatto di oggi</h2>
-        <a class="oggi" id="h-oggi" href="#/piatto/mezze"></a>
-        <h2 class="sec">Come leggere il piccante</h2>
-        <ul class="leg" id="h-leg"></ul>
-      </section>
-
-      <section class="screen" data-screen="menu" aria-labelledby="h-me" hidden>
-        <h1 class="title" id="h-me">Menu</h1>
-        <div class="tabs" id="me-cat" role="group" aria-label="Categoria"></div>
-        <div class="filtri">
-          <div class="pic" id="me-pic" role="group" aria-label="Piccante al massimo"></div>
-          <label class="sw"><input type="checkbox" id="me-veg"><span>Solo vegetariani</span></label>
-        </div>
-        <ul class="piatti" id="me-lista"></ul>
-      </section>
-
-      <section class="screen" data-screen="piatto" aria-labelledby="p-nome" hidden>
-        <a class="back" href="#/menu"><span aria-hidden="true">←</span> Menu</a>
-        <div id="p-box"></div>
-      </section>
-
-      <section class="screen" data-screen="prenota" aria-labelledby="h-pr" hidden>
-        <h1 class="title" id="h-pr">Prenota un tavolo</h1>
-        <div id="pr-box"></div>
-      </section>
-
-      <section class="screen" data-screen="asporto" aria-labelledby="h-as" hidden>
-        <h1 class="title" id="h-as">Asporto</h1>
-        <div id="as-box"></div>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l6 8h-4l5 6H5l5-6H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 17v4" stroke="currentColor" stroke-width="1.8"/></svg>Cedro</a>
-      <a href="#/menu" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 0 16 0zM3 12h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</a>
-      <a href="#/prenota" data-tab="prenota"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Tavolo</a>
-      <a href="#/asporto" data-tab="asporto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Asporto</a>
-    </nav>
+<body class="nx x" data-stile="a">
+  <a class="x-salta" href="#x-vista">Vai al contenuto</a>
+  <div class="x-pagina">
+    <aside class="x-lato x-solo-largo" id="x-lato" aria-label="Cedro: sezioni e opzioni"></aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Piatti, prezzi e orari sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-nav" id="x-nav">
+        <div class="nx-nb-riga"><span class="x-nb-sx" id="x-nb-sx"></span><span class="nx-nb-pic" id="x-pic"></span><span class="x-nb-dx" id="x-nb-dx"></span></div>
+      </header>
+      <h1 class="nx-tit-grande x-tit" id="x-tit">Cedro</h1>
+      <main id="x-vista" tabindex="-1"></main>
+    </div>
   </div>
+  <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
 </body>
 </html>

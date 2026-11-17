@@ -76,13 +76,27 @@
   impagina();
 
   /* ---------- video vero nel pannello Video Factory ----------
-     Il file si scarica solo la prima volta che il pannello è sullo schermo; esce dallo schermo = pausa.
-     Con meno movimento o animazioni spente resta il fotogramma fisso (poster). */
+     Parte da solo, senza audio, appena il pannello è sullo schermo (anche con "riduci movimento" del sistema:
+     è il lavoro da mostrare). Il file si scarica solo la prima volta; esce dallo schermo = pausa.
+     Si ferma solo con il tasto pausa o con "Disattiva le animazioni" del sito. */
   d.querySelectorAll(".spn-vid video[data-src]").forEach(function (v) {
-    var visto = false;
+    var visto = false, fermo = false;
     v.muted = true;
+    v.autoplay = true;
+    var bt = d.createElement("button");
+    bt.type = "button";
+    bt.className = "spn-pausa";
+    bt.setAttribute("aria-label", "Metti in pausa il video");
+    bt.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pa" d="M8 5v14M16 5v14"/><path class="i-pl" d="M8 5l11 7-11 7z"/></svg>';
+    v.parentNode.appendChild(bt);
+    bt.addEventListener("click", function () {
+      fermo = !fermo;
+      bt.classList.toggle("off", fermo);
+      bt.setAttribute("aria-label", fermo ? "Fai ripartire il video" : "Metti in pausa il video");
+      aggiorna();
+    });
     function aggiorna() {
-      if (!visto || piano() || d.hidden) { if (!v.paused) v.pause(); return; }
+      if (!visto || fermo || spento() || d.hidden) { if (!v.paused) v.pause(); return; }
       if (!v.getAttribute("src")) { v.src = v.getAttribute("data-src"); }
       var pr = v.play();
       if (pr && pr.catch) pr.catch(function () {});

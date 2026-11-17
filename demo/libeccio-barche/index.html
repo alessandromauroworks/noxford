@@ -1,73 +1,54 @@
 <!doctype html>
-<html lang="it" data-stile-c="Editoriale">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a" style="--tinta:#1F6A9A">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Libeccio · Noleggio barche (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un noleggio barche inventato: flotta con filtri, con o senza skipper, date, extra e meteo del mare. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un noleggio barche inventato: flotta con filtri, scheda della barca, prenotazione con skipper, extra e caparra, mare e vento dei prossimi giorni. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#12324F">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2312324F'/%3E%3Cpath d='M16 6v15H8zM18 10l6 11h-6z' fill='%23F3EBDD'/%3E%3Cpath d='M6 23h20l-3 3H9z' fill='%23F0644A'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="stili.js"></script>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312324F'/%3E%3Cpath d='M16 6v15H8zM18 10l6 11h-6z' fill='%23F3EBDD'/%3E%3Cpath d='M6 23h20l-3 3H9z' fill='%23F0644A'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = q.get("stile"), ts = null, vs = null;
+      try { ts = localStorage.getItem("nx-tema"); vs = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : ts || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || vs) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(s || "") ? s : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Barche, prezzi e meteo sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Libeccio, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#12324F"/><path d="M16 6v15H8zM18 10l6 11h-6z" fill="#F3EBDD"/><path d="M6 23h20l-3 3H9z" fill="#F0644A"/></svg><span><em>Libeccio</em><small>barche a noleggio · porto di Cala Ventosa</small></span></a>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <div class="hero">
-          <img src="img/gommone.webp" width="1000" height="747" alt="Gommone bianco all'ancora in una caletta di acqua turchese tra scogli bianchi e pini" fetchpriority="high">
-          <h1 id="h-home">Una giornata in mare, <em>scegli tu come.</em></h1>
+<body class="nx">
+  <div class="x-pagina">
+    <aside class="x-lato" aria-label="Informazioni sulla demo">
+      <div class="x-lato-marchio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#12324F"/><path d="M16 6v15H8zM18 10l6 11h-6z" fill="#F3EBDD"/><path d="M6 23h20l-3 3H9z" fill="#F0644A"/></svg><h2>Libeccio<small>Barche a noleggio · Cala Ventosa</small></h2></div>
+      <p class="x-lato-tx">L'app di un noleggio barche in un porto turistico: si sceglie la barca giusta per il gruppo, si vede il mare dei prossimi giorni e si blocca la data con la caparra.</p>
+      <ul class="x-lato-punti"><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 16h18l-3 4H6z"/><path d="M12 3v11M12 4l6 9h-6"/></svg><span>Flotta filtrata per persone, patente e skipper</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="3"/><path d="M4 10h16M9 3.5v4M15 3.5v4"/></svg><span>Prenotazione con durata, extra e caparra</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h11a3 3 0 1 0-3-3M3 14h15a3 3 0 1 1-3 3M3 19h6"/></svg><span>Vento e mare dei prossimi sette giorni</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M10 12.5h5M10 16h5"/></svg><span>Codice d'imbarco da mostrare al pontile</span></li></ul>
+      <div class="x-lato-opz" id="x-lato-opz"></div>
+      <p class="x-lato-piede">App dimostrativa di un'attività inventata · Barche, prezzi e meteo sono di esempio · Foto generate con l'IA. Realizzata da Noxford Agency.</p>
+    </aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Barche, prezzi e meteo sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-bar" id="x-bar">
+        <div class="nx-nb-riga x-riga">
+          <div id="x-sx"></div>
+          <span class="nx-nb-pic" id="x-pic" aria-hidden="true"></span>
+          <div class="x-dx"><span id="x-dx-app"></span><button type="button" class="nx-btn ico t" id="x-opz" aria-label="Opzioni della demo"><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg></button></div>
         </div>
-        <div class="cerca">
-          <p class="f-lab">Quando</p>
-          <div class="giorni" id="h-giorni" role="group" aria-label="Giorno"></div>
-          <div class="riga">
-            <div><p class="f-lab">Persone</p><div class="step"><button type="button" data-pers="-1" aria-label="Una persona in meno">−</button><b id="h-pers">4</b><button type="button" data-pers="1" aria-label="Una persona in più">+</button></div></div>
-            <div><p class="f-lab">Skipper</p><div class="seg" role="group" aria-label="Skipper"><button type="button" data-sk="no" aria-pressed="false">Guido io</button><button type="button" data-sk="si" aria-pressed="false">Con skipper</button></div></div>
-          </div>
-          <a class="btn full" href="#/flotta" id="h-vai">Vedi le barche libere</a>
-        </div>
-        <a class="meteo-mini" href="#/meteo" id="h-meteo"></a>
-      </section>
-
-      <section class="screen" data-screen="flotta" aria-labelledby="h-fl" hidden>
-        <h1 class="title" id="h-fl">La flotta</h1>
-        <div class="chips" id="fl-tipo" role="group" aria-label="Tipo di barca"></div>
-        <label class="sw"><input type="checkbox" id="fl-pat"><span>Solo senza patente</span></label>
-        <p class="conta" id="fl-conta" aria-live="polite"></p>
-        <ul class="flotta" id="fl-lista"></ul>
-      </section>
-
-      <section class="screen" data-screen="barca" aria-labelledby="b-nome" hidden>
-        <a class="back" href="#/flotta"><span aria-hidden="true">←</span> Flotta</a>
-        <div id="b-box"></div>
-      </section>
-
-      <section class="screen" data-screen="prenota" aria-labelledby="h-pr" hidden>
-        <h1 class="title" id="h-pr">Prenota</h1>
-        <div id="pr-box"></div>
-      </section>
-
-      <section class="screen" data-screen="meteo" aria-labelledby="h-me" hidden>
-        <h1 class="title" id="h-me">Mare e vento</h1>
-        <p class="sub">Previsioni di esempio per il porto di Cala Ventosa. Nella versione vera arrivano da un servizio meteo marino.</p>
-        <div class="gg-meteo" id="me-giorni" role="group" aria-label="Scegli il giorno"></div>
-        <div class="me-box" id="me-box"></div>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c3 2 6 2 9 0s6-2 9 0M12 3v12H6z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Home</a>
-      <a href="#/flotta" data-tab="flotta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15h18l-3 5H6zM12 3v10M12 4l6 9h-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Flotta</a>
-      <a href="#/prenota" data-tab="prenota"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Prenota</a>
-      <a href="#/meteo" data-tab="meteo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h12a3 3 0 1 0-3-3M3 14h16a3 3 0 1 1-3 3M3 19h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Meteo</a>
-    </nav>
+        <nav class="x-sez nx-chips" id="x-sez" aria-label="Sezioni"></nav>
+      </header>
+      <main class="x-vista" id="x-vista" tabindex="-1"></main>
+      <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
+      <a id="x-fab" hidden></a>
+    </div>
   </div>
 </body>
 </html>

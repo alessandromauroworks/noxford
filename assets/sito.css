@@ -155,7 +155,7 @@ section{padding:72px 0;position:relative}
 .ct{display:grid;gap:36px}
 .ct h2{font-size:clamp(34px,6vw,58px);margin-bottom:24px}
 .rec{display:grid;gap:12px}
-.rec a,.rec div{display:block;text-decoration:none;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .25s,transform .25s;overflow-wrap:anywhere}
+.rec a,.rec div{display:block;text-decoration:none;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .25s,transform .25s;overflow-wrap:break-word}
 .rec a:hover{border-color:var(--ac);transform:translateX(4px)}
 .rec small{display:block;font:600 11px/1 "Manrope",sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
 .rec span{font-size:17px}
@@ -169,7 +169,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 100px;background:var(--bg
 .fg{display:grid;gap:34px;margin-bottom:36px}
 footer h4{font:600 12px/1 "Manrope",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin:0 0 16px}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-footer li a{display:inline-block;text-decoration:none;color:var(--mut);font-size:15px;padding:6px 0}
+footer li a{display:inline-block;text-decoration:none;color:var(--mut);font-size:15px;padding:6px 0;min-height:44px;min-width:44px;line-height:32px}
 footer li a:hover{color:var(--tx)}
 .fb{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut);border-top:1px solid var(--line);padding-top:24px}
 .fb p{margin:0}
@@ -231,3 +231,5 @@ footer li a:hover{color:var(--tx)}
   .hv .lupo{opacity:1;transform:none;filter:none}
   .js .rv{opacity:1;transform:none}
 }
+/* briciole: area da toccare di almeno 44 px senza spostare il testo */
+.crumb a{display:inline-block;padding:13px 0;margin:-13px 0}

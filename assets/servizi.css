@@ -187,3 +187,12 @@
 #lavori .t-osp img{object-position:top}
 @media(hover:hover){#lavori .tile:hover .tile-img img{transform:scale(1.04)}}
 @media(min-width:900px){#lavori .mos{grid-template-columns:repeat(3,1fr)}#lavori .tile,#lavori .tile:nth-child(n){grid-column:auto;min-height:0}}
+/* tasto pausa del video Video Factory */
+.spn-pausa{position:absolute;right:5cqw;bottom:5cqw;z-index:3;width:44px;height:44px;border-radius:50%;border:0;padding:0;display:grid;place-items:center;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.spn-pausa svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.spn-pausa .i-pl{display:none;fill:currentColor;stroke:none}
+.spn-pausa.off .i-pa{display:none}.spn-pausa.off .i-pl{display:block}
+.spn-pausa:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* alone fermo e leggero, senza pulsazione */
+.js:not(.no-anim) .spn{animation:giro 9s linear infinite}
+.spn{box-shadow:0 30px 70px -40px rgba(0,0,0,.9),0 0 34px -20px rgba(var(--acc-rgb,var(--ac-rgb)),.16)}

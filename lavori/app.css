@@ -1,0 +1,21 @@
+/* Pagine progetto delle app: schermate nelle cornici iPhone 18 Pro Max (.ip18) e computer (.fr169) del Kit Noxford.
+   Si appoggia a gestionale.css per i pulsanti di stile e la griglia .schermate.gs. */
+.schermate.gs.app{grid-template-columns:repeat(2,1fr);gap:30px 18px}
+@media(min-width:760px){.schermate.gs.app{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.schermate.gs.app{grid-template-columns:repeat(var(--n,5),1fr);gap:30px 22px}}
+.schermate.gs.app .ip18{display:block;width:100%;max-width:240px}
+.schermate.gs .ip18.scuro .ip18-sb{color:#fff}
+.app-pc{display:grid;gap:34px}
+@media(min-width:1000px){.app-pc.due{grid-template-columns:1fr 1fr}}
+.app-pc figure{margin:0}
+.app-pc .fr169{max-width:980px;margin:0 auto}
+.app-pc figcaption{margin-top:14px}
+
+/* apertura: testo a sinistra, iPhone con la prima schermata a destra */
+.ph-due{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:center}
+.ph-tel{margin:0;justify-self:center;width:100%;max-width:340px}
+.ph-tel .ip18{display:block;width:100%}
+@media (max-width:900px){
+  .ph-due{grid-template-columns:1fr;gap:40px}
+  .ph-tel{max-width:250px}
+}

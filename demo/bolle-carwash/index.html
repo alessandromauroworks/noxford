@@ -1,85 +1,54 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a" style="--tinta:#0A82AE">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Bolle · Autolavaggio a mano (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un autolavaggio inventato: programmi per tipo di veicolo, prenotazione con extra e orario, stato del lavaggio con il bar mentre aspetti e tessera lavaggi. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un autolavaggio inventato: programmi per tipo di veicolo, prenotazione con extra e orario, avanzamento del lavaggio, bar della sala d'attesa e tessera lavaggi. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#0B2545">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%2300A6D6'/%3E%3Ccircle cx='12' cy='14' r='6' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='21' cy='20' r='4' fill='none' stroke='%23FFD23F' stroke-width='2.2'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A82AE'/%3E%3Ccircle cx='12' cy='14' r='6' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='21' cy='20' r='4' fill='none' stroke='%23FFD23F' stroke-width='2.2'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = q.get("stile"), ts = null, vs = null;
+      try { ts = localStorage.getItem("nx-tema"); vs = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : ts || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || vs) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(s || "") ? s : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Programmi, prezzi e attese sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Bolle autolavaggio, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="14" r="8" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="23" cy="22" r="5" fill="none" stroke="var(--giallo)" stroke-width="2.6"/><circle cx="24" cy="8" r="2.5" fill="currentColor"/></svg><span>bolle<small>autolavaggio a mano</small></span></a>
-      <span class="coda" id="coda"></span>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <div class="hero"><img src="img/schiuma.webp" width="1200" height="896" alt="Schiuma bianca che scivola sulla carrozzeria blu lucida di un'auto, con goccioline d'acqua" fetchpriority="high"></div>
-        <h1 id="h-home">Prenoti l'orario, <span>salti la fila.</span></h1>
-        <p class="lead">Lavaggio fatto a mano da noi. Mentre aspetti, il caffè te lo portiamo in sala.</p>
-        <a class="btn blu full" href="#/prenota">Prenota un lavaggio</a>
-        <div class="tre">
-          <div><b>1</b><span>Scegli programma e orario</span></div>
-          <div><b>2</b><span>Lasci l'auto e la chiave</span></div>
-          <div><b>3</b><span>Ti avvisiamo quando è pronta</span></div>
+<body class="nx">
+  <div class="x-pagina">
+    <aside class="x-lato" aria-label="Informazioni sulla demo">
+      <div class="x-lato-marchio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0A82AE"/><circle cx="12.5" cy="14" r="6" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="21.5" cy="20.5" r="4" fill="none" stroke="#FFD23F" stroke-width="2.2"/></svg><h2>Bolle<small>Autolavaggio a mano</small></h2></div>
+      <p class="x-lato-tx">L'app di un autolavaggio a mano: si prenota l'orario invece di fare la fila, si segue il lavaggio dal telefono e intanto si ordina il caffè in sala.</p>
+      <ul class="x-lato-punti"><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16v-4l2-5h12l2 5v4z"/><path d="M4 12h16"/><circle cx="8" cy="16.5" r="1.8"/><circle cx="16" cy="16.5" r="1.8"/></svg><span>Prezzi per utilitaria, SUV o furgone</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="3"/><path d="M4 10h16M9 3.5v4M15 3.5v4"/></svg><span>Programma, extra e orario libero</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg><span>Avanzamento del lavaggio in diretta</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12.5" rx="2.5"/><path d="M3 10.5h18M7 15h4"/></svg><span>Tessera: al decimo, un esterno offerto</span></li></ul>
+      <div class="x-lato-opz" id="x-lato-opz"></div>
+      <p class="x-lato-piede">App dimostrativa di un'attività inventata · Programmi, prezzi e attese sono di esempio · Foto generate con l'IA. Realizzata da Noxford Agency.</p>
+    </aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Programmi, prezzi e attese sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-bar" id="x-bar">
+        <div class="nx-nb-riga x-riga">
+          <div id="x-sx"></div>
+          <span class="nx-nb-pic" id="x-pic" aria-hidden="true"></span>
+          <div class="x-dx"><span id="x-dx-app"></span><button type="button" class="nx-btn ico t" id="x-opz" aria-label="Opzioni della demo"><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg></button></div>
         </div>
-        <div class="interni"><img src="img/interni.webp" width="1024" height="1024" alt="Mano con guanto che pulisce un sedile in pelle nera con una spazzola morbida" loading="lazy"><div><h2>Interni come nuovi</h2><p>Aspirazione, plastiche, vetri e sedili in pelle o tessuto.</p><a href="#/programmi">Vedi i programmi →</a></div></div>
-      </section>
-
-      <section class="screen" data-screen="programmi" aria-labelledby="h-prog" hidden>
-        <h1 class="title" id="h-prog">Programmi</h1>
-        <div class="veicoli" id="veicoli" role="group" aria-label="Tipo di veicolo"></div>
-        <ul class="prog" id="prog-list"></ul>
-      </section>
-
-      <section class="screen" data-screen="prenota" aria-labelledby="h-pren" hidden>
-        <h1 class="title" id="h-pren">Prenota</h1>
-        <form id="f-pren" novalidate>
-          <p class="lab">Veicolo</p><div class="veicoli" id="p-veicoli" role="group" aria-label="Tipo di veicolo"></div>
-          <p class="lab">Programma</p><div class="scelte" id="p-prog"></div>
-          <p class="lab">Extra</p><div class="scelte" id="p-extra"></div>
-          <p class="lab">Quando</p><div class="slot" id="p-slot" role="group" aria-label="Orario"></div>
-          <label class="lab" for="targa">Targa <small>(facoltativa, la usiamo per riconoscere l'auto)</small></label>
-          <input id="targa" class="in" placeholder="AB123CD" maxlength="7" autocomplete="off" aria-describedby="e-targa">
-          <p class="err" id="e-targa" role="alert"></p>
-          <div class="tot" id="p-tot" aria-live="polite"></div>
-          <button class="btn blu full" type="submit" id="p-ok">Conferma (demo)</button>
-          <p class="nota">Demo: niente viene inviato. Si paga in sede, alla riconsegna.</p>
-        </form>
-      </section>
-
-      <section class="screen" data-screen="attesa" aria-labelledby="h-att" hidden>
-        <h1 class="title" id="h-att">La tua auto</h1>
-        <div id="att-box"></div>
-        <h2 class="sec">Bar della sala d'attesa</h2>
-        <p class="lead small">Ordina da qui: te lo portiamo al tavolo e lo paghi insieme al lavaggio.</p>
-        <ul class="bar" id="bar"></ul>
-        <div class="conto-bar" id="conto-bar"></div>
-      </section>
-
-      <section class="screen" data-screen="tessera" aria-labelledby="h-tess" hidden>
-        <h1 class="title" id="h-tess">Tessera lavaggi</h1>
-        <div class="tess" id="tess"></div>
-        <h2 class="sec">Lavaggi fatti</h2>
-        <ul class="storico" id="storico"></ul>
-        <p class="nota">Tessera e storico sono di esempio e restano solo in questo browser.</p>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Home</a>
-      <a href="#/programmi" data-tab="programmi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="17" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>Programmi</a>
-      <a href="#/prenota" data-tab="prenota"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Prenota</a>
-      <a href="#/attesa" data-tab="attesa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h2a2 2 0 0 1 0 4h-2M8 3v3M12 3v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Attesa</a>
-      <a href="#/tessera" data-tab="tessera"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>Tessera</a>
-    </nav>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <nav class="x-sez nx-chips" id="x-sez" aria-label="Sezioni"></nav>
+      </header>
+      <main class="x-vista" id="x-vista" tabindex="-1"></main>
+      <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
+      <a id="x-fab" hidden></a>
+    </div>
   </div>
 </body>
 </html>

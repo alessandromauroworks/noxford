@@ -1,87 +1,54 @@
 <!doctype html>
-<html lang="it" data-stile-c="Editoriale">
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si" data-stile="a" style="--tinta:#3E5566">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ardesia Case · Agenzia immobiliare (app dimostrativa)</title>
-  <meta name="description" content="App dimostrativa di un'agenzia immobiliare inventata: ricerca con filtri, scheda dell'immobile con galleria e mappa, visita da prenotare e preferiti. Realizzata da Noxford Agency.">
+  <meta name="description" content="App dimostrativa di un'agenzia immobiliare inventata: ricerca con filtri, scheda con planimetria, mappa e rata del mutuo, visita da prenotare e preferiti. Realizzata da Noxford Agency.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#F4F1EC">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233E5566'/%3E%3Cpath d='M7 16 16 8l9 8v9H7z' fill='none' stroke='%23F4F1EC' stroke-width='2'/%3E%3Crect x='14' y='18' width='4' height='7' fill='%23B5523B'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="stili.js"></script>
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233E5566'/%3E%3Cpath d='M7 16 16 8l9 8v9H7z' fill='none' stroke='%23F4F1EC' stroke-width='2'/%3E%3Crect x='14' y='18' width='4' height='7' fill='%23B5523B'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema, vetro e stile prima del primo disegno: indirizzo > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = q.get("stile"), ts = null, vs = null;
+      try { ts = localStorage.getItem("nx-tema"); vs = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : ts || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || vs) === "no" ? "no" : "si");
+      r.setAttribute("data-stile", /^[abc]$/.test(s || "") ? s : "a");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
   <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body>
-  <p class="demo-strip">App dimostrativa di un'attività inventata · Immobili, prezzi e indirizzi sono di esempio · Foto generate con l'IA</p>
-  <div class="app">
-    <header class="top">
-      <a class="brand" href="#/home" aria-label="Ardesia Case, vai alla home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="var(--ardesia)"/><path d="M7 16 16 8l9 8v9H7z" fill="none" stroke="#F4F1EC" stroke-width="2"/><rect x="14" y="18" width="4" height="7" fill="var(--mattone)"/></svg><span>Ardesia<small>case e terreni</small></span></a>
-      <a class="pill" href="#/preferiti" id="pill-pref">Salvati <b id="n-pref">0</b></a>
-    </header>
-    <main>
-      <section class="screen" data-screen="home" aria-labelledby="h-home">
-        <div class="hero">
-          <img src="img/soggiorno.webp" width="1200" height="896" alt="Soggiorno luminoso con parquet a spina di pesce, divano grigio chiaro e una grande finestra" fetchpriority="high">
-          <div class="hero-tx"><h1 id="h-home">Cerca casa con i filtri che contano davvero.</h1></div>
+<body class="nx">
+  <div class="x-pagina">
+    <aside class="x-lato" aria-label="Informazioni sulla demo">
+      <div class="x-lato-marchio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3E5566"/><path d="M7 16 16 8l9 8v9H7z" fill="none" stroke="#F4F1EC" stroke-width="2"/><rect x="14" y="18" width="4" height="7" fill="#B5523B"/></svg><h2>Ardesia Case<small>Case e terreni, dal 1998</small></h2></div>
+      <p class="x-lato-tx">L'app di un'agenzia immobiliare di provincia: chi cerca casa filtra per quello che conta, vede la planimetria e la rata del mutuo, prenota la visita senza telefonare.</p>
+      <ul class="x-lato-punti"><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><span>Filtri per contratto, zona, prezzo e locali</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M12 4v9H3.5M12 9h8.5M16 9v11"/></svg><span>Scheda con foto, planimetria, mappa e rata del mutuo</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="3"/><path d="M4 10h16M9 3.5v4M15 3.5v4"/></svg><span>Visita prenotata e salvata nel calendario</span></li><li><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></svg><span>Preferiti e avviso quando entra una casa adatta</span></li></ul>
+      <div class="x-lato-opz" id="x-lato-opz"></div>
+      <p class="x-lato-piede">App dimostrativa di un'attività inventata · Immobili, prezzi e indirizzi sono di esempio · Foto generate con l'IA. Realizzata da Noxford Agency.</p>
+    </aside>
+    <div class="x-app">
+      <p class="x-strip">App dimostrativa di un'attività inventata · Immobili, prezzi e indirizzi sono di esempio · Foto generate con l'IA</p>
+      <header class="nx-navbar x-bar" id="x-bar">
+        <div class="nx-nb-riga x-riga">
+          <div id="x-sx"></div>
+          <span class="nx-nb-pic" id="x-pic" aria-hidden="true"></span>
+          <div class="x-dx"><span id="x-dx-app"></span><button type="button" class="nx-btn ico t" id="x-opz" aria-label="Opzioni della demo"><svg class="x-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg></button></div>
         </div>
-        <form class="cerca" id="f-cerca" novalidate>
-          <div class="seg" role="group" aria-label="Contratto"><button type="button" data-con="vendita" aria-pressed="true">Comprare</button><button type="button" data-con="affitto" aria-pressed="false">Affittare</button></div>
-          <label class="f" for="c-zona">Zona<select id="c-zona"><option value="tutte">Tutte le zone</option><option>Centro storico</option><option>Borgo Fiume</option><option>Colle Alto</option><option>Campagna</option></select></label>
-          <label class="f" for="c-max">Prezzo massimo<select id="c-max"></select></label>
-          <p class="f-lab">Locali almeno</p>
-          <div class="seg q" role="group" aria-label="Locali almeno"><button type="button" data-loc="1" aria-pressed="true">1</button><button type="button" data-loc="2" aria-pressed="false">2</button><button type="button" data-loc="3" aria-pressed="false">3</button><button type="button" data-loc="4" aria-pressed="false">4+</button></div>
-          <button class="btn full" type="submit" id="c-vai">Vedi gli immobili</button>
-        </form>
-        <h2 class="sec">Appena arrivati</h2>
-        <ul class="lista" id="home-nuovi"></ul>
-      </section>
-
-      <section class="screen" data-screen="annunci" aria-labelledby="h-an" hidden>
-        <h1 class="title" id="h-an">Immobili</h1>
-        <div class="chips" id="chips" role="group" aria-label="Filtri attivi"></div>
-        <div class="ord"><p id="an-conta" aria-live="polite"></p><label for="an-ord" class="sr">Ordina</label><select id="an-ord"><option value="nuovi">Più recenti</option><option value="prezzo">Prezzo più basso</option><option value="mq">Più grandi</option></select></div>
-        <ul class="lista" id="an-lista"></ul>
-      </section>
-
-      <section class="screen" data-screen="immobile" aria-labelledby="i-nome" hidden>
-        <a class="back" href="#/annunci"><span aria-hidden="true">←</span> Immobili</a>
-        <div id="i-box"></div>
-      </section>
-
-      <section class="screen" data-screen="visita" aria-labelledby="h-vi" hidden>
-        <h1 class="title" id="h-vi">Prenota una visita</h1>
-        <div class="mini" id="vi-imm"></div>
-        <form id="f-vi" novalidate>
-          <p class="f-lab">Giorno</p>
-          <div class="giorni" id="vi-giorni" role="group" aria-label="Giorno"></div>
-          <p class="f-lab">Orario</p>
-          <div class="orari" id="vi-orari" role="group" aria-label="Orario"></div>
-          <p class="f-lab">Come preferisci</p>
-          <div class="seg" role="group" aria-label="Tipo di visita"><button type="button" data-tipo="presenza" aria-pressed="true">Di persona</button><button type="button" data-tipo="video" aria-pressed="false">Videochiamata</button></div>
-          <label class="f" for="vi-nome">Nome<input id="vi-nome" autocomplete="off" placeholder="Come ti chiami"></label>
-          <p class="err" id="vi-err" role="alert"></p>
-          <button class="btn full" type="submit">Conferma la visita (demo)</button>
-          <p class="nota">Demo: non inviamo nulla. Nella versione vera la visita arriva in agenda all'agente e ricevi un promemoria.</p>
-        </form>
-        <div class="ok" id="vi-ok" hidden></div>
-      </section>
-
-      <section class="screen" data-screen="preferiti" aria-labelledby="h-pr" hidden>
-        <h1 class="title" id="h-pr">Salvati</h1>
-        <ul class="lista" id="pr-lista"></ul>
-        <div class="avvisami"><h2>Avvisami quando arriva</h2><p id="pr-ric">Nessuna ricerca salvata.</p><button class="btn chiaro" type="button" id="pr-salva">Salva la ricerca attuale</button></div>
-        <h2 class="sec">Visite prenotate</h2>
-        <ul class="vis" id="pr-vis"></ul>
-      </section>
-    </main>
-    <nav class="tabbar" aria-label="Sezioni dell'app">
-      <a href="#/home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Cerca</a>
-      <a href="#/annunci" data-tab="annunci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9H4z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Immobili</a>
-      <a href="#/visita" data-tab="visita"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Visita</a>
-      <a href="#/preferiti" data-tab="preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Salvati</a>
-    </nav>
+        <nav class="x-sez nx-chips" id="x-sez" aria-label="Sezioni"></nav>
+      </header>
+      <main class="x-vista" id="x-vista" tabindex="-1"></main>
+      <nav class="nx-tabbar nx-vetro" id="x-tab" aria-label="Sezioni dell'app"></nav>
+      <a id="x-fab" hidden></a>
+    </div>
   </div>
 </body>
 </html>
