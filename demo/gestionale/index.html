@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it" data-nx-tema="chiaro" data-nx-vetro="si">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gestionale · Demo per un'attività inventata | Noxford Agency</title>
+  <meta name="description" content="Demo di gestionali per nove settori, in quattro layout, tema chiaro o scuro: CRM, importazione da CSV e Fogli Google, incassi e riquadri IA di esempio. Dati inventati. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F2F2F7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322262B'/%3E%3Cpath d='M9 22V10h4l6 8v-8h4v12h-4l-6-8v8z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preload" href="../../assets/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    /* tema prima del primo disegno, per evitare il lampo: parametro ?tema= > scelta salvata > sistema */
+    (function () {
+      var r = document.documentElement, q = new URLSearchParams(location.search), t = q.get("tema"), v = q.get("vetro"), s = null, sv = null;
+      try { s = localStorage.getItem("nx-tema"); sv = localStorage.getItem("nx-vetro"); } catch (e) {}
+      t = t === "scuro" || t === "chiaro" ? t : s || (matchMedia("(prefers-color-scheme: dark)").matches ? "scuro" : "chiaro");
+      r.setAttribute("data-nx-tema", t);
+      r.setAttribute("data-nx-vetro", (v || sv) === "no" ? "no" : "si");
+      if (q.get("foto") === "1") r.classList.add("g-foto");
+    })();
+  </script>
+  <link rel="stylesheet" href="../../assets/kit/noxford-kit.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../../assets/kit/noxford-kit.js" defer></script>
+  <script src="nicchie.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="nx g" data-stile="a">
+  <a class="g-salta" href="#vista">Vai al contenuto</a>
+  <div class="g-demo" id="g-demo" role="region" aria-label="Opzioni della demo">
+    <p class="g-demo-t"><b>Demo</b><span> · attività inventata, dati di esempio</span></p>
+    <div class="g-demo-c" id="g-demo-c">
+      <label class="g-sel"><span class="nx-sr">Settore</span><select id="sel-n" aria-label="Settore del gestionale"></select></label>
+      <div class="nx-seg" id="seg-stile" role="group" aria-label="Layout">
+        <button type="button" data-v="a" aria-pressed="true" title="Pulito">A<span class="g-st-n"> Pulito</span></button>
+        <button type="button" data-v="b" aria-pressed="false" title="Vetro">B<span class="g-st-n"> Vetro</span></button>
+        <button type="button" data-v="c" aria-pressed="false" title="Compatto">C<span class="g-st-n"> Compatto</span></button>
+        <button type="button" data-v="d" aria-pressed="false" title="Minimal">D<span class="g-st-n"> Minimal</span></button>
+      </div>
+      <label class="nx-toggle"><input type="checkbox" id="tg-tema"><i></i><span>Scuro</span></label>
+      <label class="nx-toggle"><input type="checkbox" id="tg-vetro"><i></i><span>Vetro</span></label>
+    </div>
+    <button type="button" class="nx-btn g-demo-btn" id="g-demo-btn" aria-label="Opzioni della demo: settore, layout, tema e vetro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Opzioni</button>
+  </div>
+
+  <div class="g-app">
+    <aside class="g-side nx-vetro-b" id="g-side" aria-label="Menu del gestionale">
+      <div class="g-brand"><span class="g-logo" id="sigla" aria-hidden="true">SD</span><span class="g-brand-t"><b id="nome">Gestionale</b><small id="settore">Gestionale</small></span></div>
+      <nav class="g-nav" id="nav" aria-label="Sezioni"></nav>
+      <p class="g-side-n">Nomi, importi e appuntamenti sono inventati. I riquadri IA sono esempi.</p>
+    </aside>
+    <div class="g-main">
+      <header class="g-top nx-navbar" id="g-top">
+        <div class="nx-nb-riga">
+          <span class="g-top-logo" aria-hidden="true" id="sigla2">SD</span>
+          <span class="nx-nb-pic" id="tit-pic" aria-hidden="true"></span>
+          <label class="nx-cerca g-cerca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20"/></svg><input type="search" id="cerca" placeholder="Cerca in questa pagina" aria-label="Cerca in questa pagina"></label>
+          <span class="g-io" id="io" aria-hidden="true">MR</span>
+        </div>
+        <div class="g-tit"><h1 class="nx-tit-grande" id="titolo">Gestionale</h1><p class="g-data" id="g-oggi"></p></div>
+      </header>
+      <main class="g-vista" id="vista" tabindex="-1"></main>
+    </div>
+  </div>
+  <nav class="nx-tabbar nx-vetro g-tab" id="g-tab" aria-label="Sezioni"></nav>
+</body>
+</html>

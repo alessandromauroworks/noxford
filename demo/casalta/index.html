@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Casalta · Ristrutturazioni chiavi in mano a Roma (sito dimostrativo)</title>
+<meta name="description" content="Sito dimostrativo di un'impresa inventata: ristrutturazioni chiavi in mano di appartamenti a Roma, con progetto, cantiere e consegna seguiti da un solo referente.">
+<meta name="theme-color" content="#3F4A33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%233F4A33'/%3E%3Cpath d='M9 22V14l7-5 7 5v8h-5v-5h-4v5z' fill='%23D9C08F'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<p class="demo-strip">Sito dimostrativo di un'attività inventata · Nomi, tempi e dati sono di esempio · Foto generate con l'IA</p>
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="brand" href="#main" aria-label="Casalta, torna all'inizio"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#3F4A33"/><path d="M11 28V17.5l9-6.5 9 6.5V28h-6.5v-6.5h-5V28z" fill="#D9C08F"/></svg><span>Casalta</span></a>
+    <nav class="menu" id="menu" aria-label="Principale"><a href="#referente">Un referente</a><a href="#tempi">I tempi</a><a href="#prima-dopo">Prima e dopo</a><a href="#domande">Domande</a><a class="btn p" href="#preventivo">Sopralluogo</a></nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<section class="hero" data-hero>
+  <div class="hero-img"><img src="img/soggiorno.webp" alt="Soggiorno con cucina a isola appena ristrutturato, parquet a spina di pesce e grandi finestre" width="1376" height="768" fetchpriority="high"></div>
+  <div class="wrap hero-box-w"><div class="hero-box rv">
+    <p class="kick">Ristrutturazioni chiavi in mano · Roma</p>
+    <h1>Ci lasci le chiavi di casa. <em>Te le ridiamo a lavori finiti.</em></h1>
+    <p>Progetto, pratiche, cantiere e arredo su misura con un solo referente e un prezzo chiuso firmato prima di iniziare.</p>
+    <div class="cta"><a class="btn p" href="#preventivo">Prenota un sopralluogo</a><a class="btn" href="#tempi">Vedi i tempi</a></div>
+  </div></div>
+</section>
+
+<section class="tempi" id="tempi" aria-labelledby="t-tempi">
+  <div class="wrap">
+    <div class="tempi-h rv"><p class="kick">Passo passo</p><h2 id="t-tempi">Dodici settimane, una dopo l'altra</h2><p>Esempio di cronoprogramma per un appartamento di circa 90 m². Scorri e guarda come si riempie: è lo stesso schema che ricevi firmato.</p></div>
+    <div class="gantt rv" id="gantt">
+      <div class="g-scala" aria-hidden="true"><span class="g-n">Settimana</span><span class="g-s"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></span></div>
+      <ol><li style="--s:0;--l:2"><span class="g-n">Rilievo e progetto</span><span class="g-t"><i></i></span></li><li style="--s:1;--l:2"><span class="g-n">Pratiche</span><span class="g-t"><i></i></span></li><li style="--s:3;--l:1"><span class="g-n">Demolizioni</span><span class="g-t"><i></i></span></li><li style="--s:4;--l:2"><span class="g-n">Impianti</span><span class="g-t"><i></i></span></li><li style="--s:5;--l:2"><span class="g-n">Massetti e intonaci</span><span class="g-t"><i></i></span></li><li style="--s:7;--l:2"><span class="g-n">Pavimenti e rivestimenti</span><span class="g-t"><i></i></span></li><li style="--s:8;--l:2"><span class="g-n">Falegnameria e infissi</span><span class="g-t"><i></i></span></li><li style="--s:10;--l:1"><span class="g-n">Pitture e pulizia</span><span class="g-t"><i></i></span></li><li style="--s:11;--l:1"><span class="g-n">Consegna</span><span class="g-t"><i></i></span></li></ol>
+    </div>
+    <p class="g-stato" id="g-stato" aria-live="polite"></p>
+  </div>
+</section>
+<section class="ref" id="referente" aria-labelledby="t-ref">
+  <div class="wrap">
+    <h2 id="t-ref" class="rv">Un numero di telefono, <em>non sette</em></h2>
+    <div class="conf">
+      <div class="col rv"><h3>Ristrutturare da soli</h3><ul><li>Architetto per il progetto</li><li>Geometra per le pratiche</li><li>Impresa per le demolizioni</li><li>Idraulico</li><li>Elettricista</li><li>Piastrellista</li><li>Falegname</li></ul><p>Ognuno con i suoi tempi. Se uno ritarda, slittano tutti.</p></div>
+      <div class="col noi rv" style="--d:.08s"><h3>Con Casalta</h3><p class="uno">Un capocommessa</p><p>Coordina tecnici e squadre, aggiorna il cronoprogramma e ti scrive ogni settimana con le foto. Quando hai un dubbio chiami lui.</p><img src="img/progetto.webp" alt="Tavolo con piante dell'appartamento, campioni di legno, piastrelle, tessuti e un metro" width="1200" height="896" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pd" id="prima-dopo" aria-labelledby="t-pd">
+  <div class="wrap pd-in">
+    <div class="rv"><h2 id="t-pd">Una cucina <em>prima e dopo</em></h2><p>Trascina la linea. Stessa stanza, stessa finestra: impianti rifatti nei muri, mobili su misura, pavimento antico recuperato. <small>Lavoro di esempio, foto generate con l'IA.</small></p>
+      <ul class="prezzo"><li>Progetto e rendering</li><li>Pratiche edilizie e direzione lavori</li><li>Tutte le opere e i materiali scelti</li><li>Smaltimento e pulizia finale</li></ul><p class="pz">Tutto questo è nel prezzo chiuso.</p></div>
+    <div class="ba rv" style="--d:.06s">
+      <img src="img/cucina-prima.webp" alt="Cucina prima dei lavori: mobili marroni rovinati, piastrelle gialle e cavi a vista" width="1200" height="896" loading="lazy">
+      <img class="ba-top" src="img/cucina-dopo.webp" alt="La stessa cucina dopo i lavori: mobili verde salvia, piastrelle bianche e piano in legno" width="1200" height="896" loading="lazy">
+      <span class="ba-line"></span><span class="tag l">Dopo</span><span class="tag r">Prima</span>
+      <label class="vh" for="ba1">Sposta il confronto tra prima e dopo</label><input id="ba1" type="range" min="0" max="100" value="50">
+    </div>
+  </div>
+</section>
+
+<section class="chi" id="chi" aria-labelledby="t-chi"><div class="wrap chi-in solo"><h2 id="t-chi" class="rv">Chi siamo</h2><p class="rv" style="--d:.06s">Casalta nasce dall'incontro tra uno studio di architettura e un'impresa di Monteverde. <span class="tit">[Nome del titolare]</span> segue i progetti e i fornitori, il capocommessa i cantieri. Apriamo uno o due cantieri alla volta, perché ogni appartamento abbia sempre qualcuno che lo conosce a memoria.</p></div></section>
+<section class="zona" aria-labelledby="t-zona">
+  <div class="wrap zona-in">
+    <h2 id="t-zona" class="rv">Dove lavoriamo</h2>
+    <p class="rv">Roma dentro il Grande Raccordo Anulare: Prati, Monteverde, Trieste, Parioli, San Giovanni, Ostiense, EUR, Balduina. Fuori dal raccordo per appartamenti interi.</p>
+    <div class="gar rv"><span class="es">Esempio</span><p>Qui l'impresa vera mette i suoi documenti: polizza di responsabilità civile per il cantiere, DURC, iscrizione alla Cassa Edile, contratto con prezzo chiuso e penali sui ritardi.</p></div>
+  </div>
+</section>
+
+<section class="faq-s" id="domande" aria-labelledby="t-faq">
+  <div class="wrap faq-in">
+    <h2 id="t-faq" class="rv">Domande</h2>
+    <div class="faq rv">
+      <details><summary>Cosa vuol dire prezzo chiuso?</summary><p>Firmi un computo con tutte le lavorazioni e i materiali scelti. Il prezzo cambia solo se cambi tu qualcosa, con una variante scritta prima di farla.</p></details>
+      <details><summary>Posso scegliere io i materiali?</summary><p>Sì. Ti accompagniamo da fornitori di pavimenti, sanitari e cucine con cui lavoriamo, oppure usiamo quelli che porti tu.</p></details>
+      <details><summary>Devo lasciare la casa?</summary><p>Per un appartamento intero sì, per circa tre mesi. Per bagno o cucina si può restare, con qualche giorno senza acqua o senza cucina.</p></details>
+      <details><summary>Chi si occupa del condominio?</summary><p>Noi: avviso all'amministratore, orari del cantiere, protezione di ascensore e scale, pulizia a fine giornata.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="prev" id="preventivo" aria-labelledby="t-prev">
+  <div class="wrap prev-in">
+    <div class="rv"><h2 id="t-prev">Prenota il sopralluogo</h2><p>Veniamo a casa, prendiamo le misure e parliamo di come vuoi vivere gli spazi. Dopo due settimane ricevi progetto e prezzo chiuso.</p>
+      <dl class="cont"><dt>Telefono</dt><dd>Numero di esempio</dd><dt>Email</dt><dd>Indirizzo di esempio</dd><dt>Studio</dt><dd>Via di esempio, Roma, su appuntamento</dd></dl></div>
+    <div class="rv" style="--d:.06s"><form class="form" data-preventivo data-azienda="Casalta Ristrutturazioni" data-esito="esito">
+  <div class="row">
+    <div class="f"><label for="f-nome">Nome e cognome</label><input id="f-nome" name="nome" autocomplete="name" data-label="Nome" data-req="Scrivi il tuo nome." data-min="3" data-msg-min="Il nome sembra troppo corto."><span class="err" id="f-nome-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-comune">Comune dell'intervento</label><input id="f-comune" name="comune" autocomplete="address-level2" data-label="Comune" data-req="Scrivi il comune in cui si trova il lavoro."><span class="err" id="f-comune-err" aria-live="polite"></span></div>
+  </div>
+  <div class="row">
+    <div class="f"><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" data-label="Telefono" data-tipo="tel" data-msg="Il numero non sembra giusto: usa solo cifre e spazi." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-tel-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" data-label="Email" data-tipo="email" data-msg="L'email non sembra completa (es. nome@dominio.it)." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-email-err" aria-live="polite"></span></div>
+  </div>
+  <div class="f"><label for="f-lavoro">Che lavoro ti serve</label><select id="f-lavoro" name="lavoro" data-label="Lavoro" data-req="Scegli il tipo di lavoro."><option value="">Scegli…</option><option>Appartamento intero</option><option>Bagno</option><option>Cucina</option><option>Bagno e cucina</option><option>Solo progetto e preventivo</option><option>Altro</option></select><span class="err" id="f-lavoro-err" aria-live="polite"></span></div>
+  <div class="f"><label for="f-mq">Metri quadri indicativi</label><input id="f-mq" name="mq" inputmode="numeric" data-label="Metri quadri" data-req="Scrivi i metri quadri, anche a occhio." data-tipo="mq" data-msg="Scrivi solo un numero, per esempio 85."><span class="err" id="f-mq-err" aria-live="polite"></span></div>
+  <div class="f"><label for="f-desc">Descrivi il lavoro</label><textarea id="f-desc" name="descrizione" data-label="Descrizione" data-req="Scrivi due righe sul lavoro: ci servono per richiamarti preparati." data-min="15" data-msg-min="Aggiungi qualche dettaglio in più (almeno 15 caratteri)." placeholder="Es. appartamento anni '60 al terzo piano, vorremmo unire cucina e soggiorno e rifare i due bagni"></textarea><span class="err" id="f-desc-err" aria-live="polite"></span></div>
+  <div class="f check"><input id="f-ok" name="privacy" type="checkbox" data-req="Serve il consenso per poterti rispondere."><label for="f-ok">Acconsento all'uso dei miei dati solo per ricevere questa risposta.</label><span class="err" id="f-ok-err" aria-live="polite"></span></div>
+  <button class="btn p" type="submit">Prepara la richiesta di sopralluogo</button>
+  <p class="nota">Nella demo non parte nulla: il sito controlla i campi e ti apre WhatsApp o l'email con il messaggio già scritto. Numero e indirizzo dell'azienda sono di esempio.</p>
+</form>
+<div class="esito" id="esito" hidden aria-live="polite">
+  <h3>Messaggio pronto</h3>
+  <p>Controlla il testo e scegli come mandarlo.</p>
+  <pre></pre>
+  <div class="azioni"><a class="btn p" data-wa href="#" rel="noopener">Apri WhatsApp</a><a class="btn" data-mail href="#">Apri l'email</a><button class="btn" type="button" data-copia>Copia il testo</button></div>
+</div>
+</div>
+  </div>
+</section>
+</main>
+<footer class="ft"><div class="wrap ft-in">
+  <p class="brand"><svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#3F4A33"/><path d="M11 28V17.5l9-6.5 9 6.5V28h-6.5v-6.5h-5V28z" fill="#D9C08F"/></svg><span>Casalta</span></p>
+  <p>Impresa inventata per una demo · Roma · P. IVA di esempio</p>
+  <p>Sito dimostrativo di Noxford Agency, nessun dato inviato · © <span data-anno></span> · <button class="anim-toggle" type="button">Disattiva le animazioni</button></p>
+</div></footer>
+<nav class="mbar" aria-label="Contatto rapido"><a class="btn" href="https://wa.me/?text=Buongiorno%20Casalta%20Ristrutturazioni%2C%20vorrei%20informazioni%20per%20un%20lavoro." rel="noopener">WhatsApp</a><a class="btn p" href="#preventivo">Chiedi preventivo</a></nav>
+</body>
+</html>

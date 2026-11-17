@@ -1,0 +1,30 @@
+/* Pagine progetto dei gestionali: scelta dello stile e cornici del Kit Noxford
+   (.fr169 = schermo 16:9 per computer, .ip18 = iPhone 18 Pro Max per "Mobile"), in ../assets/kit/noxford-kit.css. */
+.g-stili{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.g-stili button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line2);background:transparent;color:var(--tx);font:600 14px/1 "Manrope",sans-serif;cursor:pointer;transition:background-color .2s,transform .35s cubic-bezier(.2,.9,.25,1.12)}
+.g-stili button:active{transform:scale(.96)}
+.g-stili button small{font-weight:400;color:var(--mut);font-size:13px}
+.g-stili button[aria-pressed="true"]{background:var(--ac);border-color:var(--ac);color:var(--on-ac)}
+.g-stili button[aria-pressed="true"] small{color:var(--on-ac);opacity:.8}
+.g-stili button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+.schermate.gs{grid-template-columns:1fr;gap:34px 30px}
+@media(min-width:760px){.schermate.gs{grid-template-columns:repeat(2,1fr)}}
+.schermate.gs button{display:flex;flex-direction:column;align-items:center}
+.schermate.gs .lb{order:2;margin-top:14px}
+/* le cornici usano <span>: si annullano gli stili generici delle didascalie */
+.schermate.gs .fr169,.schermate.gs .ip18{margin:0;font-size:inherit;letter-spacing:normal;text-transform:none;color:inherit}
+.schermate.gs .fr169-scr,.schermate.gs .ip18-scr,.schermate.gs .ip18-di{display:block;margin:0}
+.schermate.gs .ip18-sb{display:flex;margin:0;letter-spacing:-.01em;text-transform:none;color:#0b0b0c;font-size:4.1cqw}
+.schermate.gs .ip18-sb b,.schermate.gs .ip18-sb i{margin:0}
+.schermate.gs .fr169 img,.schermate.gs .ip18 img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:top;border:0;border-radius:0;box-shadow:none;transform:none!important}
+.schermate.gs .fr169,.schermate.gs .ip18{transition:transform .45s cubic-bezier(.2,.9,.25,1.12)}
+.schermate.gs button:hover .fr169,.schermate.gs button:focus-visible .fr169,.schermate.gs button:hover .ip18,.schermate.gs button:focus-visible .ip18{transform:translateY(-6px)}
+.schermate.gs .ip18{display:none;width:min(62vw,240px)}
+/* versione da telefono: al posto dello schermo 16:9 compare l'iPhone */
+.schermate.gs.tel-on{grid-template-columns:repeat(2,1fr);gap:28px 18px}
+@media(min-width:900px){.schermate.gs.tel-on{grid-template-columns:repeat(4,1fr)}}
+.schermate.gs.tel-on .fr169{display:none}
+.schermate.gs.tel-on .ip18{display:block}
+@media(max-width:600px){.schermate.gs.tel-on .ip18{width:100%}}
+@media(prefers-reduced-motion:reduce){.schermate.gs .fr169,.schermate.gs .ip18{transition:none}}

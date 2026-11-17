@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Rivo Idraulica · Idraulico a Bologna (sito dimostrativo)</title>
+<meta name="description" content="Sito dimostrativo di un idraulico inventato: perdite, scarichi, caldaie e bagni nuovi a Bologna e dintorni.">
+<meta name="theme-color" content="#0B3B47">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%230E7C86'/%3E%3Cpath d='M16 6c5 6 7 9 7 12a7 7 0 0 1-14 0c0-3 2-6 7-12z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<p class="demo-strip">Sito dimostrativo di un'attività inventata · Nomi, tempi e dati sono di esempio · Foto generate con l'IA</p>
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="brand" href="#main" aria-label="Rivo Idraulica, torna all'inizio"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#0E7C86"/><path d="M20 8c6 7.5 8.5 11 8.5 14.5a8.5 8.5 0 0 1-17 0C11.5 19 14 15.5 20 8z" fill="#fff"/><path d="M15.5 23a4.5 4.5 0 0 0 4.5 4.5" stroke="#0E7C86" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Rivo <small>idraulica</small></span></a>
+    <nav class="menu" id="menu" aria-label="Principale"><a href="#guida">Cosa succede?</a><a href="#servizi">Servizi</a><a href="#come">Come lavoriamo</a><a href="#zona">Zona</a><a class="btn p" href="#preventivo">Richiedi intervento</a></nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<section class="hero" data-hero>
+  <div class="wrap hero-in">
+    <div class="hero-tx">
+      <p class="kick rv">Idraulico a Bologna e prima cintura</p>
+      <h1 class="rv" style="--d:.06s">Perdite, scarichi, caldaie, bagni. Prima ti diciamo il prezzo, poi apriamo la cassetta.</h1>
+      <figure class="hero-img rv" style="--d:.12s"><img src="img/lavabo.webp" alt="Mani con i guanti che stringono il sifone sotto un lavabo con una chiave inglese" width="1376" height="768" fetchpriority="high"></figure>
+    </div>
+    <div class="guida rv" id="guida" style="--d:.1s">
+      <h2>Cosa sta succedendo?</h2>
+      <p class="g-sub">Scegli il problema: ti diciamo cosa fare nei prossimi minuti.</p>
+      <div class="g-btns" role="group" aria-label="Scegli il problema"><button type="button" class="g-b" aria-pressed="false" data-k="perdita">Perde acqua</button><button type="button" class="g-b" aria-pressed="false" data-k="scarico">Scarico intasato</button><button type="button" class="g-b" aria-pressed="false" data-k="caldaia">Niente acqua calda</button><button type="button" class="g-b" aria-pressed="false" data-k="bagno">Voglio rifare il bagno</button></div>
+      <div class="g-out" aria-live="polite"><div class="g-p" data-k="perdita" data-lav="Perdita d'acqua" data-urg="Oggi stesso" hidden><ol><li>Chiudi il rubinetto generale: di solito è vicino al contatore o sotto il lavello della cucina.</li><li>Se l'acqua arriva vicino a prese o ciabatte, stacca la corrente dal quadro.</li><li>Fai una foto o un video del punto da cui esce l'acqua: ci aiuta a portare il pezzo giusto.</li></ol><a class="btn p g-go" href="#preventivo">Chiedi l'intervento</a></div><div class="g-p" data-k="scarico" data-lav="Scarico intasato" data-urg="Entro questa settimana" hidden><ol><li>Non versare soda caustica o prodotti acidi: rovinano tubi e guarnizioni.</li><li>Prova con lo sturalavandini a ventosa, tappando il troppopieno con un panno.</li><li>Se si intasano più scarichi insieme il problema è nella colonna: chiamaci.</li></ol><a class="btn p g-go" href="#preventivo">Chiedi l'intervento</a></div><div class="g-p" data-k="caldaia" data-lav="Caldaia o acqua calda" data-urg="Oggi stesso" hidden><ol><li>Guarda il display della caldaia e scrivi il codice di errore.</li><li>Controlla la pressione: a impianto freddo deve stare tra 1 e 1,5 bar.</li><li>Prova un solo riavvio. Se l'errore torna, non insistere.</li></ol><a class="btn p g-go" href="#preventivo">Chiedi l'intervento</a></div><div class="g-p" data-k="bagno" data-lav="Bagno nuovo" data-urg="Lavoro da programmare" hidden><ol><li>Misura la stanza e segna dove sono finestra, porta e scarico del WC.</li><li>Fai qualche foto delle pareti e del pavimento attuale.</li><li>Decidi se tenere vasca o doccia: cambia molto il lavoro sugli scarichi.</li></ol><a class="btn p g-go" href="#preventivo">Chiedi l'intervento</a></div><p class="g-vuoto">Nessun problema scelto.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="srv" id="servizi" aria-labelledby="t-srv">
+  <div class="wrap">
+    <h2 id="t-srv" class="rv">Cosa sistemiamo</h2>
+    <div class="srv-grid">
+      <article class="tile rv"><img src="img/bagno.webp" alt="Bagno rifatto con doccia a filo pavimento, lavabo su mobile in legno e piastrelle grigio chiaro" width="1200" height="896" loading="lazy"><div><h3>Bagni rifatti</h3><p>Dalla demolizione alle piastrelle, con un solo referente. Doccia a filo pavimento quando lo scarico lo permette.</p></div></article>
+      <article class="tile rv" style="--d:.06s"><img src="img/caldaia.webp" alt="Caldaia murale bianca con tubi in rame ordinati e collettore dei termosifoni" width="1200" height="896" loading="lazy"><div><h3>Caldaie e riscaldamento</h3><p>Sostituzione della caldaia, lavaggio dell'impianto, valvole termostatiche sui termosifoni.</p></div></article>
+    </div>
+    <ul class="piccoli rv"><li>Rubinetti che gocciolano</li><li>Cassette del WC che caricano sempre</li><li>Scaldabagni</li><li>Addolcitori</li><li>Ricerca perdite con termocamera</li><li>Colonne di scarico condominiali</li></ul>
+  </div>
+</section>
+
+<section class="come" id="come" aria-labelledby="t-come">
+  <div class="wrap come-in">
+    <div class="come-h rv"><h2 id="t-come">Come lavoriamo</h2><p>Scorri: l'acqua segue il percorso, dalla tua chiamata al lavoro finito.</p></div>
+    <div class="tubo-wrap">
+      <svg class="tubo" id="tubo" viewBox="0 0 80 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path id="tubo-bg" d="M40 0 V180 Q40 210 70 210 Q40 210 40 240 V1000" fill="none" stroke="#d6e4e6" stroke-width="16" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        <path id="tubo-acqua" d="M40 0 V1000" fill="none" stroke="#0E7C86" stroke-width="8" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <ol class="passi" id="passi"><li><b>Ci scrivi o ci chiami</b><p>Ci racconti cosa succede, meglio con una foto. Ti diciamo subito se è un lavoro per oggi.</p></li><li><b>Ti diciamo quando arriviamo</b><p>Una fascia di un'ora, non una giornata intera. Se tardiamo ti avvisiamo.</p></li><li><b>Prezzo prima di iniziare</b><p>Il tecnico guarda, spiega cosa va fatto e quanto costa. Decidi tu se procedere.</p></li><li><b>Lavoro e prova</b><p>Ripariamo, apriamo l'acqua e controlliamo con te che sia tutto a posto.</p></li><li><b>Ricevuta e foto</b><p>Ti lasciamo ricevuta e foto del lavoro fatto, utili anche per l'amministratore di condominio.</p></li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="chi" id="chi" aria-labelledby="t-chi"><div class="wrap chi-in solo"><h2 id="t-chi" class="rv">Chi siamo</h2><p class="rv" style="--d:.06s">Siamo tre idraulici con due furgoni attrezzati per le riparazioni più comuni. <span class="tit">[Nome del titolare]</span> ha lavorato dieci anni nella manutenzione dei condomini prima di mettersi in proprio: per questo a ogni intervento lasciamo foto e ricevuta, anche quando il lavoro è piccolo.</p></div></section>
+<section class="zona" id="zona" aria-labelledby="t-zona">
+  <div class="wrap zona-in">
+    <div class="rv"><h2 id="t-zona">Dove arriviamo</h2><p>Bologna in tutti i quartieri e i comuni attaccati. Per le urgenze in giornata restiamo entro questa zona.</p></div>
+    <ul class="paesi rv" style="--d:.06s"><li>Bologna</li><li>San Lazzaro di Savena</li><li>Casalecchio di Reno</li><li>Zola Predosa</li><li>Castel Maggiore</li><li>Granarolo dell'Emilia</li><li>Pianoro</li><li>Anzola dell'Emilia</li></ul>
+  </div>
+  <div class="wrap gar rv"><span class="es">Esempio</span><p>Spazio per i documenti veri: abilitazione per gli impianti idraulici e termici (D.M. 37/2008), iscrizione al catasto impianti termici regionale, dichiarazione di conformità a ogni lavoro.</p></div>
+</section>
+
+<section class="faq-s" aria-labelledby="t-faq">
+  <div class="wrap faq-in">
+    <h2 id="t-faq" class="rv">Domande</h2>
+    <div class="faq rv">
+      <details><summary>Quanto costa l'uscita?</summary><p>Te lo diciamo al telefono prima di partire, insieme alla fascia oraria. Nessuna sorpresa a fine lavoro.</p></details>
+      <details><summary>Venite anche il sabato?</summary><p>Per perdite e caldaie ferme sì, la mattina. I lavori programmati li facciamo dal lunedì al venerdì.</p></details>
+      <details><summary>Lavorate per i condomini?</summary><p>Sì, con foto e relazione per l'amministratore. Le colonne di scarico le videoispezioniamo prima di aprire i muri.</p></details>
+      <details><summary>Rifate il bagno in quanti giorni?</summary><p>Per un bagno di misura normale servono di solito dieci giorni lavorativi. Nel preventivo trovi il calendario giorno per giorno.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="prev" id="preventivo" aria-labelledby="t-prev">
+  <div class="wrap prev-in">
+    <div class="rv"><h2 id="t-prev">Richiedi un intervento</h2><p>Più dettagli ci dai, più è facile arrivare con il pezzo giusto.</p>
+      <dl class="cont"><dt>Telefono</dt><dd>Numero di esempio</dd><dt>Email</dt><dd>Indirizzo di esempio</dd><dt>Orari</dt><dd>Lun-ven 8-19, sabato mattina per le urgenze (esempio)</dd></dl></div>
+    <div class="rv" style="--d:.06s"><form class="form" data-preventivo data-azienda="Rivo Idraulica" data-esito="esito">
+  <div class="row">
+    <div class="f"><label for="f-nome">Nome e cognome</label><input id="f-nome" name="nome" autocomplete="name" data-label="Nome" data-req="Scrivi il tuo nome." data-min="3" data-msg-min="Il nome sembra troppo corto."><span class="err" id="f-nome-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-comune">Dove sei (comune e quartiere)</label><input id="f-comune" name="comune" autocomplete="address-level2" data-label="Comune" data-req="Scrivi il comune in cui si trova il lavoro."><span class="err" id="f-comune-err" aria-live="polite"></span></div>
+  </div>
+  <div class="row">
+    <div class="f"><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" data-label="Telefono" data-tipo="tel" data-msg="Il numero non sembra giusto: usa solo cifre e spazi." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-tel-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" data-label="Email" data-tipo="email" data-msg="L'email non sembra completa (es. nome@dominio.it)." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-email-err" aria-live="polite"></span></div>
+  </div>
+  <div class="f"><label for="f-lavoro">Che lavoro ti serve</label><select id="f-lavoro" name="lavoro" data-label="Lavoro" data-req="Scegli il tipo di lavoro."><option value="">Scegli…</option><option>Perdita d'acqua</option><option>Scarico intasato</option><option>Caldaia o acqua calda</option><option>Bagno nuovo</option><option>Sostituzione sanitari o rubinetti</option><option>Impianto nuovo</option><option>Altro</option></select><span class="err" id="f-lavoro-err" aria-live="polite"></span></div>
+  <div class="f"><label for="f-urg">Quando ti serve</label><select id="f-urg" name="urgenza" data-label="Quando" data-req="Dicci quanto è urgente."><option value="">Scegli…</option><option>Oggi stesso</option><option>Entro questa settimana</option><option>Lavoro da programmare</option></select><span class="err" id="f-urg-err" aria-live="polite"></span></div>
+  <div class="f"><label for="f-desc">Cosa sta succedendo</label><textarea id="f-desc" name="descrizione" data-label="Descrizione" data-req="Scrivi due righe sul lavoro: ci servono per richiamarti preparati." data-min="15" data-msg-min="Aggiungi qualche dettaglio in più (almeno 15 caratteri)." placeholder="Es. perdita il sifone sotto il lavandino del bagno, ho già chiuso l'acqua"></textarea><span class="err" id="f-desc-err" aria-live="polite"></span></div>
+  <div class="f check"><input id="f-ok" name="privacy" type="checkbox" data-req="Serve il consenso per poterti rispondere."><label for="f-ok">Acconsento all'uso dei miei dati solo per ricevere questa risposta.</label><span class="err" id="f-ok-err" aria-live="polite"></span></div>
+  <button class="btn p" type="submit">Prepara la richiesta</button>
+  <p class="nota">Nella demo non parte nulla: il sito controlla i campi e ti apre WhatsApp o l'email con il messaggio già scritto. Numero e indirizzo dell'azienda sono di esempio.</p>
+</form>
+<div class="esito" id="esito" hidden aria-live="polite">
+  <h3>Messaggio pronto</h3>
+  <p>Controlla il testo e scegli come mandarlo.</p>
+  <pre></pre>
+  <div class="azioni"><a class="btn p" data-wa href="#" rel="noopener">Apri WhatsApp</a><a class="btn" data-mail href="#">Apri l'email</a><button class="btn" type="button" data-copia>Copia il testo</button></div>
+</div>
+</div>
+  </div>
+</section>
+</main>
+<footer class="ft"><div class="wrap ft-in">
+  <p class="brand"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#0E7C86"/><path d="M20 8c6 7.5 8.5 11 8.5 14.5a8.5 8.5 0 0 1-17 0C11.5 19 14 15.5 20 8z" fill="#fff"/><path d="M15.5 23a4.5 4.5 0 0 0 4.5 4.5" stroke="#0E7C86" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Rivo <small>idraulica</small></span></p>
+  <p>Impresa inventata per una demo · Bologna · P. IVA di esempio</p>
+  <p>Sito dimostrativo di Noxford Agency, nessun dato inviato · © <span data-anno></span> · <button class="anim-toggle" type="button">Disattiva le animazioni</button></p>
+</div></footer>
+<nav class="mbar" aria-label="Contatto rapido"><a class="btn" href="https://wa.me/?text=Buongiorno%20Rivo%20Idraulica%2C%20vorrei%20informazioni%20per%20un%20lavoro." rel="noopener">WhatsApp</a><a class="btn p" href="#preventivo">Chiedi preventivo</a></nav>
+</body>
+</html>

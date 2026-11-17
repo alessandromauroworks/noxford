@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="it" data-stile-c="Scuro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Studio Arco · Assistente vocale del centralino (app dimostrativa)</title>
+  <meta name="description" content="App dimostrativa di un assistente vocale per uno studio di fisioterapia inventato: chiamata in corso con trascrizione dal vivo, riepilogo delle chiamate, appuntamenti presi e regole dell'assistente. Realizzata da Noxford Agency.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0F1220">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230F1220'/%3E%3Cpath d='M7 24a9 9 0 0 1 18 0' fill='none' stroke='%237C6CFF' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='11' r='3' fill='%233DDC97'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="stili.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <p class="demo-strip">App dimostrativa di un'attività inventata · Chiamate, pazienti e appuntamenti sono di esempio · Foto generate con l'IA</p>
+  <div class="app">
+    <header class="top">
+      <a class="brand" href="#/chiamata" aria-label="Studio Arco, vai alla chiamata in corso"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 24a9 9 0 0 1 18 0" fill="none" stroke="var(--viola)" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="11" r="3" fill="var(--menta)"/></svg><span>Studio Arco<small>assistente del centralino</small></span></a>
+      <span class="stato-on" id="stato-on"><i aria-hidden="true"></i>Attivo</span>
+    </header>
+    <main>
+      <section class="screen" data-screen="chiamata" aria-labelledby="h-ch">
+        <div class="call">
+          <p class="kick"><i aria-hidden="true"></i><span id="ch-stato">Chiamata in corso</span></p>
+          <h1 id="h-ch">+39 347 ••• •• 18</h1>
+          <p class="tempo"><span id="ch-tempo">00:00</span> · risponde l'assistente automatico</p>
+          <div class="onda" id="ch-onda" aria-hidden="true"></div>
+        </div>
+        <div class="capito" id="ch-capito" aria-live="polite"></div>
+        <h2 class="sec">Trascrizione dal vivo</h2>
+        <ol class="trasc" id="ch-trasc" aria-live="polite"></ol>
+        <div class="az">
+          <button class="btn avanti" type="button" id="ch-avanti" hidden>Avanti nella chiamata</button>
+          <button class="btn" type="button" id="ch-umano">Passa a una persona</button>
+          <button class="btn chiaro" type="button" id="ch-rifai">Riascolta da capo</button>
+        </div>
+        <p class="nota">Demo: la telefonata è simulata. Nella versione vera l'assistente risponde al numero dello studio quando la segreteria è occupata o chiusa, e lo dice sempre all'inizio.</p>
+      </section>
+
+      <section class="screen" data-screen="chiamate" aria-labelledby="h-cs" hidden>
+        <h1 class="title" id="h-cs">Chiamate di oggi</h1>
+        <div class="kpi" id="cs-kpi"></div>
+        <div class="chips" id="cs-filtri" role="group" aria-label="Filtra per esito"></div>
+        <ul class="lista" id="cs-lista"></ul>
+      </section>
+
+      <section class="screen" data-screen="dettaglio" aria-labelledby="d-tit" hidden>
+        <a class="back" href="#/chiamate"><span aria-hidden="true">←</span> Chiamate</a>
+        <div id="d-box"></div>
+      </section>
+
+      <section class="screen" data-screen="agenda" aria-labelledby="h-ag" hidden>
+        <h1 class="title" id="h-ag">Appuntamenti presi</h1>
+        <div class="giorni" id="ag-giorni" role="group" aria-label="Giorno"></div>
+        <ul class="agenda" id="ag-lista"></ul>
+        <figure class="foto"><img src="img/sala.webp" width="1200" height="896" alt="Sala di fisioterapia con lettino, spalliera in legno, elastici colorati e una grande finestra" loading="lazy"><figcaption>La sala 1. L'assistente sa quali sale e quali terapisti sono liberi.</figcaption></figure>
+      </section>
+
+      <section class="screen" data-screen="regole" aria-labelledby="h-re" hidden>
+        <h1 class="title" id="h-re">Cosa dice e cosa fa</h1>
+        <figure class="foto top-foto"><img src="img/reception.webp" width="1200" height="896" alt="La reception dello studio con bancone in legno chiaro, telefono, tablet e poltroncine verdi" loading="lazy"></figure>
+        <div class="apertura"><p class="kick2">Frase di apertura</p><p class="frase" id="re-frase"></p><p class="lock">La parte "sono l'assistente automatico" non si può togliere.</p></div>
+        <ul class="regole" id="re-lista"></ul>
+        <h2 class="sec">Cosa sa dello studio</h2>
+        <ul class="sa" id="re-sa"></ul>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Sezioni dell'app">
+      <a href="#/chiamata" data-tab="chiamata"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>In corso</a>
+      <a href="#/chiamate" data-tab="chiamate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Chiamate</a>
+      <a href="#/agenda" data-tab="agenda"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Agenda</a>
+      <a href="#/regole" data-tab="regole"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Regole</a>
+    </nav>
+  </div>
+</body>
+</html>

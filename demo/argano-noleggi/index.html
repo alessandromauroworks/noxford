@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Argano Noleggi · Noleggio macchine e attrezzature edili a Padova (sito dimostrativo)</title>
+<meta name="description" content="Sito dimostrativo di un noleggio inventato: miniescavatori, piattaforme, ponteggi e attrezzi con disponibilità per data e consegna in cantiere nel padovano.">
+<meta name="theme-color" content="#1E1E1C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23F2B705'/%3E%3Cpath d='M8 24V9h3v12h13v3z M14 18l6-9 2 1.3-6 9z' fill='%231E1E1C'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<p class="demo-strip">Sito dimostrativo di un'attività inventata · Mezzi, prezzi e disponibilità sono di esempio · Foto generate con l'IA</p>
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="brand" href="#main" aria-label="Argano Noleggi, torna all'inizio"><svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#F2B705"/><path d="M9 31V10h4v17h18v4z" fill="#1E1E1C"/><path d="M16.5 23.5l8-12.5 3 2-8 12.5z" fill="#1E1E1C"/><circle cx="27" cy="11" r="3" fill="#1E1E1C"/></svg><span>ARGANO<small>noleggi</small></span></a>
+    <nav class="menu" id="menu" aria-label="Principale"><a href="#catalogo">Catalogo</a><a href="#come">Come funziona</a><a href="#zona">Consegne</a><a href="#domande">Domande</a><a class="btn p" href="#preventivo">Richiedi</a></nav>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<section class="hero" data-hero>
+  <div class="wrap hero-in">
+    <div class="hero-tx">
+      <p class="kick rv">Noleggio macchine e attrezzi · Padova</p>
+      <h1 class="rv" style="--d:.06s">Il mezzo giusto, in cantiere domattina.</h1>
+      <p class="lead rv" style="--d:.12s">Miniescavatori, piattaforme, trabattelli e attrezzi da demolizione. Per imprese e per chi fa da sé, a giornata, a settimana o a mese.</p>
+    </div>
+    <form class="cerca rv" id="cerca" style="--d:.1s" aria-label="Cerca mezzi liberi">
+      <h2>Cosa è libero nelle tue date?</h2>
+      <div class="row"><div class="f"><label for="c-dal">Dal</label><input id="c-dal" type="date" required></div><div class="f"><label for="c-al">Al</label><input id="c-al" type="date" required></div></div>
+      <div class="f"><label for="c-cat">Cosa ti serve</label><select id="c-cat"><option value="">Tutto il catalogo</option><option value="terra">Movimento terra</option><option value="quota">Lavori in quota</option><option value="attrezzi">Attrezzi</option></select></div>
+      <p class="c-err" id="c-err" aria-live="polite"></p>
+      <button class="btn p" type="submit">Mostra i mezzi</button>
+    </form>
+  </div>
+  <figure class="hero-img wrap rv"><img src="img/piazzale.webp" alt="Miniescavatore, minipala e sollevatore telescopico gialli e grigi parcheggiati in un piazzale" width="1376" height="768" fetchpriority="high"></figure>
+</section>
+
+<section class="cat" id="catalogo" aria-labelledby="t-cat">
+  <div class="wrap cat-in">
+    <div>
+      <div class="cat-h"><h2 id="t-cat">Catalogo</h2><p id="periodo" aria-live="polite">Scegli le date per vedere la disponibilità.</p></div>
+      <div class="filtri" role="group" aria-label="Filtra per categoria"><button type="button" aria-pressed="true" data-c="">Tutti</button><button type="button" aria-pressed="false" data-c="terra">Movimento terra</button><button type="button" aria-pressed="false" data-c="quota">Lavori in quota</button><button type="button" aria-pressed="false" data-c="attrezzi">Attrezzi</button></div>
+      <ul class="lista" id="lista"><li class="mz" data-id="m1" data-cat="terra">
+  <span class="th" style="background-image:url(img/piazzale.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Miniescavatore 1,8 t</b><small>Passa da un cancello di 1 metro</small></span>
+  <span class="pr"><b>95 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Miniescavatore 1,8 t</span></button>
+</li><li class="mz" data-id="m2" data-cat="terra">
+  <span class="th" style="background-image:url(img/piazzale.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Miniescavatore 3,5 t</b><small>Scavi per fondazioni e allacci</small></span>
+  <span class="pr"><b>130 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Miniescavatore 3,5 t</span></button>
+</li><li class="mz" data-id="m3" data-cat="terra">
+  <span class="th" style="background-image:url(img/piazzale.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Minipala cingolata</b><small>Movimento di terra e ghiaia</small></span>
+  <span class="pr"><b>120 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Minipala cingolata</span></button>
+</li><li class="mz" data-id="m4" data-cat="terra">
+  <span class="th" style="background-image:url(img/piazzale.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Sollevatore telescopico 7 m</b><small>Bancali sui solai, fino a 2.500 kg</small></span>
+  <span class="pr"><b>160 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Sollevatore telescopico 7 m</span></button>
+</li><li class="mz" data-id="q1" data-cat="quota">
+  <span class="th" style="background-image:url(img/quota.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Piattaforma a forbice 8 m</b><small>Elettrica, per interni e capannoni</small></span>
+  <span class="pr"><b>90 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Piattaforma a forbice 8 m</span></button>
+</li><li class="mz" data-id="q2" data-cat="quota">
+  <span class="th" style="background-image:url(img/quota.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Piattaforma a forbice 12 m</b><small>Diesel, su terreno compatto</small></span>
+  <span class="pr"><b>140 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Piattaforma a forbice 12 m</span></button>
+</li><li class="mz" data-id="q3" data-cat="quota">
+  <span class="th" style="background-image:url(img/quota.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Trabattello in alluminio 6 m</b><small>Si monta in due persone</small></span>
+  <span class="pr"><b>35 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Trabattello in alluminio 6 m</span></button>
+</li><li class="mz" data-id="a1" data-cat="attrezzi">
+  <span class="th" style="background-image:url(img/attrezzi.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Martello demolitore 30 kg</b><small>Pavimenti e massetti</small></span>
+  <span class="pr"><b>40 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Martello demolitore 30 kg</span></button>
+</li><li class="mz" data-id="a2" data-cat="attrezzi">
+  <span class="th" style="background-image:url(img/attrezzi.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Betoniera 300 litri</b><small>A motore elettrico</small></span>
+  <span class="pr"><b>25 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Betoniera 300 litri</span></button>
+</li><li class="mz" data-id="a3" data-cat="attrezzi">
+  <span class="th" style="background-image:url(img/attrezzi.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Piastra vibrante 90 kg</b><small>Sottofondi e vialetti</small></span>
+  <span class="pr"><b>35 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Piastra vibrante 90 kg</span></button>
+</li><li class="mz" data-id="a4" data-cat="attrezzi">
+  <span class="th" style="background-image:url(img/attrezzi.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Carotatrice con colonna</b><small>Fori fino a 200 mm nel cemento</small></span>
+  <span class="pr"><b>60 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Carotatrice con colonna</span></button>
+</li><li class="mz" data-id="a5" data-cat="attrezzi">
+  <span class="th" style="background-image:url(img/attrezzi.webp)" aria-hidden="true"></span>
+  <span class="nm"><b>Generatore 6 kW</b><small>Silenziato, per cantieri senza corrente</small></span>
+  <span class="pr"><b>45 €</b><small>al giorno</small></span>
+  <span class="disp" aria-live="polite"></span>
+  <button type="button" class="btn ad" aria-pressed="false">Aggiungi<span class="vh"> Generatore 6 kW</span></button>
+</li></ul>
+      <p class="nota">Prezzi IVA esclusa e disponibilità simulati per la demo. Il prezzo al giorno scende per noleggi da una settimana in su.</p>
+    </div>
+    <aside class="carrello" aria-labelledby="t-car">
+      <h3 id="t-car">La tua richiesta</h3>
+      <ul id="scelti"><li class="vuoto">Nessun mezzo scelto.</li></ul>
+      <p class="tot" id="tot"></p>
+      <a class="btn p" href="#preventivo" id="vai">Completa la richiesta</a>
+    </aside>
+  </div>
+</section>
+
+<section class="come" id="come" aria-labelledby="t-come">
+  <div class="wrap">
+    <h2 id="t-come" class="rv">Come funziona</h2>
+    <div class="strada" id="strada" aria-hidden="true"><svg viewBox="0 0 60 30" class="camion"><rect x="2" y="6" width="34" height="16" fill="#F2B705"/><path d="M36 10h12l8 7v5H36z" fill="#d8d8d2"/><rect x="40" y="12" width="7" height="5" fill="#9fb3c2"/><circle cx="12" cy="24" r="4.5" fill="#1E1E1C"/><circle cx="46" cy="24" r="4.5" fill="#1E1E1C"/></svg></div>
+    <ol class="passi" id="passi"><li><b>Scegli e chiedi</b><p>Date e mezzi dal sito o al telefono. Ti confermiamo la disponibilità entro un'ora lavorativa.</p></li><li><b>Contratto</b><p>Documento, codice fiscale o partita IVA e cauzione. Per i mezzi grandi ti spieghiamo i comandi.</p></li><li><b>Consegna</b><p>Con il nostro camion in cantiere, oppure ritiri in sede dalle 7.</p></li><li><b>Riconsegna</b><p>Controlliamo il mezzo insieme. Il pieno lo facciamo noi, lo trovi in fattura.</p></li></ol>
+  </div>
+</section>
+
+<section class="chi" id="chi" aria-labelledby="t-chi"><div class="wrap chi-in"><img class="rv" src="img/attrezzi.webp" alt="Betoniera, piastra vibrante, martello demolitore e carotatrice in magazzino" width="1200" height="896" loading="lazy"><div class="rv" style="--d:.06s"><h2 id="t-chi">Chi siamo</h2><p>Piazzale e officina a Padova, con un meccanico che controlla ogni mezzo prima che riparta. <span class="tit">[Nome del titolare]</span> viene dall'edilizia: sa cosa vuol dire aspettare un escavatore che la mattina non arriva.</p></div></div></section>
+<section class="zona" id="zona" aria-labelledby="t-zona">
+  <div class="wrap zona-in">
+    <div class="rv"><h2 id="t-zona">Consegne</h2><p>Consegna in giornata se ordini entro le 12, nella provincia di Padova e nei comuni vicini di Vicenza e Venezia. Per gli attrezzi piccoli puoi ritirare in sede.</p></div>
+    <figure class="rv" style="--d:.06s"><img src="img/quota.webp" alt="Trabattello in alluminio e piattaforma a forbice gialla in un capannone" width="1200" height="896" loading="lazy"></figure>
+  </div>
+  <div class="wrap gar rv"><span class="es">Esempio</span><p>Spazio per i documenti veri: verifiche periodiche dei mezzi di sollevamento, libretti d'uso consegnati con ogni mezzo, assicurazione e condizioni di noleggio scaricabili.</p></div>
+</section>
+
+<section class="faq-s" id="domande" aria-labelledby="t-faq">
+  <div class="wrap faq-in">
+    <h2 id="t-faq" class="rv">Domande</h2>
+    <div class="faq rv">
+      <details><summary>Serve un patentino per il miniescavatore?</summary><p>Per lavorare in un'impresa serve l'abilitazione all'uso. Se noleggi per casa tua ti spieghiamo i comandi alla consegna; se preferisci, noleggi con il nostro operatore.</p></details>
+      <details><summary>Cosa succede se piove?</summary><p>Se il mezzo non è ancora partito puoi spostare le date senza costi. Una volta in cantiere il noleggio conta i giorni di calendario.</p></details>
+      <details><summary>Noleggiate anche ai privati?</summary><p>Sì, con documento d'identità e una cauzione che ti restituiamo alla riconsegna.</p></details>
+      <details><summary>Il carburante è compreso?</summary><p>Il mezzo parte con il pieno. Alla riconsegna facciamo il rabbocco e lo trovi in fattura al prezzo della pompa.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="prev" id="preventivo" aria-labelledby="t-prev">
+  <div class="wrap prev-in">
+    <div class="rv"><h2 id="t-prev">Richiedi il noleggio</h2><p>I mezzi scelti nel catalogo finiscono da soli nel messaggio.</p>
+      <dl class="cont"><dt>Telefono</dt><dd>Numero di esempio</dd><dt>Email</dt><dd>Indirizzo di esempio</dd><dt>Sede</dt><dd>Zona industriale di esempio, Padova</dd><dt>Orari</dt><dd>Lun-ven 7-12 e 13:30-18, sabato 7-12 (esempio)</dd></dl></div>
+    <div class="rv" style="--d:.06s"><form class="form" data-preventivo data-azienda="Argano Noleggi" data-esito="esito" data-extra="arganoLista">
+  <div class="row">
+    <div class="f"><label for="f-nome">Nome e cognome</label><input id="f-nome" name="nome" autocomplete="name" data-label="Nome" data-req="Scrivi il tuo nome." data-min="3" data-msg-min="Il nome sembra troppo corto."><span class="err" id="f-nome-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-comune">Comune del cantiere</label><input id="f-comune" name="comune" autocomplete="address-level2" data-label="Comune" data-req="Scrivi il comune in cui si trova il lavoro."><span class="err" id="f-comune-err" aria-live="polite"></span></div>
+  </div>
+  <div class="row">
+    <div class="f"><label for="f-tel">Telefono</label><input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" data-label="Telefono" data-tipo="tel" data-msg="Il numero non sembra giusto: usa solo cifre e spazi." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-tel-err" aria-live="polite"></span></div>
+    <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" data-label="Email" data-tipo="email" data-msg="L'email non sembra completa (es. nome@dominio.it)." data-uno="contatto" data-msg-uno="Lascia almeno un telefono o un'email."><span class="err" id="f-email-err" aria-live="polite"></span></div>
+  </div>
+  <div class="f"><label for="f-lavoro">Tipo di noleggio</label><select id="f-lavoro" name="lavoro" data-label="Lavoro" data-req="Scegli il tipo di lavoro."><option value="">Scegli…</option><option>Noleggio giornaliero</option><option>Noleggio settimanale</option><option>Noleggio mensile</option><option>Con operatore</option><option>Altro</option></select><span class="err" id="f-lavoro-err" aria-live="polite"></span></div>
+  <div class="row"><div class="f"><label for="f-dal">Dal</label><input id="f-dal" name="dal" type="date" data-label="Dal" data-req="Scegli la data di inizio."><span class="err" id="f-dal-err" aria-live="polite"></span></div><div class="f"><label for="f-al">Al</label><input id="f-al" name="al" type="date" data-label="Al" data-req="Scegli la data di fine."><span class="err" id="f-al-err" aria-live="polite"></span></div></div>
+  <div class="f"><label for="f-desc">Che lavoro devi fare</label><textarea id="f-desc" name="descrizione" data-label="Descrizione" data-req="Scrivi due righe sul lavoro: ci servono per richiamarti preparati." data-min="15" data-msg-min="Aggiungi qualche dettaglio in più (almeno 15 caratteri)." placeholder="Es. scavo per fondazione di una recinzione, accesso al cantiere largo 1,5 metri"></textarea><span class="err" id="f-desc-err" aria-live="polite"></span></div>
+  <div class="f check"><input id="f-ok" name="privacy" type="checkbox" data-req="Serve il consenso per poterti rispondere."><label for="f-ok">Acconsento all'uso dei miei dati solo per ricevere questa risposta.</label><span class="err" id="f-ok-err" aria-live="polite"></span></div>
+  <button class="btn p" type="submit">Prepara la richiesta</button>
+  <p class="nota">Nella demo non parte nulla: il sito controlla i campi e ti apre WhatsApp o l'email con il messaggio già scritto. Numero e indirizzo dell'azienda sono di esempio.</p>
+</form>
+<div class="esito" id="esito" hidden aria-live="polite">
+  <h3>Messaggio pronto</h3>
+  <p>Controlla il testo e scegli come mandarlo.</p>
+  <pre></pre>
+  <div class="azioni"><a class="btn p" data-wa href="#" rel="noopener">Apri WhatsApp</a><a class="btn" data-mail href="#">Apri l'email</a><button class="btn" type="button" data-copia>Copia il testo</button></div>
+</div>
+</div>
+  </div>
+</section>
+</main>
+<footer class="ft"><div class="wrap ft-in">
+  <p class="brand"><svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#F2B705"/><path d="M9 31V10h4v17h18v4z" fill="#1E1E1C"/><path d="M16.5 23.5l8-12.5 3 2-8 12.5z" fill="#1E1E1C"/><circle cx="27" cy="11" r="3" fill="#1E1E1C"/></svg><span>ARGANO<small>noleggi</small></span></p>
+  <p>Impresa inventata per una demo · Padova · P. IVA di esempio</p>
+  <p>Sito dimostrativo di Noxford Agency, nessun dato inviato · © <span data-anno></span> · <button class="anim-toggle" type="button">Disattiva le animazioni</button></p>
+</div></footer>
+<nav class="mbar" aria-label="Contatto rapido"><a class="btn" href="https://wa.me/?text=Buongiorno%20Argano%20Noleggi%2C%20vorrei%20informazioni%20per%20un%20lavoro." rel="noopener">WhatsApp</a><a class="btn p" href="#preventivo">Chiedi preventivo</a></nav>
+</body>
+</html>
